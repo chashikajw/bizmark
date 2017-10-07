@@ -24,8 +24,11 @@ class Welcome extends CI_Controller {
 		$this->form_validation->set_rules('name','Name','required');
 		$this->form_validation->set_rules('username','User name','required|is_unique[user.username]');
 		$this->form_validation->set_rules('email','Email','trim|required|valid_email|is_unique[user.email]');
-		$this->form_validation->set_rules('password','Password','required');
-		$this->form_validation->set_rules('confPassword','Confirm Password','required|matches[password]');
+		//$this->form_validation->set_rules('password','Password','required');
+		//$this->form_validation->set_rules('confirm_password','Confirm Password','required|matches[password]');
+
+
+
 
 		if($this->form_validation->run()==TRUE){
 
@@ -39,7 +42,7 @@ class Welcome extends CI_Controller {
 
             $this->load->model('User');
             $result = $this->User->insertUser($userInfo);
-
+						$this->session->set_flashdata('success', 'You have registered successfully');
             if($result>0){
             	$this->session->set_flashdata('success', 'You have registered successfully');
             }else{
@@ -48,11 +51,14 @@ class Welcome extends CI_Controller {
 
             redirect('','refresh');
 		}else{
-			$this->session->set_flashdata('error', 'Error in registration');
+			$this->session->set_flashdata('error', 'Error in fuck registration');
+
 
 			redirect('','refresh');
 
 		}
+
+
 
 	}
 }
