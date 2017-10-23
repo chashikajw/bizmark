@@ -127,9 +127,9 @@
                         </li>
 
                     </ul>
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Password" aria-label="Password">
+                    <form class="form-inline" action="http://localhost/shop-rating-project/index.php/Welcome/loginUser" method="POST">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username" name="username">
+                        <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" name="password">
                         <button type="submit" class="btn btn-default btn-rounded btn-sm waves-effect">Log in</button>
                     </form>
                 </div>
@@ -172,25 +172,23 @@
                                 <legend>Sign up here</legend>
 
                                 <?php
-                                  $this->load->helper('form');
-                                  $error = $this->session->flashdata('error');
-                                  if($error)
-                                  {
-                                      ?>
+$this->load->helper('form');
+$error = $this->session->flashdata('error');
+if ($error) {
+	?>
                                       <div class="alert alert-danger alert-dismissable">
                                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                           <?php echo $error; ?>
                                       </div>
                                   <?php }
-                                  $success = $this->session->flashdata('success');
-                                  if($success)
-                                  {
-                                      ?>
+$success = $this->session->flashdata('success');
+if ($success) {
+	?>
                                       <div class="alert alert-success alert-dismissable">
                                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                           <?php echo $success; ?>
                                       </div>
-                                        <?php } ?>
+                                        <?php }?>
 
 
                             <form class="register" action="http://localhost/shopRating/index.php/Welcome/registerUser" method="POST">
