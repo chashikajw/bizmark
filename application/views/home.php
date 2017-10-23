@@ -199,7 +199,7 @@ if ($success) {
                                 <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username" >
                                 <input class="form-control mr-sm-2" type="text" placeholder="email" name="email">
 
-                                <input class="form-control mr-sm-2" type="Password" placeholder="Password" name="Password">
+                                <input class="form-control mr-sm-2" type="Password" placeholder="Password" name="password">
                                 <input class="form-control mr-sm-2" type="Password" placeholder="Confirm Password" name="confirm_password">
                                 <button type="submit" class="btn btn-primary btn-rounded waves-effect">Sign in</button>
                             </form>
