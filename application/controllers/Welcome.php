@@ -16,7 +16,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('home');
 	}
 
-	public function mapController(){
+	public function mapController() {
 		$this->load->view('mapview');
 	}
 
@@ -24,39 +24,34 @@ class Welcome extends CI_Controller {
 
 		$this->load->library('form_validation');
 
-
-		
-
-		$this->form_validation->set_rules('name','Name','required');
-		$this->form_validation->set_rules('username','User name','required|is_unique[user.username]');
-		$this->form_validation->set_rules('email','Email','trim|required|valid_email|is_unique[user.email]');
-		$this->form_validation->set_rules('password','Password','required');
+		$this->form_validation->set_rules('name', 'Name', 'required');
+		$this->form_validation->set_rules('username', 'User name', 'required|is_unique[user.username]');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[user.email]');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 		//$this->form_validation->set_rules('confirm_password','Confirm Password','required|matches[password]');
-
 
 		if ($this->form_validation->run() == TRUE) {
 
 			$name = ucwords(strtolower($this->input->post('name')));
-		    $username = ucwords(strtolower($this->input->post('username')));
-            $email = $this->input->post('email');
-            $password = $this->input->post('password');
-            $hashedPassword=password_hash($password, PASSWORD_DEFAULT);
+			$username = ucwords(strtolower($this->input->post('username')));
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $userInfo = array('name'=>$name,'username' => $username,'email'=>$email,'password'=>$hashedPassword,);
+			$userInfo = array('name' => $name, 'username' => $username, 'email' => $email, 'password' => $hashedPassword);
 
-            $this->load->model('User');
-            $result = $this->User->insertUser($userInfo);
-						
-            if($result>0){
-            	$this->session->set_flashdata('success', 'You have registered successfully');
-            }else{
-            	$this->session->set_flashdata('errordb', 'Error in database insertion');
-            }
+			$this->load->model('User');
+			$result = $this->User->insertUser($userInfo);
 
-            redirect('','refresh');
-		}else{
+			if ($result > 0) {
+				$this->session->set_flashdata('success', 'You have registered successfully');
+			} else {
+				$this->session->set_flashdata('errordb', 'Error in database insertion');
+			}
+
+			redirect('', 'refresh');
+		} else {
 			$this->session->set_flashdata('error', 'Error in Registration');
-
 
 			redirect('', 'refresh');
 
@@ -70,7 +65,7 @@ class Welcome extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
-			redirect('','refresh');
+			redirect('', 'refresh');
 		} else {
 			$this->load->model('User');
 			$result = $this->User->loginUser();
@@ -95,6 +90,15 @@ class Welcome extends CI_Controller {
 			}
 
 		}
+	}
+
+	public function logoutUser() {
+		$this->session->unset_userdata('user_id');
+		$this->session->unset_userdata('name');
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('email');
+		$this->session->unset_userdata('loggedin');
+		redirect('Welcome/loginUser');
 	}
 
 }
