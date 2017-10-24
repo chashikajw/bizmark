@@ -1,3 +1,9 @@
+<?php
+if (!($this->session->userdata('loggedin'))) {
+	redirect('Welcome/loginUser');
+}?>
+
+
 <!DOCTYPE html>
 <html lang={{ config('app.locale') }}>
   <head>
@@ -10,14 +16,14 @@
     <title>Gentelella Alela! | </title>
 
     <!-- Bootstrap -->
-    <link href="<?php echo base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="<?php echo base_url();?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="<?php echo base_url();?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<?php echo base_url();?>assets/build/css/custom.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/build/css/custom.min.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -142,7 +148,7 @@
                         <li><a href="#level1_2">Level One</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
@@ -192,7 +198,7 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo base_url('index.php/Welcome/logoutUser'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
@@ -311,7 +317,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      
+
                       <div itemscope itemtype="http://schema.org/LocalBusiness">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d15844.943103608597!2d79.90247775!3d6.862322499999999!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1508780701680" width="1000" height="700" frameborder="0" style="border:0" allowfullscreen></iframe>
                         <a itemprop="hasMap" href="yourGoogleMapUrl">Get Directions</a>
@@ -336,15 +342,15 @@
     </div>
 
     <!-- jQuery -->
-    <script src="<?php echo base_url();?>assets/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="<?php echo base_url();?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
-    <script src="<?php echo base_url();?>assets/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="<?php echo base_url();?>assets/vendors/nprogress/nprogress.js"></script>
-    
+    <script src="<?php echo base_url(); ?>assets/vendors/nprogress/nprogress.js"></script>
+
     <!-- Custom Theme Scripts -->
-    <script src="<?php echo base_url();?>assets/build/js/custom.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/build/js/custom.min.js"></script>
   </body>
 </html>
