@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/css/mdb.min.css" rel="stylesheet">
 
     <!-- Template styles -->
     <style rel="stylesheet">
@@ -125,9 +125,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
-
+                                                     
                     </ul>
-                    <form class="form-inline" action="http://localhost/shop-rating-project/index.php/Welcome/loginUser" method="POST">
+                    <form class="form-inline" action="http://localhost/shopRating/index.php/Welcome/loginUser" method="POST">
                         <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username" name="username">
                         <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" name="password">
                         <button type="submit" class="btn btn-default btn-rounded btn-sm waves-effect">Log in</button>
@@ -235,16 +235,16 @@ if ($success) {
     <!-- SCRIPTS -->
 
     <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="<?php echo base_url();?>assets/text/javascript" src="<?php echo base_url();?>assets/js/jquery-3.1.1.min.js"></script>
 
     <!-- Bootstrap dropdown -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="<?php echo base_url();?>assets/text/javascript" src="<?php echo base_url();?>assets/js/popper.min.js"></script>
 
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="<?php echo base_url();?>assets/text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
 
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="<?php echo base_url();?>assets/text/javascript" src="<?php echo base_url();?>assets/js/mdb.min.js"></script>
 
     <script>
     new WOW().init();
