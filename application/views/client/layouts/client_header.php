@@ -48,15 +48,18 @@
                   <div class="nav-collapse">
                     <ul class="nav">
 					  <li class="active"><a href="index.html">Home	</a></li>
-					  <li class=""><a href="special_offer.html">Specials Offer</a></li>
-					  <li class=""><a href="normal.html">Delivery</a></li>
-					  <li class=""><a href="contact.html">Contact</a></li>
+                      <li class=""><a href="">Offers & Discounts</a></li>
+                      <li class=""><a href="">Browse</a></li>
+					  <li class=""><a href="">Contact</a></li>
 					</ul>
                     <form action="#" class="navbar-search pull-left">
                      <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span5"/>
                     </form>
                     <ul class="nav pull-right">
-					<li class="dropdown">
+
+                    <li class=""><a href="">My Business</a></li>
+
+                    <li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login <b class="caret"></b></a>
 						<div class="dropdown-menu">
 						<form class="form-horizontal loginFrm">

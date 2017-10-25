@@ -41,7 +41,7 @@
             </div>
 			<!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
             <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a> -->
-			<a href="special_offer.html" id="spcialBtn" class="btn btn-large pull-right btn-success" >Special Offer</a>
+			<!-- <a href="" id="spcialBtn" class="btn btn-large pull-right btn-success" >Offers & Discounts</a> -->
           </div>
 
 	<div class="row">
