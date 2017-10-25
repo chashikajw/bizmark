@@ -16,6 +16,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('home');
 	}
 
+	
+	public function dashboardView(){
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('dashboard');
+		$this->load->view('layouts/footer');  				
+	}
+
+
 	public function mapController() {
 		$this->load->view('mapview');
 	}
@@ -28,7 +37,7 @@ class Welcome extends CI_Controller {
 		$this->form_validation->set_rules('username', 'User name', 'required|is_unique[user.username]');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[user.email]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-		//$this->form_validation->set_rules('confirm_password','Confirm Password','required|matches[password]');
+		$this->form_validation->set_rules('confirm_password','Confirm Password','required|matches[password]');
 
 		if ($this->form_validation->run() == TRUE) {
 
@@ -38,7 +47,7 @@ class Welcome extends CI_Controller {
 			$password = $this->input->post('password');
 			$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-			$userInfo = array('name' => $name, 'username' => $username, 'email' => $email, 'password' => $hashedPassword);
+			$userInfo = array('name' => $name, 'username' => $username, 'email' => $email, 'password' => $password);
 
 			$this->load->model('User');
 			$result = $this->User->insertUser($userInfo);
