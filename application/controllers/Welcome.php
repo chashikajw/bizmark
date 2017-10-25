@@ -17,10 +17,24 @@ class Welcome extends CI_Controller {
 	}
 
 	
+	public function postview(){
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('post');
+		$this->load->view('layouts/footer');  				
+	}
+
 	public function dashboardView(){
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
 		$this->load->view('dashboard');
+		$this->load->view('layouts/footer');  				
+	}
+
+	public function configurationview(){
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('configuration');
 		$this->load->view('layouts/footer');  				
 	}
 
