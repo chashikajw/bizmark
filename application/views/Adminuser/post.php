@@ -1,11 +1,10 @@
 
-
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Plain Page</h3>
+                <h3>Form Upload </h3>
               </div>
 
               <div class="title_right">
@@ -26,7 +25,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Find the place</h2>
+                    <h2>Dropzone multiple file uploader</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -45,11 +44,12 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-
-                      <div itemscope itemtype="http://schema.org/LocalBusiness">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d15844.943103608597!2d79.90247775!3d6.862322499999999!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1508780701680" width="1000" height="700" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        <a itemprop="hasMap" href="yourGoogleMapUrl">Get Directions</a>
-                      </div>
+                    <p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
+                    <form action="form_upload.html" class="dropzone"></form>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                   </div>
                 </div>
               </div>

@@ -16,43 +16,66 @@ class Welcome extends CI_Controller {
 		$this->load->view('home');
 	}
 
+
+	
+	public function postview(){
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('Adminuser/post');
+		$this->load->view('layouts/footer');  				
+	}
+
+	
 	public function dashboardView() {
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
-		$this->load->view('dashboard');
+		$this->load->view('Adminuser/dashboard');
 		$this->load->view('layouts/footer');
 	}
 
-	public function pView() {
+
+	public function configurationview(){
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
-		$this->load->view('sProfile');
+		$this->load->view('Adminuser/configuration');
+		$this->load->view('layouts/footer');  				
+	}
+
+
+	public function profileView() {
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('Adminuser/sProfile');
 		$this->load->view('layouts/footer');
 	}
 
 	public function inboxView() {
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
-		$this->load->view('inbox');
+		$this->load->view('Adminuser/inbox');
 		$this->load->view('layouts/footer');
 	}
 
 	public function shopRegView() {
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
-		$this->load->view('shopRegistration');
+		$this->load->view('Adminuser/shopRegistration');
 		$this->load->view('layouts/footer');
 	}
 
 	public function review() {
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
-		$this->load->view('reviews');
+		$this->load->view('Adminuser/reviews');
 		$this->load->view('layouts/footer');
 	}
 
+
 	public function mapController() {
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
 		$this->load->view('mapview');
+		$this->load->view('layouts/footer');
 	}
 
 	public function registerUser() {
