@@ -90,10 +90,10 @@
 <div class="span12">
 	<a href="index.html"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
 <div class="pull-right"> <br/>
-	<a href="product_summary.html"> <span class="btn btn-mini btn-warning"> <i class="icon-shopping-cart icon-white"></i> [ 3 ] </span> </a>
-	<a href="product_summary.html"><span class="btn btn-mini active">$155.00</span></a>
-	<span class="btn btn-mini">&pound;</span>
-	<span class="btn btn-mini">&euro;</span>
+	<!-- <a href="product_summary.html"> <span class="btn btn-mini btn-warning"> <i class="icon-shopping-cart icon-white"></i> [ 3 ] </span> </a> -->
+	<!-- <a href="product_summary.html"><span class="btn btn-mini active">$155.00</span></a> -->
+	<!-- <span class="btn btn-mini">&pound;</span> -->
+	<!-- <span class="btn btn-mini">&euro;</span> -->
 </div>
 </div>
 </div>

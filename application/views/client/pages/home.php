@@ -112,9 +112,9 @@
 	  </ul>
 </div>
 
-	<div class="span9">
+	<div class="span9>
 	<div>
-		<h3>New Products </h3>
+		<h3>Recent Searches </h3>
 		<div class="row-fluid">
 		<div id="myCarousel1" class="carousel slide">
             <div class="carousel-inner">
@@ -123,51 +123,56 @@
 			<li class="span3">
 			  <div class="thumbnail">
 			  <a href="#" class="tag" src="<?php echo base_url(); ?>assets/products/new.png"></a>
-				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/products/1.jpg" alt=""/></a>
+				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/sampath.jpg" alt=""/></a>
 				<div class="caption">
-				  <h5>Product name</h5>
+				  <h5>Sampath Bank</h5>
 				  <p>
-					Lorem Ipsum is simply dummy text.
+					Thibirigasyaya branch.
 				  </p>
-				  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+				  <h4><a class="btn" href="product_details.html">VIEW</a>
+                      <!-- <span class="pull-right">$222.00</span></h4> -->
+				</div>
+			  </div>
+			</li>
+
+			<li class="span3">
+			  <div class="thumbnail">
+			  <a href="#" class="tag" src="<?php echo base_url(); ?>assets/products/new.png"></a>
+				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/dominos.jpg" alt=""/></a>
+				<div class="caption">
+				  <h5>Domino's</h5>
+				  <p>
+					Pizza Delivery & Carryout, Pasta, Chicken & More.
+				  </p>
+				  <h4><a class="btn" href="product_details.html">VIEW</a>
+                      <!-- <span class="pull-right">$222.00</span></h4> -->
 				</div>
 			  </div>
 			</li>
 			<li class="span3">
 			  <div class="thumbnail">
 			  <a href="#" class="tag" src="<?php echo base_url(); ?>assets/products/new.png"></a>
-				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/products/2.jpg" alt=""/></a>
+				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/pizzahut.jpg" alt=""/></a>
 				<div class="caption">
-				  <h5>Product name</h5>
+				  <h5>Pizza Hut</h5>
 				  <p>
-					Lorem Ipsum is simply dummy text.
+					 The world’s largest pizza company and home of the Pan Pizza.
 				  </p>
-				  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+				   <h4><a class="btn" href="product_details.html">VIEW</a>
+                       <!-- <span class="pull-right">$222.00</span></h4> -->
 				</div>
 			  </div>
 			</li>
 			<li class="span3">
 			  <div class="thumbnail">
-			  <a href="#" class="tag" src="<?php echo base_url(); ?>assets/products/new.png"></a>
-				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/products/3.jpg" alt=""/></a>
+				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/abans.jpg" alt=""/></a>
 				<div class="caption">
-				  <h5>Product name</h5>
+				  <h5>Abans</h5>
 				  <p>
-					Lorem Ipsum is simply dummy text.
+                      Shopping Store In Srilanka
 				  </p>
-				   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-				</div>
-			  </div>
-			</li>
-			<li class="span3">
-			  <div class="thumbnail">
-				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/products/4.jpg" alt=""/></a>
-				<div class="caption">
-				  <h5>Product name</h5>
-				  <p>
-					Lorem Ipsum is simply dummy text .
-				  </p>
-				   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+				   <h4><a class="btn" href="product_details.html">VIEW</a>
+                       <!-- <span class="pull-right">$222.00</span></h4> -->
 				</div>
 			  </div>
 			</li>
@@ -177,7 +182,7 @@
 		  <ul class="thumbnails">
 			<li class="span3">
 			  <div class="thumbnail">
-				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/products/5.jpg" alt=""/></a>
+				<a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/cinnamon.jpg" alt=""/></a>
 				<div class="caption">
 				  <h5>Product name</h5>
 				  <p>
