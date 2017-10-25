@@ -16,6 +16,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('home');
 	}
 
+<<<<<<< HEAD
 	
 	public function postview(){
 		$this->load->view('layouts/header');
@@ -25,12 +26,16 @@ class Welcome extends CI_Controller {
 	}
 
 	public function dashboardView(){
+=======
+	public function dashboardView() {
+>>>>>>> 6ddc4508a1d23535453c919243c0c28731741c5a
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
 		$this->load->view('dashboard');
-		$this->load->view('layouts/footer');  				
+		$this->load->view('layouts/footer');
 	}
 
+<<<<<<< HEAD
 	public function configurationview(){
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
@@ -38,6 +43,35 @@ class Welcome extends CI_Controller {
 		$this->load->view('layouts/footer');  				
 	}
 
+=======
+	public function pView() {
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('sProfile');
+		$this->load->view('layouts/footer');
+	}
+
+	public function inboxView() {
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('inbox');
+		$this->load->view('layouts/footer');
+	}
+
+	public function shopRegView() {
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('shopRegistration');
+		$this->load->view('layouts/footer');
+	}
+
+	public function review() {
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
+		$this->load->view('reviews');
+		$this->load->view('layouts/footer');
+	}
+>>>>>>> 6ddc4508a1d23535453c919243c0c28731741c5a
 
 	public function mapController() {
 		$this->load->view('mapview');
@@ -51,7 +85,7 @@ class Welcome extends CI_Controller {
 		$this->form_validation->set_rules('username', 'User name', 'required|is_unique[user.username]');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[user.email]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('confirm_password','Confirm Password','required|matches[password]');
+		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
 
 		if ($this->form_validation->run() == TRUE) {
 
