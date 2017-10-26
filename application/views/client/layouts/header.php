@@ -82,17 +82,13 @@
                                           <?php echo $success; ?>
                                       </div>
                                         <?php }?>
-						<form class="form-horizontal loginFrm" action="<?php echo base_url(); ?>Client/loginUser" method="POST">
-						  <div class="control-group">
-							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email"  required>
-						  </div>
-						  <div class="control-group">
+						
 					<form class="form-horizontal loginFrm" action="<?php echo base_url(); ?>Client/loginUser" method="POST">
 						  <div class="control-group">
-							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email">
+							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email" required="">
 						  </div>
 						  <div class="control-group">
-							<input type="password" class="span2" id="inputPassword" placeholder="Password" name="password">
+							<input type="password" class="span2" id="inputPassword" placeholder="Password" name="password" required="">
 
 						  </div>
 						  <div class="control-group">
