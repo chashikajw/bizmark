@@ -52,7 +52,7 @@
                       <li class=""><a href="">Browse</a></li>
 					  <li class=""><a href="">Contact</a></li>
 					</ul>
-          
+
                     <form  class="navbar-search pull-left" >
                      <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span5"/>
                     </form>
@@ -63,6 +63,7 @@
                     <li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login <b class="caret"></b></a>
 						<div class="dropdown-menu">
+
                <?php
                     $this->load->helper('form');
                     $error = $this->session->flashdata('error');
@@ -86,7 +87,13 @@
 							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email"  required>
 						  </div>
 						  <div class="control-group">
-							<input type="password" class="span2" id="inputPassword" placeholder="Password" name="password"  required>
+					<form class="form-horizontal loginFrm" action="<?php echo base_url(); ?>Client/loginUser" method="POST">
+						  <div class="control-group">
+							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email">
+						  </div>
+						  <div class="control-group">
+							<input type="password" class="span2" id="inputPassword" placeholder="Password" name="password">
+
 						  </div>
 						  <div class="control-group">
 							<label class="checkbox">

@@ -205,7 +205,11 @@
                 <div class="control-group">
                     <label class="control-label" for="country">Country<sup>*</sup></label>
                     <div class="controls">
+<<<<<<< HEAD
                         <select type="text" id="country" name="UCountry" required>
+=======
+                        <select type="text" id="country" name="UCountry" >
+>>>>>>> 0118b32cbb82d7c0cd79abe99e21d3cbd992c174
         <option value="">Country</option>
         <option value="1">Sri Lanka</option>
     </select>
