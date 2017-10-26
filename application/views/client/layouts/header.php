@@ -55,8 +55,8 @@
                     <form action="#" class="navbar-search pull-left">
                      <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span5"/>
                     </form>
-                    <ul class="nav pull-right">
-
+                    <ul class="nav pull-right">  
+                    <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
                     <li class=""><a href="<?php echo base_url('business'); ?>">My Business</a></li>
 
                     <li class="dropdown">
