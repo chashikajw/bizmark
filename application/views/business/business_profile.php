@@ -141,7 +141,8 @@
                                 </div>
                                 <div class="message_wrapper">
                                   <h4 class="heading">Lochana</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                  <blockquote class="message">We've received positive comments from many of our readers.
+                                          She couldn't be reached for comment..</blockquote>
                                   <br />
                                   <p class="url">
                                     <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
@@ -157,7 +158,8 @@
                                 </div>
                                 <div class="message_wrapper">
                                   <h4 class="heading">Sumedhe</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                  <blockquote class="message"> We've received positive comments from many of our readers.
+                                    She couldn't be reached for comment. </blockquote>
                                   <br />
                                   <p class="url">
                                     <span class="fs1" aria-hidden="true" data-icon=""></span>
