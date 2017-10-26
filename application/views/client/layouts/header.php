@@ -71,7 +71,7 @@
                     <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
                     <?php if ($logged_in) {
-                        echo "<li class=''><a href='" . base_url('business') . "'>My Business</a></li>";
+                        echo "<li class=''><a href='" . base_url('business') . "'><b>My Business</b></a></li>";
                     } ?>
 
 
@@ -120,7 +120,7 @@
 					</li>
             <?php } else { ?>
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo $this->session->userdata('userdata')['username']; ?><b class="caret"></b></a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo "<b>" . $this->session->userdata('userdata')['username'] . "</b>";  ?><b class="caret"></b></a>
                     <div class="dropdown-menu" style="padding: 10px; text-align:right;">
                         <?php $user = $this->session->userdata('userdata');
                         echo $user['username'] . '<br>' . $user['email'] . '<br>'; ?>

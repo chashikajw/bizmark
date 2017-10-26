@@ -1,7 +1,3 @@
-
-
-
-
 		<div id="myCarousel" class="carousel slide homCar">
             <div class="carousel-inner">
               <div class="item active">
@@ -47,7 +43,9 @@
 			<!-- <a href="" id="spcialBtn" class="btn btn-large pull-right btn-success" >Offers & Discounts</a> -->
           </div>
 
-	<div class="row">
+
+
+	<!-- <div class="row"> -->
 	<div id="sidebar" class="span3">
 	<ul class="nav nav-list bs-docs-sidenav" style="display: block;">
 		<li class="subMenu"><a> ELECTRONICS [230]</a>
@@ -118,6 +116,7 @@
 	<div class="span9">
 	<div>
 		<h3>Recent Searches </h3>
+
 		<div class="row-fluid">
 		<div id="myCarousel1" class="carousel slide">
             <div class="carousel-inner">
@@ -425,4 +424,4 @@
 		  </ul>
 		</div>
 	</div>
-	</div>
+	<!-- </div> -->

@@ -10,7 +10,11 @@ class Client extends CI_Controller {
     }
 
     public function browse(){
-        $this->showPage('browse');
+        $data = array();
+        $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
+        $this->load->view('client/browse', $data);
+        $this->load->view('client/layouts/footer', $data);
     }
 
      public function mapView(){
