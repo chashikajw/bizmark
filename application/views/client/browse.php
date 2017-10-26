@@ -2,7 +2,7 @@
 
 <div class="item span9">
 <ul class="thumbnails">
-    <a  href="product_details.html">
+    <a  href="">
      <li class="span2">
        <div class="thumbnail">
            <img src="<?php echo base_url(); ?>assets/business/sampath.jpg" alt=""/>
@@ -18,7 +18,7 @@
              <span class="fa fa-star checked"></span>
              <span class="fa fa-star"></span>
              <span class="fa fa-star"></span>
-             <!-- <h4><a class="btn" href="product_details.html">VIEW</a> -->
+             <!-- <h4><a class="btn" href="">VIEW</a> -->
              </center>
                  <!-- <span class="pull-right">$222.00</span></h4> -->
            </div>
@@ -26,7 +26,7 @@
      </li>
     </a>
 
-    <a  href="product_details.html">
+    <a  href="">
  <li class="span2">
    <div class="thumbnail">
            <img src="<?php echo base_url(); ?>assets/business/dominos.jpg" alt=""/>
@@ -38,7 +38,7 @@
          <center>
              <span class="fa fa-star checked"></span>
              <span class="fa fa-star checked"></span>
-             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star"></span>
              <span class="fa fa-star"></span>
              <span class="fa fa-star"></span>
          </center>
@@ -49,7 +49,7 @@
 
  <li class="span2">
      <div class="thumbnail">
-         <a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/pizzahut.jpg" alt=""/></a>
+         <a  href=""><img src="<?php echo base_url(); ?>assets/business/pizzahut.jpg" alt=""/></a>
          <div class="caption">
            <h5>Pizza Hut</h5>
            <p>
@@ -59,10 +59,10 @@
                <span class="fa fa-star checked"></span>
                <span class="fa fa-star checked"></span>
                <span class="fa fa-star checked"></span>
-               <span class="fa fa-star"></span>
+               <span class="fa fa-star checked"></span>
                <span class="fa fa-star"></span>
            </center>
-            <!-- <h4><a class="btn" href="product_details.html">VIEW</a> -->
+            <!-- <h4><a class="btn" href="">VIEW</a> -->
                 <!-- <span class="pull-right">$222.00</span></h4> -->
          </div>
          </div>
@@ -70,7 +70,7 @@
 
  <li class="span2">
    <div class="thumbnail">
-       <a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/abans.jpg" alt=""/></a>
+       <a  href=""><img src="<?php echo base_url(); ?>assets/business/abans.jpg" alt=""/></a>
        <div class="caption">
          <h5>Abans</h5>
          <p>
@@ -79,12 +79,12 @@
          <center>
              <span class="fa fa-star checked"></span>
              <span class="fa fa-star checked"></span>
-             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star"></span>
              <span class="fa fa-star"></span>
              <span class="fa fa-star"></span>
          </center>
 
-          <!-- <h4><a class="btn" href="product_details.html">VIEW</a> -->
+          <!-- <h4><a class="btn" href="">VIEW</a> -->
               <!-- <span class="pull-right">$222.00</span></h4> -->
        </div>
      </div>
