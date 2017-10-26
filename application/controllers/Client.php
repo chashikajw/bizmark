@@ -77,7 +77,7 @@ class Client extends CI_Controller {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
-            $userInfo = array('username' =>  $username, 'first_name' =>  $firstname, 'last_name' =>  $lastname , 'email' => $email, 'address' =>  $adress ,'city' =>  $city, 'phone' => $phoneNo,'gender' =>  $postalcode, 'dob' =>  $dob);
+            $userInfo = array('username' =>  $username, 'password' =>  $password, 'first_name' =>  $firstname, 'last_name' =>  $lastname , 'email' => $email, 'address' =>  $adress ,'city' =>  $city, 'phone' => $phoneNo,'gender' =>  $postalcode, 'dob' =>  $dob);
 
             $this->load->model('ClientModel');
             $result = $this->ClientModel->insertUser($userInfo);

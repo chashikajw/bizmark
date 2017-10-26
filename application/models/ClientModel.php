@@ -22,7 +22,7 @@ class ClientModel extends CI_Model {
 		//$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 		$this->db->where('email', $email);
-		$this->db->where('phone', $password);
+		$this->db->where('password', $password);
 		//$this->db->where('password', $hashedPassword);
 
 		$respond = $this->db->get('user');
