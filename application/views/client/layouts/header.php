@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Online Shop</title>
+    <title>Bizmark | Business and Services review platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,9 +16,18 @@
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.css" rel="stylesheet"/>
 	<link href="<?php echo base_url(); ?>assets/css/docs.css" rel="stylesheet"/>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/css/main.css" rel="stylesheet"/>
 	<link href="<?php echo base_url(); ?>assets/js/google-code-prettify/prettify.css" rel="stylesheet"/>
+
+    <!-- Load bootstrap -->
+    <!-- <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="<?php echo base_url(); ?>assets/jquery/jquery-3.2.1.min"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script> -->
 
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->

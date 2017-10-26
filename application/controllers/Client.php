@@ -9,6 +9,10 @@ class Client extends CI_Controller {
         $this->showPage('signup');
     }
 
+    public function browse(){
+        $this->showPage('browse');
+    }
+
 
     public function showPage($page)
     {

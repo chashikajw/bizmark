@@ -1,4 +1,7 @@
 
+
+
+
 		<div id="myCarousel" class="carousel slide homCar">
             <div class="carousel-inner">
               <div class="item active">
@@ -112,7 +115,7 @@
 	  </ul>
 </div>
 
-	<div class="span9>
+	<div class="span9">
 	<div>
 		<h3>Recent Searches </h3>
 		<div class="row-fluid">
