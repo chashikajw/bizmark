@@ -5,7 +5,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+              <a href="<?php echo base_url('Client/index'); ?>" class="site_title"><i class="fa fa-user"></i> <span>Switch Account</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -13,11 +13,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo base_url(); ?>assets/images/macdonald.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2>Macdonald!</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -38,7 +38,7 @@
 
                   <li><a href="<?php echo base_url('business/news_feed'); ?>"><i class="fa fa-table"></i> Posts <span class="fa fa-chevron-down"></span></a>
 
-                  <li><a href="<?php echo base_url('business/configuration'); ?>"><i class="fa fa-bar-chart-o"></i> Configurations <span class="fa fa-chevron-down"></span></a>
+                
 
                   <li><a href="<?php echo base_url('business/inbox'); ?>"><i class="fa fa-clone"></i> Inbox <span class="fa fa-chevron-down"></span></a>
 
@@ -46,19 +46,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="menu_section">
-                <h3>Live On</h3>
-                <ul class="nav side-menu">
-
-
-
-
-                  <li><a href="<?php echo site_url('Business/shopRegView'); ?>"><i class="fa fa-laptop"></i> Register <span class="label label-success pull-right">Coming Soon</span></a></li>
-
-
-                </ul>
-              </div>
-
+             
             </div>
             <!-- /sidebar menu -->
 
@@ -92,7 +80,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="<?php echo base_url(); ?>assets/images/sume.jpg" alt="">Sumedhe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -118,7 +106,19 @@
                       <a>
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
+                          <span>Chashika</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span>
+                          <span>Lochana</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
@@ -131,7 +131,7 @@
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
+                          <span class="time">8 mins ago</span>
                         </span>
                         <span class="message">
                           Film festivals used to be do-or-die moments for movie makers. They were where...
@@ -142,20 +142,8 @@
                       <a>
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
+                          <span>Diananjali</span>
+                          <span class="time">10 mins ago</span>
                         </span>
                         <span class="message">
                           Film festivals used to be do-or-die moments for movie makers. They were where...

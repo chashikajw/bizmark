@@ -43,26 +43,27 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                          <img class="img-responsive avatar-view" src="<?php echo base_url(); ?>assets/images/macprofile.jpg" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <h3>Macdonald's</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> Nugegoda
                         </li>
 
                         <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                          <i class="fa fa-briefcase user-profile-icon"></i> Food and beverage
                         </li>
 
                         <li class="m-top-xs">
                           <i class="fa fa-external-link user-profile-icon"></i>
-                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.macdonalds.com</a>
                         </li>
                       </ul>
 
@@ -75,7 +76,7 @@
                         <li>
                           <p>Web Applications</p>
                           <div class="progress progress_sm">
-                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="100"></div>
                           </div>
                         </li>
                         <li>
@@ -114,14 +115,15 @@
                         </div>
                       </div>
                       <!-- start of user-activity-graph -->
-                      <div id="graph_bar" style="width:100%; height:280px;"></div>
+                      
+                       <img src="<?php echo base_url(); ?>assets/images/food.png"  alt="Avatar">
                       <!-- end of user-activity-graph -->
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
+                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Feedbacks</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projects Worked on</a>
+                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">My posts</a>
                           </li>
                           <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
                           </li>
@@ -132,14 +134,15 @@
                             <!-- start recent activity -->
                             <ul class="messages">
                               <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                <img src="<?php echo base_url(); ?>assets/images/locha.jpg" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                   <h3 class="date text-info">24</h3>
                                   <p class="month">May</p>
                                 </div>
                                 <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                  <h4 class="heading">Lochana</h4>
+                                  <blockquote class="message">We've received positive comments from many of our readers.
+                                          She couldn't be reached for comment..</blockquote>
                                   <br />
                                   <p class="url">
                                     <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
@@ -148,14 +151,15 @@
                                 </div>
                               </li>
                               <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                <img src="<?php echo base_url(); ?>assets/images/sume.jpg" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                   <h3 class="date text-error">21</h3>
                                   <p class="month">May</p>
                                 </div>
                                 <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                  <h4 class="heading">Sumedhe</h4>
+                                  <blockquote class="message"> We've received positive comments from many of our readers.
+                                    She couldn't be reached for comment. </blockquote>
                                   <br />
                                   <p class="url">
                                     <span class="fs1" aria-hidden="true" data-icon=""></span>
@@ -164,13 +168,13 @@
                                 </div>
                               </li>
                               <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                <img src="<?php echo base_url(); ?>assets/images/chash.jpg" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                   <h3 class="date text-info">24</h3>
                                   <p class="month">May</p>
                                 </div>
                                 <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
+                                  <h4 class="heading">Chashika</h4>
                                   <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
                                   <br />
                                   <p class="url">
@@ -180,13 +184,13 @@
                                 </div>
                               </li>
                               <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                <img src="<?php echo base_url(); ?>assets/images/dina.jpg" class="avatar" alt="Avatar">
                                 <div class="message_date">
                                   <h3 class="date text-error">21</h3>
                                   <p class="month">May</p>
                                 </div>
                                 <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
+                                  <h4 class="heading">Dinanjali</h4>
                                   <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
                                   <br />
                                   <p class="url">
@@ -249,7 +253,7 @@
                                 </tr>
                                 <tr>
                                   <td>4</td>
-                                  <td>New Company Takeover Review</td>
+                                  <td>Maharagamas</td>
                                   <td>Deveint Inc</td>
                                   <td class="hidden-phone">28</td>
                                   <td class="vertical-align-mid">
@@ -264,8 +268,7 @@
 
                           </div>
                           <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                            <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
-                              photo booth letterpress, commodo enim craft beer mlkshk </p>
+                            <p>McDonald's is an American hamburger and fast food restaurant chain. It was founded in 1940 as a barbecue restaurant operated by Richard and Maurice McDonald, in San Bernardino, California </p>
                           </div>
                         </div>
                       </div>
