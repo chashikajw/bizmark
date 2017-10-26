@@ -112,6 +112,7 @@
 							<label class="checkbox">
 							<input type="checkbox"> Remember me
 							</label>
+                            <a class="btn btn-warning pull-left" href="<?php echo base_url('Client/signup'); ?>">Sign up</a>
 							<button type="submit" class="btn pull-right">Sign in</button>
 						  </div>
 						</form>
