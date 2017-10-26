@@ -103,25 +103,25 @@
                  <div class="control-group">
                     <label class="control-label" for="inputLname">Username <sup>*</sup></label>
                     <div class="controls">
-                        <input type="text" id="inputLname" placeholder="Username" name="UserName">
+                        <input type="text" id="inputLname" placeholder="Username" name="UserName" required>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputFname">First name <sup>*</sup></label>
                     <div class="controls">
-                        <input type="text" id="inputFname" placeholder="First Name" name="UFirstName">
+                        <input type="text" id="inputFname" placeholder="First Name" name="UFirstName" required>
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputLname">Last name <sup>*</sup></label>
+                    <label class="control-label" for="inputLname" >Last name <sup>*</sup></label>
                     <div class="controls">
-                        <input type="text" id="inputLname" placeholder="Last Name" name="ULastName">
+                        <input type="text" id="inputLname" placeholder="Last Name" name="ULastName" required>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputEmail">Email <sup>*</sup></label>
                     <div class="controls">
-                        <input type="text" id="inputEmail" placeholder="Email" name="UEmail">
+                        <input type="text" id="inputEmail" placeholder="Email" name="UEmail" required>
                     </div>
                 </div>
                
@@ -183,7 +183,7 @@
                 <div class="control-group">
                     <label class="control-label" for="adress">Address<sup>*</sup></label>
                     <div class="controls">
-                        <input type="text" id="address" placeholder="Adress" name="UAdress"/> 
+                        <input type="text" id="address" placeholder="Adress" name="UAdress"/ required> 
                     </div>
                 </div>
 
@@ -191,7 +191,7 @@
                 <div class="control-group">
                     <label class="control-label" for="city">City<sup>*</sup></label>
                     <div class="controls">
-                        <input type="text" id="city" placeholder="city" name="UCity"/>
+                        <input type="text" id="city" placeholder="city" name="UCity"/ required>
                     </div>
                 </div>
                
@@ -205,9 +205,9 @@
                 <div class="control-group">
                     <label class="control-label" for="country">Country<sup>*</sup></label>
                     <div class="controls">
-                        <select type="text" id="country" name="UCountry" >
-        <option value="">-</option>
-        <option value="1">Country</option>
+                        <select type="text" id="country" name="UCountry" required>
+        <option value="">Country</option>
+        <option value="1">Sri Lanka</option>
     </select>
                     </div>
                 </div>
@@ -215,21 +215,21 @@
                 <div class="control-group">
                     <label class="control-label" for="mobile">Phone number</label>
                     <div class="controls">
-                        <input type="text" name="mobile" id="mobile" placeholder="Mobile Phone" name="UPhoneNo" />
+                        <input type="text" id="mobile" placeholder="Mobile Phone" name="UPhoneNo" />
                     </div>
                 </div>
 
                  <div class="control-group">
                     <label class="control-label" for="inputPassword">Password <sup>*</sup></label>
                     <div class="controls">
-                        <input type="password" id="inputPassword" placeholder="Password" name="UPassword">
+                        <input type="password" id="inputPassword" placeholder="Password" name="UPassword" required>
                     </div>
                 </div>
 
                  <div class="control-group">
                     <label class="control-label" for="inputPassword">Confirm Password <sup>*</sup></label>
                     <div class="controls">
-                        <input type="password" id="inputPassword" placeholder="Password" name="UConfirmPassword">
+                        <input type="password" id="inputPassword" placeholder="Password" name="UConfirmPassword" required>
                     </div>
                 </div>
 

@@ -33,20 +33,20 @@ class Client extends CI_Controller {
 
         $this->load->library('form_validation');
 
-       //$this->form_validation->set_rules('UserName', 'User name', 'required|is_unique[user.username]');
+        $this->form_validation->set_rules('UserName', 'User name', 'required|is_unique[user.username]');
         $this->form_validation->set_rules('UFirstName', 'First Name', 'required');
         $this->form_validation->set_rules('ULastName', 'Last name', 'required');
-        //$this->form_validation->set_rules('UEmail', 'Email', 'trim|required|valid_email|is_unique[user.email]');
-       // $this->form_validation->set_rules('dob', 'Date of birth', 'required');//correct
+        $this->form_validation->set_rules('UEmail', 'Email', 'trim|required|valid_email|is_unique[user.email]');
+        $this->form_validation->set_rules('years', 'Date of birth', 'required');//correct
         $this->form_validation->set_rules('UAdress', 'User Address', 'required');
         $this->form_validation->set_rules('UCity', 'City', 'required');
         $this->form_validation->set_rules('UPostalcode', 'Postal code', 'required');
-        //$this->form_validation->set_rules('UCountry', 'Country', 'required');
+        $this->form_validation->set_rules('UCountry', 'Country', 'required');
         $this->form_validation->set_rules('UPhoneNo', 'Phone No', 'required');
         $this->form_validation->set_rules('UPassword', 'Password', 'required');
-       // $this->form_validation->set_rules('UConfirmPassword', 'Confirm Password', 'required|matches[UPassword]');
+        $this->form_validation->set_rules('UConfirmPassword', 'Confirm Password', 'required|matches[UPassword]');
 
-        //$this->form_validation->set_message('is_unique', 'That Username Already Exists.');
+        $this->form_validation->set_message('is_unique', 'That Username Already Exists.');
 
         if ($this->form_validation->run() == TRUE) {
 
@@ -55,7 +55,7 @@ class Client extends CI_Controller {
             $firstname = ucwords(strtolower($this->input->post('UFirstName')));
             $lastname = ucwords(strtolower($this->input->post('ULastName')));
             $email = $this->input->post('UEmail');
-            $dob = '1994,12,06';//$dob = ucwords(strtolower($this->input->post('dob')));  //correct
+            $dob = '1994-12-06';//$this->input->post('years').$this->input->post('months').$this->input->post('days');  //correct
             $adress = ucwords(strtolower($this->input->post('UAdress')));
             $city = $this->input->post('UCity');
             $postalcode = $this->input->post('UPostalcode');
@@ -80,11 +80,44 @@ class Client extends CI_Controller {
 
             
         } else {
-            $this->session->set_flashdata('error', 'Error in Registration');
+           $this->session->set_flashdata('error', 'Error in Registration');
 
             redirect('Client/signup');
 
         }
 
+    }
+
+
+    public function loginUser() {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            redirect('', 'refresh');
+        } else {
+            $this->load->model('ClientModel');
+            $result = $this->ClientModel->loginUser();
+
+            if ($result != false) {
+                $user_data = array(
+                    'user_id' => $result->id,
+                    'username' => $result->username,
+                    'email' => $result->email,
+                    'loggedin' => TRUE,
+
+                );
+                $this->session->set_userdata($user_data);
+                print_r($_SESSION);
+                redirect('Client/mapView');
+
+            } else {
+                $this->session->set_flashdata('error', 'Invalid Username or Password');
+                redirect('', 'refresh');
+
+            }
+
+        }
     }
 }
