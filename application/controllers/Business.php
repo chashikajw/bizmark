@@ -12,64 +12,53 @@ class Business extends CI_Controller {
 	}
 
 	public function index() {
-
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('business/sProfile');
-		$this->load->view('layouts/footer');
-
+		$this->showPage('business_profile');
 	}
 
-	public function postview(){
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('business/post');
-		$this->load->view('layouts/footer');  				
-	}
-
-	
-	public function dashboardView() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('business/dashboard');
-		$this->load->view('layouts/footer');
+	public function news_feed(){
+		$this->showPage('news_feed');
 	}
 
 
-	public function configurationview(){
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('business/configuration');
-		$this->load->view('layouts/footer');  				
+	public function dashboard() {
+		$this->showPage('dashboard');
 	}
 
 
-	public function profileView() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('business/sProfile');
-		$this->load->view('layouts/footer');
+	public function configuration(){
+		$this->showPage('configuration');
 	}
 
-	public function inboxView() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('business/inbox');
-		$this->load->view('layouts/footer');
+
+	public function profile() {
+		$this->showPage('business_profile');
 	}
 
-	public function shopRegView() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('business/shopRegistration');
-		$this->load->view('layouts/footer');
+	public function inbox() {
+		$this->showPage('inbox');
+	}
+
+	public function registration() {
+		$this->showPage('business_registration');
 	}
 
 	public function review() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('business/reviews');
-		$this->load->view('layouts/footer');
+		$this->showPage('reviews');
+	}
+
+
+	public function showPage($page)
+	{
+		if ( ! file_exists(APPPATH.'views/business/'.$page.'.php'))
+		{
+			show_404();
+		}
+
+		$data['title'] = ucfirst($page); // Capitalize the first letter
+		$this->load->view('business/layouts/header');
+		$this->load->view('business/layouts/sidebar');
+		$this->load->view('business/'.$page, $data);
+		$this->load->view('business/layouts/footer');
 	}
 
 
