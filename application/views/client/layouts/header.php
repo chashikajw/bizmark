@@ -52,7 +52,25 @@
                       <li class=""><a href="">Browse</a></li>
 					  <li class=""><a href="">Contact</a></li>
 					</ul>
-                    <form action="#" class="navbar-search pull-left">
+           <?php
+                    $this->load->helper('form');
+                    $error = $this->session->flashdata('error');
+                    if ($error) {
+                        ?>
+                                          <div class="alert alert-danger alert-dismissable">
+                                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                          <?php echo $error; ?>
+                                      </div>
+                                  <?php }
+                    $success = $this->session->flashdata('success');
+                    if ($success) {
+                        ?>
+                                        <div class="alert alert-success alert-dismissable">
+                                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                          <?php echo $success; ?>
+                                      </div>
+                                        <?php }?>
+                    <form  class="navbar-search pull-left" >
                      <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span5"/>
                     </form>
                     <ul class="nav pull-right">  
@@ -62,12 +80,12 @@
                     <li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login <b class="caret"></b></a>
 						<div class="dropdown-menu">
-						<form class="form-horizontal loginFrm">
+						<form class="form-horizontal loginFrm" action="<?php echo base_url(); ?>Client/loginUser" method="POST">
 						  <div class="control-group">
-							<input type="text" class="span2" id="inputEmail" placeholder="Email">
+							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email">
 						  </div>
 						  <div class="control-group">
-							<input type="password" class="span2" id="inputPassword" placeholder="Password">
+							<input type="password" class="span2" id="inputPassword" placeholder="Password" name="password">
 						  </div>
 						  <div class="control-group">
 							<label class="checkbox">

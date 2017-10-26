@@ -87,4 +87,37 @@ class Client extends CI_Controller {
         }
 
     }
+
+
+    public function loginUser() {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            redirect('', 'refresh');
+        } else {
+            $this->load->model('ClientModel');
+            $result = $this->ClientModel->loginUser();
+
+            if ($result != false) {
+                $user_data = array(
+                    'user_id' => $result->id,
+                    'username' => $result->username,
+                    'email' => $result->email,
+                    'loggedin' => TRUE,
+
+                );
+                $this->session->set_userdata($user_data);
+                print_r($_SESSION);
+                redirect('Client/mapView');
+
+            } else {
+                $this->session->set_flashdata('error', 'Invalid Username or Password');
+                redirect('', 'refresh');
+
+            }
+
+        }
+    }
 }
