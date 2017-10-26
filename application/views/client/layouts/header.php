@@ -65,10 +65,13 @@
                     <form  class="navbar-search pull-left" >
                      <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span5"/>
                     </form>
-                    <ul class="nav pull-right">  
+                    <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
                     <li class=""><a href="<?php echo base_url('business'); ?>">My Business</a></li>
 
+
+            <!-- login button -->
+            <?php if (!$this->session->userdata('userdata')['loggedin']){ ?>
                     <li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login <b class="caret"></b></a>
 						<div class="dropdown-menu">
@@ -91,7 +94,7 @@
                                           <?php echo $success; ?>
                                       </div>
                                         <?php }?>
-						
+
 					<form class="form-horizontal loginFrm" action="<?php echo base_url(); ?>Client/loginUser" method="POST">
 						  <div class="control-group">
 							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email" required="">
@@ -109,6 +112,17 @@
 						</form>
 						</div>
 					</li>
+            <?php } else { ?>
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo $this->session->userdata('userdata')['username']; ?><b class="caret"></b></a>
+                    <div class="dropdown-menu" style="padding: 10px; text-align:right;">
+                        <?php $user = $this->session->userdata('userdata');
+                        echo $user['username'] . '<br>' . $user['email'] . '<br>'; ?>
+                        <button class="btn btn-warning pull-right">Log out</button>
+                    </div>
+                </li>
+             <?php } ?>
+
 					</ul>
                   </div><!-- /.nav-collapse -->
                 </div>

@@ -27,10 +27,13 @@ class ClientModel extends CI_Model {
 
 		$respond = $this->db->get('user');
 
+
 		if ($respond->num_rows() == 1) {
+			echo 'done';
 			return $respond->row(0);
 
 		} else {
+			echo 'not done';
 			return false;
 		}
 
