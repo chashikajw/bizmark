@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<?php $logged_in = $this->session->userdata('userdata') ==! null;  ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -67,11 +70,13 @@
                     </form>
                     <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
-                    <li class=""><a href="<?php echo base_url('business'); ?>">My Business</a></li>
+                    <?php if ($logged_in) {
+                        echo "<li class=''><a href='" . base_url('business') . "'>My Business</a></li>";
+                    } ?>
 
 
             <!-- login button -->
-            <?php if (!$this->session->userdata('userdata')['loggedin']){ ?>
+            <?php if (!$logged_in){ ?>
                     <li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login <b class="caret"></b></a>
 						<div class="dropdown-menu">
@@ -118,7 +123,7 @@
                     <div class="dropdown-menu" style="padding: 10px; text-align:right;">
                         <?php $user = $this->session->userdata('userdata');
                         echo $user['username'] . '<br>' . $user['email'] . '<br>'; ?>
-                        <button class="btn btn-warning pull-right">Log out</button>
+                        <a class="btn btn-warning pull-right" href="<?php echo base_url('Client/logoutUser'); ?>">Log out</a>
                     </div>
                 </li>
              <?php } ?>

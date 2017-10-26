@@ -111,7 +111,7 @@ class Client extends CI_Controller {
 
                 );
                 $this->session->set_userdata('userdata',$user_data);
-                print_r($_SESSION);
+                // print_r($_SESSION);
                 redirect('', 'refresh');
 
             } else {
@@ -121,5 +121,10 @@ class Client extends CI_Controller {
             }
 
         }
+    }
+
+    public function logoutUser(){
+        $this->session->unset_userdata('userdata');
+        redirect('', 'refresh');
     }
 }
