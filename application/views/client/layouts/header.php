@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
+<?php $logged_in = $this->session->userdata('userdata') ==! null;  ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Online Shop</title>
+    <title>Bizmark | Business and Services review platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,9 +19,18 @@
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.css" rel="stylesheet"/>
 	<link href="<?php echo base_url(); ?>assets/css/docs.css" rel="stylesheet"/>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet"/>
+    <link href="<?php echo base_url(); ?>assets/css/main.css" rel="stylesheet"/>
 	<link href="<?php echo base_url(); ?>assets/js/google-code-prettify/prettify.css" rel="stylesheet"/>
+
+    <!-- Load bootstrap -->
+    <!-- <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="<?php echo base_url(); ?>assets/jquery/jquery-3.2.1.min"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script> -->
 
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -56,10 +68,15 @@
                     <form  class="navbar-search pull-left" >
                      <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span5"/>
                     </form>
-                    <ul class="nav pull-right">  
+                    <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
-                    <li class=""><a href="<?php echo base_url('business'); ?>">My Business</a></li>
+                    <?php if ($logged_in) {
+                        echo "<li class=''><a href='" . base_url('business') . "'>My Business</a></li>";
+                    } ?>
 
+
+            <!-- login button -->
+            <?php if (!$logged_in){ ?>
                     <li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login <b class="caret"></b></a>
 						<div class="dropdown-menu">
@@ -82,7 +99,7 @@
                                           <?php echo $success; ?>
                                       </div>
                                         <?php }?>
-						
+
 					<form class="form-horizontal loginFrm" action="<?php echo base_url(); ?>Client/loginUser" method="POST">
 						  <div class="control-group">
 							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email" required="">
@@ -95,11 +112,23 @@
 							<label class="checkbox">
 							<input type="checkbox"> Remember me
 							</label>
+                            <a class="btn btn-warning pull-left" href="<?php echo base_url('Client/signup'); ?>">Sign up</a>
 							<button type="submit" class="btn pull-right">Sign in</button>
 						  </div>
 						</form>
 						</div>
 					</li>
+            <?php } else { ?>
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo $this->session->userdata('userdata')['username']; ?><b class="caret"></b></a>
+                    <div class="dropdown-menu" style="padding: 10px; text-align:right;">
+                        <?php $user = $this->session->userdata('userdata');
+                        echo $user['username'] . '<br>' . $user['email'] . '<br>'; ?>
+                        <a class="btn btn-warning pull-right" href="<?php echo base_url('Client/logoutUser'); ?>">Log out</a>
+                    </div>
+                </li>
+             <?php } ?>
+
 					</ul>
                   </div><!-- /.nav-collapse -->
                 </div>

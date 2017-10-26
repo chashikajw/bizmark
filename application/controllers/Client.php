@@ -9,11 +9,14 @@ class Client extends CI_Controller {
         $this->showPage('signup');
     }
 
+    public function browse(){
+        $this->showPage('browse');
+    }
+
      public function mapView(){
         $this->showPage('map');
     }
 
-   
 
     public function showPage($page)
     {
@@ -50,7 +53,6 @@ class Client extends CI_Controller {
 
         if ($this->form_validation->run() == TRUE) {
 
-            
             $username = ucwords(strtolower($this->input->post('UserName')));
             $firstname = ucwords(strtolower($this->input->post('UFirstName')));
             $lastname = ucwords(strtolower($this->input->post('ULastName')));
@@ -63,7 +65,7 @@ class Client extends CI_Controller {
             $phoneNo = $this->input->post('UPhoneNo');
             $password = $this->input->post('password');
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            
+
 
             $userInfo = array('username' =>  $username, 'first_name' =>  $firstname, 'last_name' =>  $lastname , 'email' => $email, 'address' =>  $adress ,'city' =>  $city, 'phone' => $phoneNo,'gender' =>  $postalcode, 'dob' =>  $dob);
 
@@ -78,7 +80,7 @@ class Client extends CI_Controller {
                 redirect('Client/signup');
             }
 
-            
+
         } else {
            $this->session->set_flashdata('error', 'Error in Registration');
 
@@ -108,9 +110,9 @@ class Client extends CI_Controller {
                     'loggedin' => TRUE,
 
                 );
-                $this->session->set_userdata($user_data);
-                print_r($_SESSION);
-                redirect('Client/mapView');
+                $this->session->set_userdata('userdata',$user_data);
+                // print_r($_SESSION);
+                redirect('', 'refresh');
 
             } else {
                 $this->session->set_flashdata('error', 'Invalid Username or Password');
@@ -119,5 +121,10 @@ class Client extends CI_Controller {
             }
 
         }
+    }
+
+    public function logoutUser(){
+        $this->session->unset_userdata('userdata');
+        redirect('', 'refresh');
     }
 }
