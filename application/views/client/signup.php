@@ -206,8 +206,8 @@
                     <label class="control-label" for="country">Country<sup>*</sup></label>
                     <div class="controls">
                         <select type="text" id="country" name="UCountry" >
-        <option value="">-</option>
-        <option value="1">Country</option>
+        <option value="">Country</option>
+        <option value="1">Sri Lanka</option>
     </select>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
                 <div class="control-group">
                     <label class="control-label" for="mobile">Phone number</label>
                     <div class="controls">
-                        <input type="text" name="mobile" id="mobile" placeholder="Mobile Phone" name="UPhoneNo" />
+                        <input type="text" id="mobile" placeholder="Mobile Phone" name="UPhoneNo" />
                     </div>
                 </div>
 
