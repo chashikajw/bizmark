@@ -17,6 +17,7 @@ class Welcome extends CI_Controller {
 	}
 
 
+
 	public function mapController() {
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/sidebar');
