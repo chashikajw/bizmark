@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Model {
+class ClientModel extends CI_Model {
 
 	public function insertUser($userInfo) {
 
@@ -17,12 +17,12 @@ class User extends CI_Model {
 	}
 
 	public function loginUser() {
-		$username = $this->input->post('username');
+		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		//$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-		$this->db->where('username', $username);
-		$this->db->where('password', $password);
+		$this->db->where('email', $email);
+		$this->db->where('phone', $password);
 		//$this->db->where('password', $hashedPassword);
 
 		$respond = $this->db->get('user');
