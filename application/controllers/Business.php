@@ -36,7 +36,11 @@ class Business extends CI_Controller {
 	}
 
 	public function registration() {
-		$this->showPage('business_registration');
+		// $this->showPage('business_registration');
+		$data = array();
+		$this->load->view('business/layouts/header');
+		$this->load->view('business/business_registration', $data);
+		$this->load->view('business/layouts/footer');
 	}
 
 	public function review() {
