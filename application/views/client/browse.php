@@ -1,32 +1,51 @@
+
+
 <div class="item span9">
 <ul class="thumbnails">
- <li class="span2">
-   <div class="thumbnail">
-       <a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/sampath.jpg" alt=""/></a>
-       <div class="caption">
-         <h5>Sampath Bank</h5>
-         <p>
-           Thibirigasyaya branch.
-         </p>
-         <h4><a class="btn" href="product_details.html">VIEW</a>
-             <!-- <span class="pull-right">$222.00</span></h4> -->
-       </div>
-   </div>
- </li>
+    <a  href="product_details.html">
+     <li class="span2">
+       <div class="thumbnail">
+           <img src="<?php echo base_url(); ?>assets/business/sampath.jpg" alt=""/>
+           <div class="caption">
+             <h5>Sampath Bank</h5>
+             <p>
+               Thibirigasyaya branch.
 
+             </p>
+             <center>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star"></span>
+             <span class="fa fa-star"></span>
+             <!-- <h4><a class="btn" href="product_details.html">VIEW</a> -->
+             </center>
+                 <!-- <span class="pull-right">$222.00</span></h4> -->
+           </div>
+       </div>
+     </li>
+    </a>
+
+    <a  href="product_details.html">
  <li class="span2">
    <div class="thumbnail">
-       <a  href="product_details.html"><img src="<?php echo base_url(); ?>assets/business/dominos.jpg" alt=""/></a>
+           <img src="<?php echo base_url(); ?>assets/business/dominos.jpg" alt=""/>
        <div class="caption">
          <h5>Domino's</h5>
          <p>
            Pizza Delivery & Carryout, Pasta, Chicken & More.
          </p>
-         <h4><a class="btn" href="product_details.html">VIEW</a>
-             <!-- <span class="pull-right">$222.00</span></h4> -->
+         <center>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star"></span>
+             <span class="fa fa-star"></span>
+         </center>
        </div>
    </div>
  </li>
+</a>
 
  <li class="span2">
      <div class="thumbnail">
@@ -36,7 +55,14 @@
            <p>
               The world’s largest pizza company and home of the Pan Pizza.
            </p>
-            <h4><a class="btn" href="product_details.html">VIEW</a>
+           <center>
+               <span class="fa fa-star checked"></span>
+               <span class="fa fa-star checked"></span>
+               <span class="fa fa-star checked"></span>
+               <span class="fa fa-star"></span>
+               <span class="fa fa-star"></span>
+           </center>
+            <!-- <h4><a class="btn" href="product_details.html">VIEW</a> -->
                 <!-- <span class="pull-right">$222.00</span></h4> -->
          </div>
          </div>
@@ -50,7 +76,15 @@
          <p>
              Shopping Store In Srilanka
          </p>
-          <h4><a class="btn" href="product_details.html">VIEW</a>
+         <center>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star checked"></span>
+             <span class="fa fa-star"></span>
+             <span class="fa fa-star"></span>
+         </center>
+
+          <!-- <h4><a class="btn" href="product_details.html">VIEW</a> -->
               <!-- <span class="pull-right">$222.00</span></h4> -->
        </div>
      </div>
