@@ -16,65 +16,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('home');
 	}
 
-<<<<<<< HEAD
-	
-	public function postview(){
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('post');
-		$this->load->view('layouts/footer');  				
-	}
-
-	public function dashboardView(){
-=======
-	public function dashboardView() {
->>>>>>> 6ddc4508a1d23535453c919243c0c28731741c5a
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('dashboard');
-		$this->load->view('layouts/footer');
-	}
-
-<<<<<<< HEAD
-	public function configurationview(){
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('configuration');
-		$this->load->view('layouts/footer');  				
-	}
-
-=======
-	public function pView() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('sProfile');
-		$this->load->view('layouts/footer');
-	}
-
-	public function inboxView() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('inbox');
-		$this->load->view('layouts/footer');
-	}
-
-	public function shopRegView() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('shopRegistration');
-		$this->load->view('layouts/footer');
-	}
-
-	public function review() {
-		$this->load->view('layouts/header');
-		$this->load->view('layouts/sidebar');
-		$this->load->view('reviews');
-		$this->load->view('layouts/footer');
-	}
->>>>>>> 6ddc4508a1d23535453c919243c0c28731741c5a
 
 	public function mapController() {
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/sidebar');
 		$this->load->view('mapview');
+		$this->load->view('layouts/footer');
 	}
 
 	public function registerUser() {

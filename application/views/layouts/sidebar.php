@@ -29,18 +29,18 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="<?php echo site_url('Welcome/postview'); ?>"><i class="fa fa-home"></i> Profile <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="<?php echo site_url('Business/profileView'); ?>"><i class="fa fa-home"></i> Profile <span class="fa fa-chevron-down"></span></a>
                     
-                  <li><a href="<?php echo site_url('Welcome/postview'); ?>"><i class="fa fa-edit"></i> Ratings <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="<?php echo site_url('Business/review'); ?>"><i class="fa fa-edit"></i> Ratings <span class="fa fa-chevron-down"></span></a>
                     
                  
-                  <li><a href="<?php echo site_url('Welcome/postview'); ?>"><i class="fa fa-desktop"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="<?php echo site_url('Business/dashboardView'); ?>"><i class="fa fa-desktop"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     
-                  <li><a href="<?php echo site_url('Welcome/postview'); ?>"><i class="fa fa-table"></i> Posts <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="<?php echo site_url('Business/postview'); ?>"><i class="fa fa-table"></i> Posts <span class="fa fa-chevron-down"></span></a>
                     
-                  <li><a href="<?php echo site_url('Welcome/postview'); ?>"><i class="fa fa-bar-chart-o"></i> Configurations <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="<?php echo site_url('Business/configurationview'); ?>"><i class="fa fa-bar-chart-o"></i> Configurations <span class="fa fa-chevron-down"></span></a>
                    
-                  <li><a href="<?php echo site_url('Welcome/postview'); ?>"><i class="fa fa-clone"></i> Inbox <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="<?php echo site_url('Business/inboxView'); ?>"><i class="fa fa-clone"></i> Inbox <span class="fa fa-chevron-down"></span></a>
                    
                   </li>
                 </ul>
@@ -51,7 +51,7 @@
                   
                  
                       
-                  <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
+                  <li><a href="<?php echo site_url('Business/shopRegView'); ?>"><i class="fa fa-laptop"></i> Register <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
 
