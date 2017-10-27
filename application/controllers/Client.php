@@ -36,6 +36,10 @@ class Client extends CI_Controller {
         $this->showPage('map');
     }
 
+    public function newsfeed(){
+        $this->showPage('newsfeed');
+    }
+
 
     public function showPage($page)
     {
