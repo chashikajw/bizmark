@@ -70,7 +70,7 @@
 					</ul>
 
                     <form  class="navbar-search pull-left" action="<?php echo base_url('Client/'); ?>search_keyword">
-                     <input id="search" name='search' type="text" placeholder="I'm looking for ..." class="search-query span3"/>
+                     <input id="search" name='search' type="text" placeholder="I'm looking for ..." class="search-query span2"/>
                      <input type='submit' value='Search' class="btn" style="font-size: 11px; margin-top: 0px"/>
                     </form>
                     <ul class="nav pull-right">
