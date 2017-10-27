@@ -29,13 +29,13 @@
                   <div class="x_content">
                     <br />
 
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?php echo base_url() ?>index.php/Business/businessRegistration" method="post" >
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?php echo base_url() ?>Business/businessRegistration" method="POST" >
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Name
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> Business Name
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" name="businessName" id="businessName" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
@@ -45,6 +45,12 @@
                           <input type="text" id="handler" name="handler" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
+                        <div class="form-group">
+                        <label for="description" class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea class="form-control" rows="3" name="description"></textarea>
+                        </div>
+                        </div>
                         <div class="form-group">
                         <label for="address" class="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -59,11 +65,23 @@
                         </div>
                       </div>
 
+
                       <div class="form-group">
-                        <label  for="cId" class="control-label col-md-3 col-sm-3 col-xs-12">Category ID
+                        <label  for="categoryId" class="control-label col-md-3 col-sm-3 col-xs-12">Category ID
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="cId" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text" name= "cId">
+
+                            <select name="categoryId" class="date-picker form-control col-md-7 col-xs-12">
+                                <option value='-1'>--</option>
+                                <?php
+                                    foreach ($categorylist as $item){
+                                        echo "<option value='$item->id'>";
+                                        echo $item->name;
+                                        echo "</option>";
+                                    }
+                                 ?>
+                            </select>
+
                         </div>
                       </div>
 
@@ -84,17 +102,26 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="ltd" class="control-label col-md-3 col-sm-3 col-xs-12">Latitude</label>
+                        <label for="lat" class="control-label col-md-3 col-sm-3 col-xs-12">Latitude</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="ltd" class="form-control col-md-7 col-xs-12" type="text" name="ltd">
+                          <input id="lat" class="form-control col-md-7 col-xs-12" type="text" name="lat">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label for="lotd" class="control-label col-md-3 col-sm-3 col-xs-12">Longitude</label>
+                        <label for="lng" class="control-label col-md-3 col-sm-3 col-xs-12">Longitude</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="lotd" class="form-control col-md-7 col-xs-12" type="text" name="lotd">
+                          <input id="lng" class="form-control col-md-7 col-xs-12" type="text" name="lng">
                         </div>
+                      </div>
+
+                      <div class="form-group">
+                          <label  for="logo" class="control-label col-md-3 col-sm-3 col-xs-12">Logo
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="file" name="logo" id="logo" class="form-control col-md-7 col-xs-12">
+                              <!-- <input id="lotd" class="form-control col-md-7 col-xs-12" type="text" name="lotd"> -->
+                          </div>
                       </div>
 
 

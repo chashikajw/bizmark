@@ -38,9 +38,12 @@ class Business extends CI_Controller {
 	public function registration() {
 		// $this->showPage('business_registration');
 		$data = array();
+        $this->load->model('BusinessModel');
+        $data['categorylist'] = $this->BusinessModel->getCategoryList();
+
 		$this->load->view('business/layouts/header');
 		$this->load->view('business/business_registration', $data);
-		$this->load->view('business/layouts/footer');
+		// $this->load->view('business/layouts/footer');
 	}
 
 	public function review() {
@@ -61,17 +64,18 @@ class Business extends CI_Controller {
 
 		// if ($this->form_validation->run() == TRUE) {
 
-			$name = ucwords(strtolower($this->input->post('name')));
-			$handler = ucwords(strtolower($this->input->post('handler')));
-			$address = ucwords(strtolower($this->input->post('address')));
+			$businessName = $this->input->post('businessName');
+			$handler = strtolower($this->input->post('handler'));
+			$description = $this->input->post('description');
+			$address = $this->input->post('address');
 			$city = $this->input->post('city');
-			$cId = $this->input->post('cId');
-			$oTime = date("Y-m-d h:i:s", $this->input->post('opening_time'));
-			$cTime = date("Y-m-d h:i:s", $this->input->post('closing_time'));
-			$ltd = $this->input->post('ltd');
-			$lotd = $this->input->post('lotd');
+			$categoryId = $this->input->post('categoryId');
+			$openningTime = date("Y-m-d h:i:s", $this->input->post('opening_time'));
+			$closingTime = date("Y-m-d h:i:s", $this->input->post('closing_time'));
+			$lat = $this->input->post('lat');
+			$lng = $this->input->post('lng');
 
-			$businessInfo = array('name' => $name, 'handler' => $handler, 'address' => $address, '	city' => $city, 'category_id' => $cId, 'opening_time' => $oTime, 'closing_time' => $cTime, 'lat' => $ltd, 'lng' => $lotd);
+			$businessInfo = array('name' => $businessName, 'handler' => $handler, 'description' => $description, 'address' => $address, '	city' => $city, 'category_id' => $categoryId, 'opening_time' => $openningTime, 'closing_time' => $closingTime, 'lat' => $lat, 'lng' => $lng);
 
 			$this->load->model('BusinessModel');
 			$result = $this->BusinessModel->insertBusiness($businessInfo);

@@ -15,11 +15,7 @@ class Client extends CI_Controller {
     }
 
     public function signup(){
-        $data = array();
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/signup', $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->showPage('signup');
     }
 
     public function browse(){
@@ -51,6 +47,7 @@ class Client extends CI_Controller {
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
         $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
         $this->load->view('client/'.$page, $data);
         $this->load->view('client/layouts/footer', $data);
     }
