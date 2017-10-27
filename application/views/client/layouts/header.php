@@ -69,7 +69,7 @@
 					  <li class=""><a href="">Contact</a></li>
 					</ul>
 
-                    <form  class="navbar-search pull-left" >
+                    <form  class="navbar-search pull-left" action="search_keyword">
                      <input id="search" name='search' type="text" placeholder="I'm looking for ..." class="search-query span3"/>
                      <input type='submit' value='Search' class="btn" style="font-size: 11px; margin-top: 0px"/>
                     </form>
