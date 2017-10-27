@@ -7,6 +7,8 @@ class Client extends CI_Controller {
         $this->load->model('BusinessModel');
         $data['business_data'] = $this->BusinessModel->select();
 
+// echo 'a'; die('');
+
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/carousel', $data);
         $this->load->view('client/layouts/sidebar', $data);
@@ -30,9 +32,8 @@ class Client extends CI_Controller {
 
     public function search_keyword(){
         $this->load->model('BusinessModel');
-        $keyword = $this->input->get('keyword');
+        $keyword = $this->input->get('search');
         $data['business_data'] = $this->BusinessModel->search($keyword);
-
 
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/sidebar', $data);
@@ -95,11 +96,11 @@ class Client extends CI_Controller {
             $postalcode = $this->input->post('UPostalcode');
             $country = $this->input->post('UCountry');
             $phoneNo = $this->input->post('UPhoneNo');
-            $password = $this->input->post('password');
+            $password = $this->input->post('Upassword');
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
-            $userInfo = array('username' =>  $username, 'password' =>  $password, 'first_name' =>  $firstname, 'last_name' =>  $lastname , 'email' => $email, 'address' =>  $adress ,'city' =>  $city, 'phone' => $phoneNo,'gender' =>  $postalcode, 'dob' =>  $dob);
+            $userInfo = array('username' =>  $username, 'password' =>  $password, 'first_name' =>  $firstname, 'last_name' =>  $lastname , 'email' => $email, 'address' =>  $adress ,'city' =>  $city, 'password' => $password, 'phone' => $phoneNo,'gender' =>  $postalcode, 'dob' =>  $dob);
 
             $this->load->model('ClientModel');
             $result = $this->ClientModel->insertUser($userInfo);
