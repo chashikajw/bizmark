@@ -47,7 +47,7 @@ class Business extends CI_Controller {
 		$this->showPage('reviews');
 	}
 	public function businessRegistration() {
-		// $this->load->library('form_validation');
+		$this->load->library('form_validation');
 
 		// $this->form_validation->set_rules('name', 'Name', 'required');
 		// $this->form_validation->set_rules('handler', 'Name', 'required');
