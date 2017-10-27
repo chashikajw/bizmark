@@ -64,7 +64,7 @@
                   <div class="nav-collapse">
                     <ul class="nav">
 					  <li class="active"><a href="<?php echo base_url(''); ?>">Home	</a></li>
-                      <li class=""><a href="">Offers & Discounts</a></li>
+                      <li class=""><a href="<?php echo base_url('Client/newsfeed'); ?>">Offers & Discounts</a></li>
                       <li class=""><a href="<?php echo base_url('/Client/browse'); ?>">Browse	</a></li>
 					  <li class=""><a href="">Contact</a></li>
 					</ul>
