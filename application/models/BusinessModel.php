@@ -25,6 +25,15 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
+	public function search($keyword){
+			$this->db->like('name',$keyword);
+			$this->db->or_like('description',$keyword);
+    		$query  =   $this->db->get('business');
+    		return $query->result();
+	}
+
+
+
 	public function getCategoryList(){
 		try{
 			$result = $this->db->get('category');

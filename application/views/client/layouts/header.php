@@ -55,7 +55,7 @@
 <div class="navbar navbar-fixed-top">
               <div class="navbar-inner">
                 <div class="container">
-					<a id="logoM" href="index.html"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
+					<a id="logoM" href="<?php echo site_url(''); ?>"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
                   <a data-target="#sidebar" data-toggle="collapse" class="btn btn-navbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -69,8 +69,9 @@
 					  <li class=""><a href="">Contact</a></li>
 					</ul>
 
-                    <form  class="navbar-search pull-left" >
-                     <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span3"/>
+                    <form  class="navbar-search pull-left" action="<?php echo base_url('Client/'); ?>search_keyword">
+                     <input id="search" name='search' type="text" placeholder="I'm looking for ..." class="search-query span3"/>
+                     <input type='submit' value='Search' class="btn" style="font-size: 11px; margin-top: 0px"/>
                     </form>
                     <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
@@ -144,7 +145,7 @@
 <header id="header">
 <div class="row">
 <div class="span12">
-	<a href="index.html"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
+	<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
 <div class="pull-right"> <br/>
 	<!-- <a href="product_summary.html"> <span class="btn btn-mini btn-warning"> <i class="icon-shopping-cart icon-white"></i> [ 3 ] </span> </a> -->
 	<!-- <a href="product_summary.html"><span class="btn btn-mini active">$155.00</span></a> -->
