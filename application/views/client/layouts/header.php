@@ -26,7 +26,7 @@
 	<link href="<?php echo base_url(); ?>assets/js/google-code-prettify/prettify.css" rel="stylesheet"/>
 
 
-    <!-- Add icon library -->
+    <!-- Add icon library --
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Load bootstrap -->
