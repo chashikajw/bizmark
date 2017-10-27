@@ -5,6 +5,7 @@ class Business extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->helper(array('form', 'url'));
 		// $this->session->keep_flashdata('success');
 		// $this->session->keep_flashdata('errordb');
 		// $this->session->keep_flashdata('error');
@@ -34,6 +35,7 @@ class Business extends CI_Controller {
 	public function inbox() {
 		$this->showPage('inbox');
 	}
+
 
 	public function registration() {
 		// $this->showPage('business_registration');
@@ -75,19 +77,20 @@ class Business extends CI_Controller {
 			$lat = $this->input->post('lat');
 			$lng = $this->input->post('lng');
 
-			$businessInfo = array('name' => $businessName, 'handler' => $handler, 'description' => $description, 'address' => $address, '	city' => $city, 'category_id' => $categoryId, 'opening_time' => $openningTime, 'closing_time' => $closingTime, 'lat' => $lat, 'lng' => $lng);
+			$info = $this->do_upload();
+			$filename = $info['upload_data']['file_name'];
+
+			$businessInfo = array('name' => $businessName, 'handler' => $handler, 'description' => $description, 'address' => $address, '	city' => $city, 'category_id' => $categoryId, 'logo_path' => $filename, 'opening_time' => $openningTime, 'closing_time' => $closingTime, 'lat' => $lat, 'lng' => $lng);
 
 			$this->load->model('BusinessModel');
 			$result = $this->BusinessModel->insertBusiness($businessInfo);
 
 			if ($result > 0) {
 				$this->session->set_flashdata('success', 'Your shop  has been  successfully registered');
-				echo "aaa";
 				redirect('business');
 			} else {
 				$this->session->set_flashdata('errordb', 'Error in database insertion');
-				echo 'error';
-				// redirect('business/registration');
+				redirect('business/registration');
 			}
 
 		// } else {
@@ -96,6 +99,27 @@ class Business extends CI_Controller {
 		// 	// redirect('business/registration');
 		//
 		// }
+	}
+
+	public function do_upload() {
+	   $config['upload_path']   = './assets/business/';
+	   $config['allowed_types'] = 'gif|jpg|png';
+	   $config['max_size']      = 2000;
+	   $config['max_width']     = 10240;
+	   $config['max_height']    = 7680;
+	   $this->load->library('upload', $config);
+
+	   if ( ! $this->upload->do_upload('logo')) {
+		  $error = array('error' => $this->upload->display_errors());
+		//   var_dump($error);
+		//   $this->load->view('test/upload_form', $error);
+	   }
+
+	   else {
+		  $data = array('upload_data' => $this->upload->data());
+		//   $this->load->view('test/upload_success', $data);
+		  return $data;
+	   }
 	}
 
 	public function showPage($page) {
