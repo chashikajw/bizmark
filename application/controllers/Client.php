@@ -28,6 +28,18 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
+    public function search_keyword(){
+        $this->load->model('BusinessModel');
+        $keyword = $this->input->get('keyword');
+        $data['business_data'] = $this->BusinessModel->search($keyword);
+
+
+        $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
+        $this->load->view('client/browse', $data);
+        $this->load->view('client/layouts/footer', $data);
+    }
+
      public function mapView(){
         $this->showPage('map');
     }

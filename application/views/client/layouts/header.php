@@ -69,8 +69,8 @@
 					  <li class=""><a href="">Contact</a></li>
 					</ul>
 
-                    <form  class="navbar-search pull-left" >
-                     <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span3"/>
+                    <form  class="navbar-search pull-left" method= "GET">
+                     <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span3"/  name="keyword" >
                     </form>
                     <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
