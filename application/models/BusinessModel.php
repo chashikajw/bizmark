@@ -26,13 +26,11 @@ class BusinessModel extends CI_Model {
 	}
 
 	public function search($keyword){s
-		try{
+		
 			$this->db->like('item_name',$keyword);
     		$query  =   $this->db->get('business');
     		return $query->result();
-		} catch (Exception $err) {
-			return $err->getMessage();
-		}
+		
 	}
 
 	
