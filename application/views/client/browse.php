@@ -27,7 +27,6 @@ foreach ($business_data as $item){ ?>
         </a>
 <?php
 $i += 1;
-
 if ($i % 4 == 0){ ?>
 
 </ul>
@@ -37,7 +36,6 @@ if ($i % 4 == 0){ ?>
 
 
 <?php }
-
 } ?>
 
 </ul>
