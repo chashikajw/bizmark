@@ -4,6 +4,9 @@ class Client extends CI_Controller {
     public function index(){
         // $this->showPage('home');
         $data = array();
+        $this->load->model('BusinessModel');
+        $data['business_data'] = $this->BusinessModel->select();
+
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/carousel', $data);
         $this->load->view('client/layouts/sidebar', $data);
@@ -12,11 +15,17 @@ class Client extends CI_Controller {
     }
 
     public function signup(){
-        $this->showPage('signup');
+        $data = array();
+        $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
+        $this->load->view('client/signup', $data);
+        $this->load->view('client/layouts/footer', $data);
     }
 
     public function browse(){
-        $data = array();
+        $this->load->model('BusinessModel');
+        $data['business_data'] = $this->BusinessModel->select();
+
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/sidebar', $data);
         $this->load->view('client/browse', $data);
