@@ -83,11 +83,11 @@ class Client extends CI_Controller {
             $postalcode = $this->input->post('UPostalcode');
             $country = $this->input->post('UCountry');
             $phoneNo = $this->input->post('UPhoneNo');
-            $password = $this->input->post('password');
+            $password = $this->input->post('Upassword');
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
-            $userInfo = array('username' =>  $username, 'password' =>  $password, 'first_name' =>  $firstname, 'last_name' =>  $lastname , 'email' => $email, 'address' =>  $adress ,'city' =>  $city, 'phone' => $phoneNo,'gender' =>  $postalcode, 'dob' =>  $dob);
+            $userInfo = array('username' =>  $username, 'password' =>  $password, 'first_name' =>  $firstname, 'last_name' =>  $lastname , 'email' => $email, 'address' =>  $adress ,'city' =>  $city, 'password' => $password, 'phone' => $phoneNo,'gender' =>  $postalcode, 'dob' =>  $dob);
 
             $this->load->model('ClientModel');
             $result = $this->ClientModel->insertUser($userInfo);

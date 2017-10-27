@@ -63,14 +63,15 @@
                   </a>
                   <div class="nav-collapse">
                     <ul class="nav">
-					  <li class="active"><a href="<?php echo base_url(''); ?>">Home	</a></li>
+					  <li class="active"><a href="<?php echo base_url('Client/search_keyword'); ?>">Home	</a></li>
                       <li class=""><a href="<?php echo base_url('Client/newsfeed'); ?>">Offers & Discounts</a></li>
                       <li class=""><a href="<?php echo base_url('/Client/browse'); ?>">Browse	</a></li>
 					  <li class=""><a href="">Contact</a></li>
 					</ul>
 
                     <form  class="navbar-search pull-left" >
-                     <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span3"/>
+                     <input id="search" name='search' type="text" placeholder="I'm looking for ..." class="search-query span3"/>
+                     <input type='submit' value='Search' class="btn" style="font-size: 11px; margin-top: 0px"/>
                     </form>
                     <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
