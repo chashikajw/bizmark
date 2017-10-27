@@ -7,6 +7,8 @@ class Client extends CI_Controller {
         $this->load->model('BusinessModel');
         $data['business_data'] = $this->BusinessModel->select();
 
+// echo 'a'; die('');
+
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/carousel', $data);
         $this->load->view('client/layouts/sidebar', $data);
