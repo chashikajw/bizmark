@@ -70,12 +70,13 @@
 					</ul>
 
                     <form  class="navbar-search pull-left" >
-                     <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span5"/>
+                     <input id="srchFld" type="text" placeholder="I'm looking for ..." class="search-query span3"/>
                     </form>
                     <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
                     <?php if ($logged_in) {
-                        echo "<li class=''><a href='" . base_url('business') . "'><b>My Business</b></a></li>";
+                        echo "<li class=''><a href='" . base_url('Business/registration') . "'>New Business</a></li>";
+                        echo "<li class=''><a href='" . base_url('business') . "'><b>My Businesses</b></a></li>";
                     } ?>
 
 
