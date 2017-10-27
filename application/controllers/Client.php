@@ -30,9 +30,8 @@ class Client extends CI_Controller {
 
     public function search_keyword(){
         $this->load->model('BusinessModel');
-        $keyword = $this->input->get('keyword');
+        $keyword = $this->input->get('search');
         $data['business_data'] = $this->BusinessModel->search($keyword);
-
 
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/sidebar', $data);
