@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class BusinessModel extends CI_Model {
 
-	public function insert($shopInfo) {
+	public function insertBusiness($businessInfo) {
 
 		try {
-			$this->db->insert('business', $shopInfo);
+			$this->db->insert('business', $businessInfo);
 
 			$ret = $this->db->insert_id() + 0;
 			return $ret;

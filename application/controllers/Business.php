@@ -46,20 +46,20 @@ class Business extends CI_Controller {
 	public function review() {
 		$this->showPage('reviews');
 	}
-	public function shopRegistration() {
-		$this->load->library('form_validation');
+	public function businessRegistration() {
+		// $this->load->library('form_validation');
 
-		$this->form_validation->set_rules('name', 'User name', 'required');
-		$this->form_validation->set_rules('handler', 'Name', 'required');
-		$this->form_validation->set_rules('address', 'Address', 'required');
-		$this->form_validation->set_rules('city', 'City', 'required');
-		$this->form_validation->set_rules('cId', 'Category ID', 'required');
-		$this->form_validation->set_rules('openingTime', 'Ope', 'required');
-		$this->form_validation->set_rules('closingTime', 'City', 'required');
-		$this->form_validation->set_rules('ltd', 'City', 'required');
-		$this->form_validation->set_rules('lotd', 'City', 'required');
+		// $this->form_validation->set_rules('name', 'Name', 'required');
+		// $this->form_validation->set_rules('handler', 'Name', 'required');
+		// $this->form_validation->set_rules('address', 'Address', 'required');
+		// $this->form_validation->set_rules('city', 'City', 'required');
+		// $this->form_validation->set_rules('cId', 'Category ID', 'required');
+		// $this->form_validation->set_rules('openingTime', 'Ope', 'required');
+		// $this->form_validation->set_rules('closingTime', 'City', 'required');
+		// $this->form_validation->set_rules('ltd', 'City', 'required');
+		// $this->form_validation->set_rules('lotd', 'City', 'required');
 
-		if ($this->form_validation->run() == TRUE) {
+		// if ($this->form_validation->run() == TRUE) {
 
 			$name = ucwords(strtolower($this->input->post('name')));
 			$handler = ucwords(strtolower($this->input->post('handler')));
@@ -71,25 +71,27 @@ class Business extends CI_Controller {
 			$ltd = $this->input->post('ltd');
 			$lotd = $this->input->post('lotd');
 
-			$shopInfo = array('name' => $name, 'handler' => $handler, 'address' => $address, '	city' => $city, 'category_id' => $cId, 'opening_time' => $oTime, 'closing_time' => $cTime, 'lat' => $ltd, 'lng' => $lotd);
+			$businessInfo = array('name' => $name, 'handler' => $handler, 'address' => $address, '	city' => $city, 'category_id' => $cId, 'opening_time' => $oTime, 'closing_time' => $cTime, 'lat' => $ltd, 'lng' => $lotd);
 
-			$this->load->model('ClientModel');
-			$result = $this->ClientModel->insertUser($userInfo);
+			$this->load->model('BusinessModel');
+			$result = $this->BusinessModel->insertBusiness($businessInfo);
 
 			if ($result > 0) {
 				$this->session->set_flashdata('success', 'Your shop  has been  successfully registered');
-				redirect('business/profile');
+				echo "aaa";
+				redirect('business');
 			} else {
 				$this->session->set_flashdata('errordb', 'Error in database insertion');
-				redirect('business/registration');
+				echo 'error';
+				// redirect('business/registration');
 			}
 
-		} else {
-			$this->session->set_flashdata('error', 'Error in Registration');
-
-			redirect('business/registration');
-
-		}
+		// } else {
+		// 	$this->session->set_flashdata('error', 'Error in Registration');
+		// 	echo 'zzz';
+		// 	// redirect('business/registration');
+		//
+		// }
 	}
 
 	public function showPage($page) {
