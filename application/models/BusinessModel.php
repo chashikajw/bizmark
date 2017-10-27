@@ -24,4 +24,13 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
+
+	public function getCategoryList(){
+		try{
+			$result = $this->db->get('category');
+			return $result->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
 }
