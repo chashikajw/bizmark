@@ -54,7 +54,7 @@ class Business extends CI_Controller {
 	}
 
 	public function postadd() {
-		$title = $this->input->post('businessName');
+		$title = $this->input->post('title');
 		$description = $this->input->post('description');
 		$info = $this->do_upload();
 		$filename = $info['upload_data']['file_name'];

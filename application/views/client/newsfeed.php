@@ -10,10 +10,12 @@ foreach ($post_data as $item){ ?>
     <center>
         <a  href="">
          <li class="span5">
+
            <div class="thumbnail">
+            <h3><?php echo $item->title; ?></h3>
                <?php echo "<img src='" . base_url() . "assets/business/" . $item->image_path . "' alt=''/>" ?>
                <div class="caption">
-                 <h5><?php echo $item->title; ?></h5>
+                
                  <p><?php echo $item->content; ?></p>
                  <center>
                  
