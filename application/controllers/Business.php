@@ -48,9 +48,32 @@ class Business extends CI_Controller {
 		// $this->load->view('business/layouts/footer');
 	}
 
+
 	public function review() {
 		$this->showPage('reviews');
 	}
+
+	public function postadd() {
+		$title = $this->input->post('businessName');
+		$description = $this->input->post('description');
+		$info = $this->do_upload();
+		$filename = $info['upload_data']['file_name'];
+		$postInfo = array('title' => $title, 'content' => $description, 'image_path' => $filename);
+
+		$this->load->model('BusinessModel');
+		$result = $this->BusinessModel->insertPost($postInfo);
+
+		if ($result > 0) {
+				$this->session->set_flashdata('success', 'Your add  has been  successfully shared');
+				redirect('client/newsfeed');
+			} else {
+				$this->session->set_flashdata('errordb', 'Error in database insertion');
+				redirect('business/news_feed');
+			}
+	}
+
+
+
 	public function businessRegistration() {
 		$this->load->library('form_validation');
 
