@@ -30,6 +30,8 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
+    
+
     public function search_keyword(){
         $this->load->model('BusinessModel');
         $keyword = $this->input->get('search');
@@ -46,7 +48,13 @@ class Client extends CI_Controller {
     }
 
     public function newsfeed(){
-        $this->showPage('newsfeed');
+        $this->load->model('BusinessModel');
+        $data['post_data'] = $this->BusinessModel->selectpost();
+
+        $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
+        $this->load->view('client/newsfeed', $data);
+        $this->load->view('client/layouts/footer', $data);
     }
 
 

@@ -13,6 +13,7 @@ foreach ($business_data as $item){ ?>
                  <h5><?php echo $item->name; ?></h5>
                  <p><?php echo $item->description; ?></p>
                  <center>
+                  <button class="btn btn-flat">View</button><br>
                  <span class="fa fa-star checked"></span>
                  <span class="fa fa-star checked"></span>
                  <span class="fa fa-star checked"></span>
@@ -27,7 +28,6 @@ foreach ($business_data as $item){ ?>
         </a>
 <?php
 $i += 1;
-
 if ($i % 4 == 0){ ?>
 
 </ul>
@@ -37,7 +37,6 @@ if ($i % 4 == 0){ ?>
 
 
 <?php }
-
 } ?>
 
 </ul>

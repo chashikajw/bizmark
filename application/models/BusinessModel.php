@@ -16,9 +16,29 @@ class BusinessModel extends CI_Model {
 
 	}
 
+	public function insertPost($postInfo){
+		try {
+			$this->db->insert('posts', $postInfo);
+
+			$ret = $this->db->insert_id() + 0;
+			return $ret;
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
 	public function select(){
 		try{
 			$result = $this->db->get('business');
+			return $result->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	public function selectpost(){
+		try{
+			$result = $this->db->get('posts');
 			return $result->result();
 		} catch (Exception $err) {
 			return $err->getMessage();

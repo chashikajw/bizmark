@@ -10,20 +10,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-	<!-- Less styles
-	<link rel="stylesheet/less" type="text/css" href="less/bootsshop.less">
-	<script src="less.js" type="text/javascript"></script>
-	 -->
+  <!-- Less styles
+  <link rel="stylesheet/less" type="text/css" href="less/bootsshop.less">
+  <script src="less.js" type="text/javascript"></script>
+   -->
 
     <!-- Le styles  -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet"/>
     <link href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.css" rel="stylesheet"/>
-	<link href="<?php echo base_url(); ?>assets/css/docs.css" rel="stylesheet"/>
+  <link href="<?php echo base_url(); ?>assets/css/docs.css" rel="stylesheet"/>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet"/>
     <link href="<?php echo base_url(); ?>assets/css/main.css" rel="stylesheet"/>
-	<link href="<?php echo base_url(); ?>assets/js/google-code-prettify/prettify.css" rel="stylesheet"/>
+  <link href="<?php echo base_url(); ?>assets/js/google-code-prettify/prettify.css" rel="stylesheet"/>
 
 
     <!-- Add icon library -->
@@ -55,7 +55,7 @@
 <div class="navbar navbar-fixed-top">
               <div class="navbar-inner">
                 <div class="container">
-					<a id="logoM" href="<?php echo site_url(''); ?>"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
+          <a id="logoM" href="<?php echo site_url(''); ?>"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
                   <a data-target="#sidebar" data-toggle="collapse" class="btn btn-navbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -63,11 +63,11 @@
                   </a>
                   <div class="nav-collapse">
                     <ul class="nav">
-					  <li class="active"><a href="<?php echo base_url(''); ?>">Home	</a></li>
+            <li class="active"><a href="<?php echo base_url(''); ?>">Home </a></li>
                       <li class=""><a href="<?php echo base_url('Client/newsfeed'); ?>">Offers & Discounts</a></li>
-                      <li class=""><a href="<?php echo base_url('/Client/browse'); ?>">Browse	</a></li>
-					  <li class=""><a href="">Contact</a></li>
-					</ul>
+                      <li class=""><a href="<?php echo base_url('/Client/browse'); ?>">Browse </a></li>
+            <li class=""><a href="">Contact</a></li>
+          </ul>
 
                     <form  class="navbar-search pull-left" action="<?php echo base_url('Client/'); ?>search_keyword">
                      <input id="search" name='search' type="text" placeholder="I'm looking for ..." class="search-query span2"/>
@@ -84,8 +84,8 @@
             <!-- login button -->
             <?php if (!$logged_in){ ?>
                     <li class="dropdown">
-						<a data-toggle="dropdown" class="dropdown-toggle" href="#">Login <b class="caret"></b></a>
-						<div class="dropdown-menu">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Login <b class="caret"></b></a>
+            <div class="dropdown-menu">
 
                <?php
                     $this->load->helper('form');
@@ -106,24 +106,24 @@
                                       </div>
                                         <?php }?>
 
-					<form class="form-horizontal loginFrm" action="<?php echo base_url(); ?>Client/loginUser" method="POST">
-						  <div class="control-group">
-							<input type="text" class="span2" id="inputEmail" placeholder="Email" name="email" required="">
-						  </div>
-						  <div class="control-group">
-							<input type="password" class="span2" id="inputPassword" placeholder="Password" name="password" required="">
+          <form class="form-horizontal loginFrm" action="<?php echo base_url(); ?>Client/loginUser" method="POST">
+              <div class="control-group">
+              <input type="text" class="span2" id="inputEmail" placeholder="Email" name="email" required="">
+              </div>
+              <div class="control-group">
+              <input type="password" class="span2" id="inputPassword" placeholder="Password" name="password" required="">
 
-						  </div>
-						  <div class="control-group">
-							<label class="checkbox">
-							<input type="checkbox"> Remember me
-							</label>
+              </div>
+              <div class="control-group">
+              <label class="checkbox">
+              <input type="checkbox"> Remember me
+              </label>
                             <a class="btn btn-warning pull-left" href="<?php echo base_url('Client/signup'); ?>">Sign up</a>
-							<button type="submit" class="btn pull-right">Sign in</button>
-						  </div>
-						</form>
-						</div>
-					</li>
+              <button type="submit" class="btn pull-right">Sign in</button>
+              </div>
+            </form>
+            </div>
+          </li>
             <?php } else { ?>
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo "<b>" . $this->session->userdata('userdata')['username'] . "</b>";  ?><b class="caret"></b></a>
@@ -135,7 +135,7 @@
                 </li>
              <?php } ?>
 
-					</ul>
+          </ul>
                   </div><!-- /.nav-collapse -->
                 </div>
               </div><!-- /navbar-inner -->
@@ -145,12 +145,12 @@
 <header id="header">
 <div class="row">
 <div class="span12">
-	<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
+  <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo.png" alt="Bootsshop"/></a>
 <div class="pull-right"> <br/>
-	<!-- <a href="product_summary.html"> <span class="btn btn-mini btn-warning"> <i class="icon-shopping-cart icon-white"></i> [ 3 ] </span> </a> -->
-	<!-- <a href="product_summary.html"><span class="btn btn-mini active">$155.00</span></a> -->
-	<!-- <span class="btn btn-mini">&pound;</span> -->
-	<!-- <span class="btn btn-mini">&euro;</span> -->
+  <!-- <a href="product_summary.html"> <span class="btn btn-mini btn-warning"> <i class="icon-shopping-cart icon-white"></i> [ 3 ] </span> </a> -->
+  <!-- <a href="product_summary.html"><span class="btn btn-mini active">$155.00</span></a> -->
+  <!-- <span class="btn btn-mini">&pound;</span> -->
+  <!-- <span class="btn btn-mini">&euro;</span> -->
 </div>
 </div>
 </div>
