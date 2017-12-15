@@ -104,7 +104,7 @@ class Client extends CI_Controller {
             $postalcode = $this->input->post('UPostalcode');
             $country = $this->input->post('UCountry');
             $phoneNo = $this->input->post('UPhoneNo');
-            $password = $this->input->post('Upassword');
+            $password = $this->input->post('UPassword');
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
