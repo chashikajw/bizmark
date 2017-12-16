@@ -30,9 +30,9 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
-    public function categary_view($id){
+    public function categary_view($name){
         $this->load->model('BusinessModel');
-        $data['business_data'] = $this->BusinessModel->selectcategory($id);
+        $data['business_data'] = $this->BusinessModel->selectcategory($name);
 
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/sidebar', $data);
