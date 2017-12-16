@@ -1,17 +1,24 @@
 <?php
 class Client extends CI_Controller {
 
+    public function __construct(){
+        parent::__construct();
+        $this->data = array();
+
+        $this->load->model('BusinessModel', 'Model');
+        $this->data['categorylist'] = $this->Model->getCategoryList();
+    }
+
     public function index(){
         // $this->showPage('home');
-        $data = array();
         $this->load->model('BusinessModel');
-        $data['business_data'] = $this->BusinessModel->select();
+        $this->data['business_data'] = $this->BusinessModel->select();
 
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/carousel', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/browse', $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->load->view('client/layouts/header', $this->data);
+        $this->load->view('client/layouts/carousel', $this->data);
+        $this->load->view('client/layouts/sidebar', $this->data);
+        $this->load->view('client/browse', $this->data);
+        $this->load->view('client/layouts/footer', $this->data);
     }
 
     // Show signup page
@@ -22,67 +29,67 @@ class Client extends CI_Controller {
     // Browse all business
     public function browse(){
         $this->load->model('BusinessModel');
-        $data['business_data'] = $this->BusinessModel->select();
+        $this->data['business_data'] = $this->BusinessModel->select();
 
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/browse', $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->load->view('client/layouts/header', $this->data);
+        $this->load->view('client/layouts/sidebar', $this->data);
+        $this->load->view('client/browse', $this->data);
+        $this->load->view('client/layouts/footer', $this->data);
     }
 
-    public function categary_view($name){
+    public function categary_view($categoryId){
         $this->load->model('BusinessModel');
-        $data['business_data'] = $this->BusinessModel->selectcategory($name);
+        $this->data['business_data'] = $this->BusinessModel->selectcategory($categoryId);
 
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/browse', $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->load->view('client/layouts/header', $this->data);
+        $this->load->view('client/layouts/sidebar', $this->data);
+        $this->load->view('client/browse', $this->data);
+        $this->load->view('client/layouts/footer', $this->data);
     }
 
     // Search business
     public function search_keyword(){
         $this->load->model('BusinessModel');
         $keyword = $this->input->get('search');
-        $data['business_data'] = $this->BusinessModel->search($keyword);
+        $this->data['business_data'] = $this->BusinessModel->search($keyword);
 
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/browse', $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->load->view('client/layouts/header', $this->data);
+        $this->load->view('client/layouts/sidebar', $this->data);
+        $this->load->view('client/browse', $this->data);
+        $this->load->view('client/layouts/footer', $this->data);
     }
 
 
      public function search_map_categary(){
         $this->load->model('BusinessModel');
         $categary = $this->input->post('UCategory');
-        $data['business_data'] = $this->BusinessModel->selectcategory($categary);
+        $this->data['business_data'] = $this->BusinessModel->selectcategory($categary);
 
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/map', $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->load->view('client/layouts/header', $this->data);
+        $this->load->view('client/layouts/sidebar', $this->data);
+        $this->load->view('client/map', $this->data);
+        $this->load->view('client/layouts/footer', $this->data);
     }
 
 
      public function mapView(){
          $this->load->model('BusinessModel');
-        $data['business_data'] = $this->BusinessModel->select();
+        $this->data['business_data'] = $this->BusinessModel->select();
 
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/map', $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->load->view('client/layouts/header', $this->data);
+        $this->load->view('client/layouts/sidebar', $this->data);
+        $this->load->view('client/map', $this->data);
+        $this->load->view('client/layouts/footer', $this->data);
     }
 
     public function newsfeed(){
         $this->load->model('BusinessModel');
-        $data['post_data'] = $this->BusinessModel->selectpost();
+        $this->data['post_data'] = $this->BusinessModel->selectpost();
 
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/newsfeed', $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->load->view('client/layouts/header', $this->data);
+        $this->load->view('client/layouts/sidebar', $this->data);
+        $this->load->view('client/newsfeed', $this->data);
+        $this->load->view('client/layouts/footer', $this->data);
     }
 
     // Show requested view
@@ -93,11 +100,11 @@ class Client extends CI_Controller {
             show_404();
         }
 
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view('client/layouts/header', $data);
-        $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/'.$page, $data);
-        $this->load->view('client/layouts/footer', $data);
+        $this->data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view('client/layouts/header', $this->data);
+        $this->load->view('client/layouts/sidebar', $this->data);
+        $this->load->view('client/'.$page, $this->data);
+        $this->load->view('client/layouts/footer', $this->data);
     }
 
     // Login
