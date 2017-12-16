@@ -72,7 +72,7 @@ class BusinessModel extends CI_Model {
 
 
 	// Get business by category id
-	public function selectcategory($id){
+	public function selectcategory($name){
 		try{
 			$this->db->select('id');
 		    $this->db->from('category');
