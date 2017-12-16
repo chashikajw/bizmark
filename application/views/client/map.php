@@ -5,20 +5,20 @@
         <h3> Track the best services</h3>
         
          	 <form  class="form-inline" action="<?php echo base_url('Client/'); ?>search_map_categary" method="POST">
-                     <label class="control-label" for="country">Serch by</label><br>
+                     <label class="control-label" for="country">Search by</label><br>
                     
 
                         <select type="text" id="country" name="UCategory" required/>
 
 
 					        <option value="">Category</option>
-					        <option value="1">Restaurants</option>
-					        <option value="2">Electronics</option>
-					        <option value="3">Banks</option>
-					        <option value="4">Clothing</option>
-					        <option value="5">Supermarket</option>
-					        <option value="6">Food & Drink</option>
-					        <option value="6">Hotel</option>
+					        <option value="Restaurants">Restaurants</option>
+					        <option value="Electronics">Electronics</option>
+					        <option value="Banks">Banks</option>
+					        <option value="Clothing">Clothing</option>
+					        <option value="Supermarket">Supermarket</option>
+					        <option value="Food_and_Drink">Food & Drink</option>
+					        <option value="Hotel">Hotel</option>
 				    	</select>
 				 
                      <input type='submit' value='Search' class="btn" style="font-size: 11px; margin-top: 0px"/>
@@ -68,8 +68,7 @@
 
 
         function setMarkers(){
-        clearMarkers(features);
-
+        
         var features = [];
 
         <?php
@@ -88,18 +87,10 @@
             map: map
           });
         });
+       
 
         }
 
-      
-
-		function clearMarkers(markers){
-			if (typeof markers !== 'undefined'){
-				for (m in markers) {
-				    markers[m].setMap(null);
-				}
-			}
-		}
 
 		function calculateAndDisplayRoute(directionsService, directionsDisplay, start, end) {
 		  // alert(start);
@@ -129,3 +120,4 @@
         </script>
        
     </div>
+    <hr>

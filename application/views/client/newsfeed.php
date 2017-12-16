@@ -8,6 +8,9 @@
         });
        
       </script>
+      
+
+
 <div class="item span9">
   <div class="item span9" id="show">
     <ul class="thumbnails">
