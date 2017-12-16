@@ -52,8 +52,16 @@ class Client extends CI_Controller {
     }
 
      public function mapView(){
-        $this->showPage('map');
+         $this->load->model('BusinessModel');
+        $data['business_data'] = $this->BusinessModel->select();
+
+        $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
+        $this->load->view('client/map', $data);
+        $this->load->view('client/layouts/footer', $data);
     }
+
+     
 
     public function newsfeed(){
         $this->load->model('BusinessModel');

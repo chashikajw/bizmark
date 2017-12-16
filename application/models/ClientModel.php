@@ -16,6 +16,7 @@ class ClientModel extends CI_Model {
 
 	}
 
+
 	public function loginUser() {
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
