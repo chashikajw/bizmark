@@ -29,7 +29,7 @@
                   <div class="x_content">
                     <br />
 
-                    <form id="demo-form2" data-parsley-validate  enctype="multipart/form-data" class="form-horizontal form-label-left" action="<?php echo base_url() ?>Business/businessRegistration" method="POST" >
+                    <form id="demo-form2" data-parsley-validate  enctype="multipart/form-data" class="form-horizontal form-label-left" action="<?php echo base_url() ?>Business/register" method="POST" >
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> Business Name

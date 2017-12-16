@@ -5,15 +5,35 @@ class Business extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		// Load libraries
 		$this->load->helper(array('form', 'url'));
-		// $this->session->keep_flashdata('success');
-		// $this->session->keep_flashdata('errordb');
-		// $this->session->keep_flashdata('error');
 
+		// Init session
+		$user = $this->session->userdata('user_data');
+		if ($user != null){
+			// Set business id
+			$this->businessId = $user['business_id'];
+		} else {
+			// Show home page (not logged in)
+			redirect('/', 'refresh');
+			exit();
+		}
+
+		// Set business info
+		$this->businessInfo = $this->session->userdata('business_data');
+	}
+
+	// Show profile page
+	public function profile() {
+		$data = array();
+		$this->load->model('BusinessModel');
+		$data['categorylist'] = $this->BusinessModel->getCategoryList();
+		$data['business_data'] = $this->BusinessModel->getBusinessInfo($this->businessId);
+		$this->showPage('business_profile', $data);
 	}
 
 	public function index() {
-		$this->showPage('business_profile');
+		$this->profile();
 	}
 
 	public function news_feed() {
@@ -28,9 +48,6 @@ class Business extends CI_Controller {
 		$this->showPage('configuration');
 	}
 
-	public function profile() {
-		$this->showPage('business_profile');
-	}
 
 	public function inbox() {
 		$this->showPage('inbox');
@@ -72,9 +89,39 @@ class Business extends CI_Controller {
 			}
 	}
 
+	// Update business info
+	public function update($id){
+		$businessInfo = $this->_getUserInput();
 
+		$this->load->model('BusinessModel');
+		$result = $this->BusinessModel->update($id, $businessInfo);
 
-	public function businessRegistration() {
+		if ($result > 0) {
+			$this->session->set_flashdata('success', 'Your shop  has been  successfully registered');
+		} else {
+			$this->session->set_flashdata('errordb', 'Error in database insertion');
+		}
+		redirect('business');
+	}
+
+	// Register business
+	public function register() {
+		$businessInfo = $this->_getUserInput();
+
+		$this->load->model('BusinessModel');
+		$result = $this->BusinessModel->insert($businessInfo);
+
+		if ($result > 0) {
+			$this->session->set_flashdata('success', 'Your shop  has been  successfully registered');
+			redirect('business');
+		} else {
+			$this->session->set_flashdata('errordb', 'Error in database insertion');
+			redirect('business/registration');
+		}
+	}
+
+	// Get form data
+	public function _getUserInput(){
 		$this->load->library('form_validation');
 
 		// $this->form_validation->set_rules('name', 'Name', 'required');
@@ -105,16 +152,7 @@ class Business extends CI_Controller {
 
 			$businessInfo = array('name' => $businessName, 'handler' => $handler, 'description' => $description, 'address' => $address, '	city' => $city, 'category_id' => $categoryId, 'logo_path' => $filename, 'opening_time' => $openningTime, 'closing_time' => $closingTime, 'lat' => $lat, 'lng' => $lng);
 
-			$this->load->model('BusinessModel');
-			$result = $this->BusinessModel->insertBusiness($businessInfo);
-
-			if ($result > 0) {
-				$this->session->set_flashdata('success', 'Your shop  has been  successfully registered');
-				redirect('business');
-			} else {
-				$this->session->set_flashdata('errordb', 'Error in database insertion');
-				redirect('business/registration');
-			}
+			return $businessInfo;
 
 		// } else {
 		// 	$this->session->set_flashdata('error', 'Error in Registration');
@@ -145,7 +183,7 @@ class Business extends CI_Controller {
 	   }
 	}
 
-	public function showPage($page) {
+	public function showPage($page, $data = null) {
 		if (!file_exists(APPPATH . 'views/business/' . $page . '.php')) {
 			show_404();
 		}

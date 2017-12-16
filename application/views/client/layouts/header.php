@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<?php $logged_in = $this->session->userdata('userdata') ==! null;  ?>
+<?php $logged_in = $this->session->userdata('user_data') ==! null;  ?>
 
 <html lang="en">
   <head>
@@ -137,9 +137,9 @@
           </li>
             <?php } else { ?>
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo "<b>" . $this->session->userdata('userdata')['username'] . "</b>";  ?><b class="caret"></b></a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo "<b>" . $this->session->userdata('user_data')['username'] . "</b>";  ?><b class="caret"></b></a>
                     <div class="dropdown-menu" style="padding: 10px; text-align:right;">
-                        <?php $user = $this->session->userdata('userdata');
+                        <?php $user = $this->session->userdata('user_data');
                         echo $user['username'] . '<br>' . $user['email'] . '<br>'; ?>
                         <a class="btn btn-warning pull-right" href="<?php echo base_url('Client/logoutUser'); ?>">Log out</a>
                     </div>

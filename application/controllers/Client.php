@@ -7,8 +7,6 @@ class Client extends CI_Controller {
         $this->load->model('BusinessModel');
         $data['business_data'] = $this->BusinessModel->select();
 
-// echo 'a'; die('');
-
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/carousel', $data);
         $this->load->view('client/layouts/sidebar', $data);
@@ -16,10 +14,12 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
+    // Show signup page
     public function signup(){
         $this->showPage('signup');
     }
 
+    // Browse all business
     public function browse(){
         $this->load->model('BusinessModel');
         $data['business_data'] = $this->BusinessModel->select();
@@ -30,6 +30,7 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
+    // Filter business by category
     public function categary_view($id){
         $this->load->model('BusinessModel');
         $data['categary_data'] = $this->BusinessModel->selectcategory($id);
@@ -40,6 +41,7 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
+    // Search business
     public function search_keyword(){
         $this->load->model('BusinessModel');
         $keyword = $this->input->get('search');
@@ -51,10 +53,12 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
-     public function mapView(){
+    // Show map view
+    public function mapView(){
         $this->showPage('map');
     }
 
+    // Show news feed
     public function newsfeed(){
         $this->load->model('BusinessModel');
         $data['post_data'] = $this->BusinessModel->selectpost();
@@ -65,9 +69,8 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
-
-    public function showPage($page)
-    {
+    // Show requested view
+    public function showPage($page) {
         if ( ! file_exists(APPPATH.'views/client/'.$page.'.php'))
         {
             // Whoops, we don't have a page for that!
@@ -81,6 +84,49 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
+    // Login
+    public function loginUser() {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            redirect('', 'refresh');
+        } else {
+            $this->load->model('ClientModel');
+            $result = $this->ClientModel->loginUser();
+
+            if ($result != false) {
+                $userInfo = $this->ClientModel->getUserInfo($result->id);
+                var_dump($userInfo);
+                $userData = array(
+                    'user_id'     => $userInfo->id,
+                    'username'    => $userInfo->username,
+                    'email'       => $userInfo->email,
+                    'loggedin'    => TRUE,
+                    'business_id' => $userInfo->business_id,
+                    'user_info'   => $userInfo, // All user info
+                );
+                $this->session->set_userdata('user_data',$userData);
+                // print_r($_SESSION);
+                redirect('', 'refresh');
+
+            } else {
+                $this->session->set_flashdata('error', 'Invalid Username or Password');
+                redirect('', 'refresh');
+
+            }
+
+        }
+    }
+
+    // Logout
+    public function logoutUser(){
+        $this->session->unset_userdata('user_data');
+        redirect('', 'refresh');
+    }
+
+    // Registration
     public function registerUser() {
 
         $this->load->library('form_validation');
@@ -140,40 +186,4 @@ class Client extends CI_Controller {
     }
 
 
-    public function loginUser() {
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-
-        if ($this->form_validation->run() == FALSE) {
-            redirect('', 'refresh');
-        } else {
-            $this->load->model('ClientModel');
-            $result = $this->ClientModel->loginUser();
-
-            if ($result != false) {
-                $user_data = array(
-                    'user_id' => $result->id,
-                    'username' => $result->username,
-                    'email' => $result->email,
-                    'loggedin' => TRUE,
-
-                );
-                $this->session->set_userdata('userdata',$user_data);
-                // print_r($_SESSION);
-                redirect('', 'refresh');
-
-            } else {
-                $this->session->set_flashdata('error', 'Invalid Username or Password');
-                redirect('', 'refresh');
-
-            }
-
-        }
-    }
-
-    public function logoutUser(){
-        $this->session->unset_userdata('userdata');
-        redirect('', 'refresh');
-    }
 }

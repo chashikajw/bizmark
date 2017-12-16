@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ClientModel extends CI_Model {
 
+	// Add new user
 	public function insertUser($userInfo) {
-
 		try {
 			$this->db->insert('user', $userInfo);
 
@@ -13,9 +13,9 @@ class ClientModel extends CI_Model {
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
-
 	}
 
+	// Login
 	public function loginUser() {
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
@@ -30,11 +30,19 @@ class ClientModel extends CI_Model {
 
 		if ($respond->num_rows() == 1) {
 			return $respond->row(0);
-
 		} else {
 			return false;
 		}
+	}
 
+	// Get user info
+	public function getUserInfo($id){
+		try{
+			$query = $this->db->query('CALL getUserInfo(?)', array($id));
+			return $query->result()[0];
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
 	}
 
 }
