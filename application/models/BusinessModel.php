@@ -7,7 +7,6 @@ class BusinessModel extends CI_Model {
 	public function insert($businessInfo) {
 		try {
 			$this->db->insert('business', $businessInfo);
-
 			$ret = $this->db->insert_id() + 0;
 			return $ret;
 		} catch (Exception $err) {

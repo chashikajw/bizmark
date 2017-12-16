@@ -142,6 +142,45 @@
                                     </div>
                                 </div>
 
+                                <!-- Set location -->
+                                <div class="form-group">
+                                    <label for="lat" class="control-label col-md-3 col-sm-3 col-xs-12">Set Location</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="span9">
+                                            <div id="map"></div>
+                                            <script>
+                                                var map;
+
+                                                function initMap() {
+                                                    map = new google.maps.Map(document.getElementById('map'), {
+                                                        zoom: 8,
+                                                        center: new google.maps.LatLng(7.2906, 80.6337),
+                                                        mapTypeId: 'roadmap'
+                                                    });
+
+                                                    google.maps.event.addListener(map, "click", function(event) {
+                                                        // get lat/lon of click
+                                                        var clickLat = event.latLng.lat();
+                                                        var clickLon = event.latLng.lng();
+
+                                                        // show in input box
+                                                        document.getElementById("lat").value = clickLat.toFixed(5);
+                                                        document.getElementById("lng").value = clickLon.toFixed(5);
+
+                                                        var marker = new google.maps.Marker({
+                                                            position: new google.maps.LatLng(clickLat, clickLon),
+                                                            map: map
+                                                        });
+                                                    });
+
+                                                }
+                                            </script>
+                                            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASed7m-nA1qJmxaRdN6f-eUFb6p0bhT_M&callback=initMap"></script>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- Latitude -->
                                 <div class="form-group">
                                     <label for="lat" class="control-label col-md-3 col-sm-3 col-xs-12">Latitude</label>

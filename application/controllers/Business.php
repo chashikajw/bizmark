@@ -12,8 +12,10 @@ class Business extends CI_Controller {
 		$user = $this->session->userdata('user_data');
 		if ($user != null){
 			// Load business data
-			$this->load->model('BusinessModel');
-			$this->businessData = $this->BusinessModel->getBusiness($user['business_id']);
+			if ($user['business_id']){
+				$this->load->model('BusinessModel');
+				$this->businessData = $this->BusinessModel->getBusiness($user['business_id']);
+			}
 		} else {
 			// Show home page (not logged in)
 			redirect('/', 'refresh');
@@ -93,6 +95,10 @@ class Business extends CI_Controller {
 	// Update business info
 	public function update($id){
 		$businessInfo = $this->_getUserInput();
+		// Ignore logo if not given
+		if ($businessInfo['logo_path'] == ''){
+			unset($businessInfo['logo_path']);
+		}
 
 		$this->load->model('BusinessModel');
 		$result = $this->BusinessModel->update($id, $businessInfo);
@@ -108,6 +114,12 @@ class Business extends CI_Controller {
 	// Register business
 	public function register() {
 		$businessInfo = $this->_getUserInput();
+		// Set default logo if not given
+		if ($businessInfo['logo_path'] == '' || $businessInfo['logo_path'] == null){
+			$businessInfo['logo_path'] = 'default.png';
+		}
+		// Set owner id
+		$businessInfo['owner_id'] = $this->session->userdata('user_data')['user_id'];
 
 		$this->load->model('BusinessModel');
 		$result = $this->BusinessModel->insert($businessInfo);

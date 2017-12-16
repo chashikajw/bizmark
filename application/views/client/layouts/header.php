@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<?php $logged_in = $this->session->userdata('user_data') ==! null;  ?>
+<?php $user_data = $this->session->userdata('user_data'); ?>
+<?php $logged_in = $user_data ==! null;  ?>
 
 <html lang="en">
   <head>
@@ -87,8 +88,11 @@
                     <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
                     <?php if ($logged_in) {
-                        echo "<li class=''><a href='" . base_url('Business/registration') . "'>New Business</a></li>";
-                        echo "<li class=''><a href='" . base_url('business') . "'><b>My Businesses</b></a></li>";
+                        if ($user_data['business_id']){
+                            echo "<li class=''><a href='" . base_url('business') . "'><b>My Businesses</b></a></li>";
+                        } else {
+                            echo "<li class=''><a href='" . base_url('Business/registration') . "'>New Business</a></li>";
+                        }
                     } ?>
 
 
