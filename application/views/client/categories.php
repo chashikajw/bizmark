@@ -1,10 +1,10 @@
 <div class="item span9">
   <div class="item span9">
-    <ul class="thumbnails">
+    
 
 <?php
 $i = 0;
-foreach ($categary_data as $item){ ?>
+foreach ($business_data as $item){ ?>
         <a  href="">
          <li class="span2">
            <div class="thumbnail">
@@ -26,21 +26,11 @@ foreach ($categary_data as $item){ ?>
            </div>
          </li>
         </a>
-<?php
-$i += 1;
-if ($i % 4 == 0){ ?>
-
-</ul>
-</div>
-<div class="item span9">
-    <ul class="thumbnails">
+     
+    </div>
+  </div>
 
 
-<?php }
+<?php 
 } ?>
 
-</ul>
-</div>
-
-    </div>
-</div>

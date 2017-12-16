@@ -21,14 +21,12 @@
     
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>assets/build/css/custom.min.css" rel="stylesheet">
+     <style>
+      #map {
+        height: 250px;
+        width: 100%;
+       }
+    </style>
 
-     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
-      <script type="text/javascript">
-        $(document).ready(function(){
-          setInterval(function(){
-            $('#show').load('<?php echo base_url(); ?>application/views/client/newsfeed.php')
-          },3000);
-        });
-       
-      </script>
+    
   </head>

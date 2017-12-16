@@ -3,64 +3,114 @@
     <div class="span9">
          </ul>
         <h3> Track the best services</h3>
+        
+         	 <form  class="form-inline" action="<?php echo base_url('Client/'); ?>search_map_categary" method="POST">
+                     <label class="control-label" for="country">Search by</label><br>
+                    
+
+                        <select type="text" id="country" name="UCategory" required/>
+
+
+					        <option value="">Category</option>
+					        <option value="Restaurants">Restaurants</option>
+					        <option value="Electronics">Electronics</option>
+					        <option value="Banks">Banks</option>
+					        <option value="Clothing">Clothing</option>
+					        <option value="Supermarket">Supermarket</option>
+					        <option value="Food_and_Drink">Food & Drink</option>
+					        <option value="Hotel">Hotel</option>
+				    	</select>
+				 
+                     <input type='submit' value='Search' class="btn" style="font-size: 11px; margin-top: 0px"/>
+                    </form>
+                    
+        
         <hr class="soft" />
         <div id="map"></div>
-        <script>
-        	function initMap(){
-        		var colombo = {lat: 6.9271, lng: 79.8612};
-        		var galle = {lat: 6.0535, lng: 80.2210};
-        		var kandy = {lat: 7.2906, lng: 80.6337};
-        		var map = new google.maps.Map(document.getElementById('map'),{
-        			zoom: 8,
-        			center: kandy
-        		});
-        		var maker2 = new google.maps.Marker({
-        			position: colombo,
-        			map: map
-        		});
-        		var maker = new google.maps.Marker({
-        			position: galle,
-        			map: map
-        		});
-        		setMarkers();
-        	}
+       
+
+    <script>
+       var curlat;
+       var curlng;
+       var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 9,
+          center: new google.maps.LatLng(7.2906, 80.6337),
+          mapTypeId: 'roadmap'
+        });
+
+        infoWindow = new google.maps.InfoWindow;
+
+         if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            curlat = position.coords.latitude;
+            curlng = position.coords.longitude;
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Your Location.');
+            infoWindow.open(map);
+            //map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        setMarkers();
+        }
 
 
-        	function setMarkers(){
-				  //clearMarkers(markers);
-				  var markers = [];
-				  markers.push({name: 'Marker 1', lat: 8.7585700, lng: 80.491870, type:'metal', place:'Sewalanka+Foundation, lk'});
-				  markers.push({name: 'Marker 2', lat: 8.7626494, lng: 80.490561, type:'paper', place:'Pop+Yarl+Ice+Cream, lk'});
-				  markers.push({name: 'Marker 3', lat: 8.758109, lng: 80.490282, type:'plastic', place:'Suvai+Aruvi, lk'});
-				  markers.push({name: 'Marker 4', lat: 8.757731, lng: 80.491550, type:'glass', place:'Recharge+Now+Dth+Systems, lk'});
-				  markers.push({name: 'Marker 5', lat: 8.758239, lng: 80.500592, type:'plastic', place:'Iluppayadi, lk'});
-				  markers.push({name: 'Marker 6', lat: 8.762289, lng: 80.489012, type:'metal', place:'Vithusha+Medi+Clinic'});
-				  markers.push({name: 'Marker 7', lat: 8.761160, lng: 80.497254, type:'paper', place:'Vavuniya+Divisional+Secretariat, lk'});
-				  markers.push({name: 'Marker 8', lat: 8.754790, lng: 80.495007, type:'glass', place:'Distilleries+Company+Wholesale+Outlet, lk'});
+        function setMarkers(){
+        
+        var features = [];
 
-				  for (m in markers){
-				    if (document.getElementById('chk-'.concat(markers[m]['type'])).checked){
-				      mk = markers[m]['place'];
-				      markers[m] = new google.maps.Marker({
-				        animation: google.maps.Animation.DROP,
-				        position: {lat:markers[m]['lat'], lng:markers[m]['lng']},
-				        map: window.map,
-				        place: markers[m]['place'],
-				        title: markers[m]['name'],
-				        icon: 'images/bin-'.concat(markers[m]['type'], '.png')
-				      });
+        <?php
 
-				      google.maps.event.addListener(markers[m], 'click', (function(mk) {
-				        return function() {
-				              calculateAndDisplayRoute(window.directionsService, window.directionsDisplay, "Vavuniya+Campus,+University+of+Jaffna, lk", mk);
-				        }
-				      })(mk));
-				    }
-				  }
-				  window.markers = markers;
-				}
-        	</script>
+			foreach ($business_data as $item) {
+		?>
+  				features.push({position: new google.maps.LatLng(<?php echo $item->lat; ?>, <?php echo $item->lng; ?>),type: 'info', icon:<?php echo $item->category_id; ?> ,name:'<?php echo $item->name; ?>'});
+  		<?php }?>
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            animation: google.maps.Animation.DROP,
+            title: feature.name,
+            icon:  '<?php echo  base_url() ?>assets/images/'+ feature.icon + '.png' ,
+            map: map
+          });
+        });
+       
 
+        }
+
+
+		function calculateAndDisplayRoute(directionsService, directionsDisplay, start, end) {
+		  // alert(start);
+		  // alert(end);
+		  directionsService.route({
+		    origin: start,
+		    destination: end,
+		    travelMode: 'DRIVING'
+		  }, function(response, status) {
+		    if (status === 'OK') {
+		      directionsDisplay.setDirections(response);
+		      // alert(response);
+		    } else {
+		      window.alert('Directions request failed due to ' + status);
+		    }
+		  });
+		}
+
+
+    </script>
 
 
         	 <script async defer
@@ -70,3 +120,4 @@
         </script>
        
     </div>
+    <hr>

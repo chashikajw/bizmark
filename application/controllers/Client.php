@@ -30,14 +30,13 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
-    // Filter business by category
-    public function categary_view($id){
+    public function categary_view($name){
         $this->load->model('BusinessModel');
-        $data['categary_data'] = $this->BusinessModel->selectcategory($id);
+        $data['business_data'] = $this->BusinessModel->selectcategory($name);
 
         $this->load->view('client/layouts/header', $data);
         $this->load->view('client/layouts/sidebar', $data);
-        $this->load->view('client/categories', $data);
+        $this->load->view('client/browse', $data);
         $this->load->view('client/layouts/footer', $data);
     }
 
@@ -53,12 +52,29 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer', $data);
     }
 
-    // Show map view
-    public function mapView(){
-        $this->showPage('map');
+
+     public function search_map_categary(){
+        $this->load->model('BusinessModel');
+        $categary = $this->input->post('UCategory');
+        $data['business_data'] = $this->BusinessModel->selectcategory($categary);
+
+        $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
+        $this->load->view('client/map', $data);
+        $this->load->view('client/layouts/footer', $data);
     }
 
-    // Show news feed
+
+     public function mapView(){
+         $this->load->model('BusinessModel');
+        $data['business_data'] = $this->BusinessModel->select();
+
+        $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
+        $this->load->view('client/map', $data);
+        $this->load->view('client/layouts/footer', $data);
+    }
+
     public function newsfeed(){
         $this->load->model('BusinessModel');
         $data['post_data'] = $this->BusinessModel->selectpost();
