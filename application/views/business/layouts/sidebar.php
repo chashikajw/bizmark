@@ -12,11 +12,11 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="<?php echo base_url(); ?>assets/images/macdonald.png" alt="..." class="img-circle profile_img">
+                            <?= "<img class='img-circle profile_img' src='" . base_url() . "assets/business/" . $business_data->logo_path . "' alt=''/>" ?>
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>Macdonald!</h2>
+                            <!-- <span>Welcome,</span> -->
+                            <h2> <?= $business_data->name; ?></h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->

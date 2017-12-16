@@ -38,11 +38,14 @@ class ClientModel extends CI_Model {
 	// Get user info
 	public function getUserInfo($id){
 		try{
-			$query = $this->db->query('CALL getUserInfo(?)', array($id));
+			$this->db->where('id', $id);
+			$query = $this->db->get('user_view');
 			return $query->result()[0];
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
+
+
 
 }

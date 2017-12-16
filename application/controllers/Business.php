@@ -11,8 +11,9 @@ class Business extends CI_Controller {
 		// Init session
 		$user = $this->session->userdata('user_data');
 		if ($user != null){
-			// Set business id
-			$this->businessId = $user['business_id'];
+			// Load business data
+			$this->load->model('BusinessModel');
+			$this->businessData = $this->BusinessModel->getBusiness($user['business_id']);
 		} else {
 			// Show home page (not logged in)
 			redirect('/', 'refresh');
@@ -28,7 +29,7 @@ class Business extends CI_Controller {
 		$data = array();
 		$this->load->model('BusinessModel');
 		$data['categorylist'] = $this->BusinessModel->getCategoryList();
-		$data['business_data'] = $this->BusinessModel->getBusinessInfo($this->businessId);
+		$data['business_data'] = $this->businessData;
 		$this->showPage('business_profile', $data);
 	}
 
@@ -190,7 +191,7 @@ class Business extends CI_Controller {
 
 		$data['title'] = ucfirst($page); // Capitalize the first letter
 		$this->load->view('business/layouts/header');
-		$this->load->view('business/layouts/sidebar');
+		$this->load->view('business/layouts/sidebar', $data);
 		$this->load->view('business/' . $page, $data);
 		$this->load->view('business/layouts/footer');
 	}

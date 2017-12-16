@@ -3,16 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class BusinessModel extends CI_Model {
 
-	// Get business info
-	public function getBusinessInfo($id){
-		try{
-			$query = $this->db->query('CALL getBusinessInfo(?)', array($id));
-			return $query->result()[0];
-		} catch (Exception $err) {
-			return $err->getMessage();
-		}
-	}
-
 	// Add new business
 	public function insert($businessInfo) {
 		try {
@@ -51,8 +41,19 @@ class BusinessModel extends CI_Model {
 	// Get business
 	public function select(){
 		try{
-			$result = $this->db->get('business');
+			$result = $this->db->get('business_view');
 			return $result->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	// Get business info
+	public function getBusiness($id){
+		try{
+			$this->db->where('id', $id);
+			$result = $this->db->get('business_view');
+			return $result->result()[0];
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
