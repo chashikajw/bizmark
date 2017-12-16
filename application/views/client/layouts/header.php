@@ -29,6 +29,13 @@
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+     <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
     <!-- Load bootstrap -->
     <!-- <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -40,7 +47,11 @@
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+
     <![endif]-->
+
+
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/ico/favicon.ico">
@@ -155,5 +166,6 @@
 </div>
 </div>
 <div class="clr"></div>
+
 </header>
 <!-- ==================================================Header End====================================================================== -->

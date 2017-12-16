@@ -1,6 +1,15 @@
 
+ <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          setInterval(function(){
+            $('#show').load('<?php echo base_url(); ?>application/views/client/newsfeed.php')
+          },3000);
+        });
+       
+      </script>
 <div class="item span9">
-  <div class="item span9">
+  <div class="item span9" id="show">
     <ul class="thumbnails">
 
 <?php
