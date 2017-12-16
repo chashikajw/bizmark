@@ -50,6 +50,18 @@ class Client extends CI_Controller {
         $this->load->view('client/browse', $data);
         $this->load->view('client/layouts/footer', $data);
     }
+    
+
+     public function search_map_categary(){
+        $this->load->model('BusinessModel');
+        $categary = $this->input->post('UCategory');
+        $data['business_data'] = $this->BusinessModel->selectcategory($categary);
+
+        $this->load->view('client/layouts/header', $data);
+        $this->load->view('client/layouts/sidebar', $data);
+        $this->load->view('client/map', $data);
+        $this->load->view('client/layouts/footer', $data);
+    }
 
      public function mapView(){
          $this->load->model('BusinessModel');

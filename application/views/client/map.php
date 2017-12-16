@@ -3,6 +3,28 @@
     <div class="span9">
          </ul>
         <h3> Track the best services</h3>
+        
+         	 <form  class="form-inline" action="<?php echo base_url('Client/'); ?>search_map_categary" method="POST">
+                     <label class="control-label" for="country">Serch by</label><br>
+                    
+
+                        <select type="text" id="country" name="UCategory" required/>
+
+
+					        <option value="">Category</option>
+					        <option value="1">Restaurants</option>
+					        <option value="2">Electronics</option>
+					        <option value="3">Banks</option>
+					        <option value="4">Clothing</option>
+					        <option value="5">Supermarket</option>
+					        <option value="6">Food & Drink</option>
+					        <option value="6">Hotel</option>
+				    	</select>
+				 
+                     <input type='submit' value='Search' class="btn" style="font-size: 11px; margin-top: 0px"/>
+                    </form>
+                    
+        
         <hr class="soft" />
         <div id="map"></div>
        
