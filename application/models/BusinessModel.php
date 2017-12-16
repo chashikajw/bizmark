@@ -38,7 +38,17 @@ class BusinessModel extends CI_Model {
 
 	public function selectpost(){
 		try{
+			$this->db->order_by("id", "DESC");
 			$result = $this->db->get('posts');
+			return $result->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	public function selectcategory($id){
+		try{
+			$result = $this->db->get_where('business',array('category_id' => $id));
 			return $result->result();
 		} catch (Exception $err) {
 			return $err->getMessage();
