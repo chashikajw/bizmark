@@ -67,20 +67,6 @@
                                                             mapTypeId: 'roadmap'
                                                         });
 
-                                                        google.maps.event.addListener(map, "click", function(event) {
-                                                            // get lat/lon of click
-                                                            var clickLat = event.latLng.lat();
-                                                            var clickLon = event.latLng.lng();
-
-                                                            // show in input box
-                                                            document.getElementById("lat").value = clickLat.toFixed(5);
-                                                            document.getElementById("lng").value = clickLon.toFixed(5);
-
-                                                            var marker = new google.maps.Marker({
-                                                                position: new google.maps.LatLng(clickLat, clickLon),
-                                                                map: map
-                                                            });
-                                                        });
 
                                                     }
                                                 </script>
