@@ -22,7 +22,7 @@ foreach ($post_data as $item) {
 	?>
     <center>
 
-         <li class="span5" style="margin-left: 300px; margin-bottom: 30px ; box-shadow: 5px 5px 5px 5px rgba(20, 2, 4, 0.2);width: 65%">
+         <li class="span5" style="margin-left: 200px; margin-bottom: 30px ; box-shadow: 5px 5px 5px 5px rgba(20, 2, 4, 0.2);width: 75%;height:50%">
 
            <div class="thumbnail">
             <h3><?php echo $item->title; ?></h3>
