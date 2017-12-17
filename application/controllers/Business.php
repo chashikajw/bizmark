@@ -16,6 +16,7 @@ class Business extends CI_Controller {
 			if ($user['business_id']){
 				$this->load->model('BusinessModel');
 				$this->data['business_data'] = $this->BusinessModel->getBusiness($user['business_id']);
+				$this->businessId = $user['business_id'];
 			} else {
 				echo 'No business created!';
 				exit();
@@ -49,6 +50,11 @@ class Business extends CI_Controller {
 
 	// Show dashboard page
 	public function dashboard() {
+		$this->load->model('BusinessModel');
+		$this->data['business_report'] = $this->BusinessModel->getBusinessReportAll($this->businessId);
+		$this->data['review'] = $this->BusinessModel->getReviews($this->businessId);
+		$this->data['top_users'] = $this->BusinessModel->getTopUsers($this->businessId);
+		$this->data['subscribers'] = $this->BusinessModel->getSubscribers($this->businessId);
 		$this->showPage('dashboard', $this->data);
 	}
 
