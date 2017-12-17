@@ -40,12 +40,21 @@ class Business extends CI_Controller {
 
 	// Show default page
 	public function index() {
-		$this->profile();
+		$this->dashboard();
 	}
 
 	// Show news feed page
 	public function news_feed() {
+		$this->load->model('BusinessModel');
+		$this->data['posts_data'] = $this->BusinessModel->getmypost(3);
 		$this->showPage('news_feed', $this->data);
+
+	}
+
+	public function deletePost($id){
+		$this->load->model('BusinessModel');
+		$this->BusinessModel->deletepost($id);
+		redirect('business/news_feed');
 	}
 
 	// Show dashboard page
@@ -88,10 +97,11 @@ class Business extends CI_Controller {
 
 	public function postadd() {
 		$title = $this->input->post('title');
+		$bussness_id = $this->input->post('busness_id');
 		$description = $this->input->post('description');
 		$info = $this->do_upload();
 		$filename = $info['upload_data']['file_name'];
-		$postInfo = array('title' => $title, 'content' => $description, 'image_path' => $filename);
+		$postInfo = array('title' => $title, 'content' => $description, 'image_path' => $filename,'business_id' => $bussness_id );
 
 		$this->load->model('BusinessModel');
 		$result = $this->BusinessModel->insertPost($postInfo);

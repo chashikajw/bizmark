@@ -26,9 +26,9 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Add new post
-	public function insertPost($postInfo){
+	public function insertPost($postInfo) {
 		try {
-			$this->db->insert('posts', $postInfo);
+			$this->db->insert('advertisement', $postInfo);
 
 			$ret = $this->db->insert_id() + 0;
 			return $ret;
@@ -38,8 +38,8 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Get business
-	public function select(){
-		try{
+	public function select() {
+		try {
 			$result = $this->db->get('business_view');
 			return $result->result();
 		} catch (Exception $err) {
@@ -48,8 +48,8 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Get business info
-	public function getBusiness($id){
-		try{
+	public function getBusiness($id) {
+		try {
 			$this->db->where('id', $id);
 			$result = $this->db->get('business_view');
 			return $result->result()[0];
@@ -59,19 +59,35 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Get posts
-	public function selectpost(){
-		try{
+	public function selectpost() {
+		try {
 			$this->db->order_by("id", "DESC");
-			$result = $this->db->get('posts');
+			$result = $this->db->get('advertisement');
 			return $result->result();
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
 
+	//get my posts
+	public function getmypost($bussnesId) {
+		try {
+			$this->db->order_by("id", "DESC");
+			$result = $this->db->get_where('advertisement', array('business_id' => $bussnesId));
+			return $result->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	public function deletepost($addId){
+		 $this->db->where('id', $addId);
+   		$this->db->delete('advertisement'); 
+
+	}
 
 	// Get business by category id
-	public function selectcategory($categoryId){
+	public function selectcategory($categoryId) {
 		try {
 			$result = $this->db->get_where('business', array('category_id' => $categoryId));
 			return $result->result();
@@ -81,16 +97,16 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Search business
-	public function search($keyword){
-		$this->db->like('name',$keyword);
-		$this->db->or_like('description',$keyword);
+	public function search($keyword) {
+		$this->db->like('name', $keyword);
+		$this->db->or_like('description', $keyword);
 		$query = $this->db->get('business');
 		return $query->result();
 	}
 
 	// Get category list
-	public function getCategoryList(){
-		try{
+	public function getCategoryList() {
+		try {
 			$result = $this->db->get('category');
 			return $result->result();
 		} catch (Exception $err) {

@@ -23,8 +23,43 @@ class Client extends CI_Controller {
 
     // Show signup page
     public function signup(){
-        $this->showPage('signup');
+       $this->showPage('profileView');
     }
+
+     public function contact(){
+        $this->showPage('contact');
+    }
+
+    public function sendEmail(){
+       
+
+
+            $admin_email = "chashikajw007@gmail.com";
+            $fromEmail = $this->input->post('UEmail');
+            $message = $this->input->post('UMessage');
+            $subject = 'Customer Inquiry';
+
+            $headers .= "MIME-Version: 1.0\r\n";
+            $headers .= "Content-type: text/html\r\n";
+            $headers .= 'From: chashika007@gmail.com' . "\r\n" .
+            'Reply-To: chashikajw007@gmail.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+            $status = mail($admin_email , $subject, $message, $headers);
+            
+
+            if ($status) {
+                $this->session->set_flashdata('success', 'Message sent successfully');
+                redirect('Client/contact');
+            } else {
+                $this->session->set_flashdata('error', 'Try again');
+                redirect('Client/contact');
+            }
+
+
+       
+    }
+
 
     // Browse all business
     public function browse(){
