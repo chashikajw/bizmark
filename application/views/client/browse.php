@@ -3,12 +3,12 @@
 	<div class="container main-content" >
 
     	<?php foreach ($business_data as $item): ?>
-			<a href="#">
+			<a href="<?php echo base_url(); ?>Client/profile_view/3">
 			<div class="row span6 business-item" style="height: 140px">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="panel-more1 span2">
-							<a href="#" class="thumbnail panel-more1" style="width: 120px">
+							<a href="<?php echo base_url(); ?>Client/profile_view/<?= $item->id; ?>" class="thumbnail panel-more1" style="width: 120px">
 								<?php echo "<img src='" . base_url() . "assets/business/" . $item->logo_path . "' alt=''/>" ?>
 							</a>
 						</div>

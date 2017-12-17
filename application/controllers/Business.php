@@ -46,7 +46,7 @@ class Business extends CI_Controller {
 	// Show news feed page
 	public function news_feed() {
 		$this->load->model('BusinessModel');
-		$this->data['posts_data'] = $this->BusinessModel->getmypost(3);
+		$this->data['posts_data'] = $this->BusinessModel->getmypost($this->businessId);
 		$this->showPage('news_feed', $this->data);
 
 	}

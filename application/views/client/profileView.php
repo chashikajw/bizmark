@@ -10,7 +10,7 @@
       </div>
       <div class="span9 ">
       <div class="page-header text-center">
-        <h1>McDonald's</h1>
+        <h1><?= $show_bussness[0]->name; ?></h1>
       </div>
       
       </div>
@@ -38,7 +38,7 @@
           <h3 class="panel-title">About Us</h3>
         </div>
         <div class="panel-body">
-          <p style="font-size:90%;">McDonald's is the leading global foodservice retailer with over 36000 restaurants in more than 100 countries around the world.McDonald's mission is to continuously improve our social and environmental performance throughout communities we serve in more than 100 countries every day.</p>
+          <p style="font-size:90%;"><?= $show_bussness[0]->description; ?></p>
         </div>
 
       </div>
@@ -52,9 +52,10 @@
           <h3 class="panel-title">Contact Details</h3>
         </div>
         <div class="panel-body">
-          <p>Phone : 011 2548769</p>
-          <p>Website : https://www.mcdonalds.lk</p>
-          <p>Address : 498, Stamboul Place, Galle Road, Kollupitiya</p>
+          <p><?= $show_bussness[0]->handler; ?></p>
+          <p><?= $show_bussness[0]->city; ?></p>
+          <p><?= $show_bussness[0]->opening_time; ?></p>
+          <p><?= $show_bussness[0]->closing_time; ?></p>
           <p><img class="media-object" src="<?php echo base_url(); ?>assets/images/Macmap.png" style="width:340px ;height:200px"></p>
         </div>
 
