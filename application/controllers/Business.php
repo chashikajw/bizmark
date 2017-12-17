@@ -91,10 +91,11 @@ class Business extends CI_Controller {
 
 	public function postadd() {
 		$title = $this->input->post('title');
+		$bussness_id = $this->input->post('busness_id');
 		$description = $this->input->post('description');
 		$info = $this->do_upload();
 		$filename = $info['upload_data']['file_name'];
-		$postInfo = array('title' => $title, 'content' => $description, 'image_path' => $filename);
+		$postInfo = array('title' => $title, 'content' => $description, 'image_path' => $filename,'business_id' => $bussness_id );
 
 		$this->load->model('BusinessModel');
 		$result = $this->BusinessModel->insertPost($postInfo);
