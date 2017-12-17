@@ -28,21 +28,11 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-
+                                <li><a href="<?php echo base_url('business/dashboard'); ?>"><i class="fa fa-desktop"></i> Dashboard </a>
                                 <li><a href="<?php echo base_url('business/profile'); ?>"><i class="fa fa-home"></i> Profile </a>
-
-                                    <li><a href="<?php echo base_url('business/review'); ?>"><i class="fa fa-edit"></i> Ratings </a>
-
-                                        <li><a href="<?php echo base_url('business/dashboard'); ?>"><i class="fa fa-desktop"></i> Dashboard </a>
-
-                                            <li><a href="<?php echo base_url('business/news_feed'); ?>"><i class="fa fa-table"></i> Posts </a>
-
-
-
-                                                <li><a href="<?php echo base_url('business/inbox'); ?>"><i class="fa fa-clone"></i> Inbox </a>
-
-
-                                                </li>
+                                <li><a href="<?php echo base_url('business/review'); ?>"><i class="fa fa-edit"></i> Ratings </a>
+                                <li><a href="<?php echo base_url('business/news_feed'); ?>"><i class="fa fa-table"></i> Posts </a>
+                                <li><a href="<?php echo base_url('business/inbox'); ?>"><i class="fa fa-clone"></i> Inbox </a></li>
                             </ul>
                         </div>
 

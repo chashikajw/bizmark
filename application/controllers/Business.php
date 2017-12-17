@@ -40,7 +40,7 @@ class Business extends CI_Controller {
 
 	// Show default page
 	public function index() {
-		$this->profile();
+		$this->dashboard();
 	}
 
 	// Show news feed page
@@ -48,7 +48,7 @@ class Business extends CI_Controller {
 		$this->load->model('BusinessModel');
 		$this->data['posts_data'] = $this->BusinessModel->getmypost($this->businessId);
 		$this->showPage('news_feed', $this->data);
-		
+
 	}
 
 	public function deletePost($id){
@@ -59,6 +59,11 @@ class Business extends CI_Controller {
 
 	// Show dashboard page
 	public function dashboard() {
+		$this->load->model('BusinessModel');
+		$this->data['business_report'] = $this->BusinessModel->getBusinessReportAll($this->businessId);
+		$this->data['review'] = $this->BusinessModel->getReviews($this->businessId);
+		$this->data['top_users'] = $this->BusinessModel->getTopUsers($this->businessId);
+		$this->data['subscribers'] = $this->BusinessModel->getSubscribers($this->businessId);
 		$this->showPage('dashboard', $this->data);
 	}
 

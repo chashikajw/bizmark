@@ -127,4 +127,72 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
+	// Get Business Report All months
+	public function getBusinessReportAll($id){
+		try{
+			$query = $this->db->query('CALL getBusinessReportAll(?)', array($id));
+			$result = $query->result();
+
+			// free result
+			mysqli_next_result( $this->db->conn_id );
+			$query->free_result();
+
+			return $result;
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	// Get reviews
+	public function getReviews($businessId){
+		try{
+			$this->db->where('business_id', $businessId);
+			$query = $this->db->get('review_view');
+			return $query->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	// Get Top Users (Most reviewd)
+	public function getTopUsers($id){
+		try{
+			$query = $this->db->query('CALL getTopUsers(?)', array($id));
+			$result = $query->result();
+
+			// free result
+			mysqli_next_result( $this->db->conn_id );
+			$query->free_result();
+
+			return $result;
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	// Get Subscribers
+	public function getSubscribers($id){
+		try{
+			$query = $this->db->query('CALL getSubscribers(?)', array($id));
+			$result = $query->result();
+
+			// free result
+			mysqli_next_result( $this->db->conn_id );
+			$query->free_result();
+
+			return $result;
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+
+
+	// next result
+	function next_result(){
+		if (is_object($this->conn_id)){
+			return mysqli_next_result($this->conn_id);
+		}
+	}
+
 }
