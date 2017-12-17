@@ -80,6 +80,12 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
+	public function deletepost($addId){
+		 $this->db->where('id', $addId);
+   		$this->db->delete('advertisement'); 
+
+	}
+
 	// Get business by category id
 	public function selectcategory($categoryId) {
 		try {

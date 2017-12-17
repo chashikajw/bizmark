@@ -50,6 +50,12 @@ class Business extends CI_Controller {
 		
 	}
 
+	public function deletePost($id){
+		$this->load->model('BusinessModel');
+		$this->BusinessModel->deletepost($id);
+		redirect('business/news_feed');
+	}
+
 	// Show dashboard page
 	public function dashboard() {
 		$this->showPage('dashboard', $this->data);

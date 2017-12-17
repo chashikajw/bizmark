@@ -187,8 +187,12 @@
 
       </div>
     </a>
-    <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary">Edit</button>
-    <button class="btn btn-danger" type="button">Delete</button>
+    <form method="post" action="<?php echo base_url() ?>Business/deletePost/<?= $item->id; ?>">
+     <button class="btn btn-danger" type="submit">Delete</button>
+</form>
+    <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary" type="submit">Edit</button>
+    
+    
     <?php endforeach; ?>
 
   </div>
