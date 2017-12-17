@@ -1,36 +1,37 @@
 
- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+ <!--<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
       <script type="text/javascript">
         $(document).ready(function(){
           setInterval(function(){
             $('#show').load('<?php echo base_url(); ?>application/views/client/newsfeed.php')
           },3000);
         });
-       
-      </script>
-      
+
+      </script> -->
+
 
 
 <div class="item span9">
-  <div class="item span9" id="show">
+  <div class="item span9" >
     <ul class="thumbnails">
 
 <?php
 
 $i = 0;
-foreach ($post_data as $item){ ?>
+foreach ($post_data as $item) {
+	?>
     <center>
-        <a  href="">
-         <li class="span5">
+
+         <li class="span5" style="margin-left: 300px; margin-bottom: 30px ; box-shadow: 5px 5px 5px 5px rgba(20, 2, 4, 0.2);width: 65%">
 
            <div class="thumbnail">
             <h3><?php echo $item->title; ?></h3>
                <?php echo "<img src='" . base_url() . "assets/business/" . $item->image_path . "' alt=''/>" ?>
                <div class="caption">
-                
+
                  <p><?php echo $item->content; ?></p>
                  <center>
-                 
+
                  <span class="fa fa-star checked"></span>
                  <span class="fa fa-star checked"></span>
                  <span class="fa fa-star checked"></span>
@@ -42,11 +43,11 @@ foreach ($post_data as $item){ ?>
                </div>
            </div>
          </li>
-        </a>
-    
+
+
 <?php
 $i += 1;
- ?>
+	?>
 
 </ul>
 </div>
@@ -55,10 +56,54 @@ $i += 1;
 
 
 <?php }
- ?>
+?>
 
 </ul>
 </div>
 
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
