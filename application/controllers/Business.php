@@ -7,14 +7,18 @@ class Business extends CI_Controller {
 		parent::__construct();
 		// Load libraries
 		$this->load->helper(array('form', 'url'));
+		$this->data = array();
 
 		// Init session
 		$user = $this->session->userdata('user_data');
 		if ($user != null){
-			// Load business data
+			// If business exists
 			if ($user['business_id']){
 				$this->load->model('BusinessModel');
-				$this->businessData = $this->BusinessModel->getBusiness($user['business_id']);
+				$this->data['business_data'] = $this->BusinessModel->getBusiness($user['business_id']);
+			} else {
+				echo 'No business created!';
+				exit();
 			}
 		} else {
 			// Show home page (not logged in)
@@ -28,50 +32,53 @@ class Business extends CI_Controller {
 
 	// Show profile page
 	public function profile() {
-		$data = array();
 		$this->load->model('BusinessModel');
-		$data['categorylist'] = $this->BusinessModel->getCategoryList();
-		$data['business_data'] = $this->businessData;
-		$this->showPage('business_profile', $data);
+		$this->data['categorylist'] = $this->BusinessModel->getCategoryList();
+		$this->showPage('business_profile', $this->data);
 	}
 
+	// Show default page
 	public function index() {
 		$this->profile();
 	}
 
+	// Show news feed page
 	public function news_feed() {
-		$this->showPage('news_feed');
+		$this->showPage('news_feed', $this->data);
 	}
 
+	// Show dashboard page
 	public function dashboard() {
-		$this->showPage('dashboard');
+		$this->showPage('dashboard', $this->data);
 	}
 
+	// Show configuration page
 	public function configuration() {
-		$this->showPage('configuration');
+		$this->showPage('configuration', $this->data);
 	}
 
-
+	// Show inbox page
 	public function inbox() {
-		$this->showPage('inbox');
+		$this->showPage('inbox', $this->data);
 	}
 
+	// Show review page
+	public function review() {
+		$this->showPage('reviews', $this->data);
+	}
 
 	public function registration() {
 		// $this->showPage('business_registration');
-		$data = array();
+		$this->data = array();
         $this->load->model('BusinessModel');
-        $data['categorylist'] = $this->BusinessModel->getCategoryList();
+        $this->data['categorylist'] = $this->BusinessModel->getCategoryList();
 
 		$this->load->view('business/layouts/header');
-		$this->load->view('business/business_registration', $data);
+		$this->load->view('business/business_registration', $this->data);
 		// $this->load->view('business/layouts/footer');
 	}
 
 
-	public function review() {
-		$this->showPage('reviews');
-	}
 
 	public function postadd() {
 		$title = $this->input->post('title');
@@ -190,9 +197,9 @@ class Business extends CI_Controller {
 	   }
 
 	   else {
-		  $data = array('upload_data' => $this->upload->data());
-		//   $this->load->view('test/upload_success', $data);
-		  return $data;
+		  $this->data = array('upload_data' => $this->upload->data());
+		//   $this->load->view('test/upload_success', $this->data);
+		  return $this->data;
 	   }
 	}
 
@@ -201,7 +208,7 @@ class Business extends CI_Controller {
 			show_404();
 		}
 
-		$data['title'] = ucfirst($page); // Capitalize the first letter
+		$this->data['title'] = ucfirst($page); // Capitalize the first letter
 		$this->load->view('business/layouts/header');
 		$this->load->view('business/layouts/sidebar', $data);
 		$this->load->view('business/' . $page, $data);
