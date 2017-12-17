@@ -56,7 +56,35 @@
           <p><?= $show_bussness[0]->city; ?></p>
           <p><?= $show_bussness[0]->opening_time; ?></p>
           <p><?= $show_bussness[0]->closing_time; ?></p>
-          <p><img class="media-object" src="<?php echo base_url(); ?>assets/images/Macmap.png" style="width:340px ;height:200px"></p>
+          <div id="mapProfile"></div>
+                                                <script>
+                                                    var map;
+
+                                                    function initMap() {
+                                                        map = new google.maps.Map(document.getElementById('map'), {
+                                                            zoom: 8,
+                                                            center: new google.maps.LatLng(7.2906, 80.6337),
+                                                            mapTypeId: 'roadmap'
+                                                        });
+
+                                                        google.maps.event.addListener(map, "click", function(event) {
+                                                            // get lat/lon of click
+                                                            var clickLat = event.latLng.lat();
+                                                            var clickLon = event.latLng.lng();
+
+                                                            // show in input box
+                                                            document.getElementById("lat").value = clickLat.toFixed(5);
+                                                            document.getElementById("lng").value = clickLon.toFixed(5);
+
+                                                            var marker = new google.maps.Marker({
+                                                                position: new google.maps.LatLng(clickLat, clickLon),
+                                                                map: map
+                                                            });
+                                                        });
+
+                                                    }
+                                                </script>
+                                                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASed7m-nA1qJmxaRdN6f-eUFb6p0bhT_M&callback=initMap"></script>
         </div>
 
       </div>

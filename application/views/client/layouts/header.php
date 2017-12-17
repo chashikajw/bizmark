@@ -35,6 +35,11 @@
         height: 500px;
         width: 100%;
        }
+
+       #mapProfile{
+        height: 200px;
+        width: 340px;
+       }
     </style>
 
     <!-- Load bootstrap -->
