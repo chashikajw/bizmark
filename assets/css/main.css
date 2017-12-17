@@ -9,30 +9,57 @@
     margin-bottom: 12px; /* Add some space below the input */
 }
 
-#myUL {
-    /* Remove default list styling */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.main-content {
+    margin-right: 140px;
 }
 
-#myUL li a {
+#horizontal-style {
+    display: table;
+    width: 96%;
+    /*margin-right: 50px;*/
+    table-layout: fixed;
+    /*margin-right: 10px;*/
+}
+#horizontal-style li {
+    display: table-cell;
+}
+#horizontal-style a {
+    display: block;
     border: 1px solid #ddd; /* Add a border to all links */
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6; /* Grey background color */
-    padding: 12px; /* Add some padding */
+    padding: 8px; /* Add some padding */
     text-decoration: none; /* Remove default text underline */
     font-size: 14px; /* Increase the font-size */
     color: black; /* Add a black text color */
-    display: block; /* Make it into a block element to fill the whole list */
+    text-align: center;
 }
 
-#myUL li a:hover:not(.header) {
+#horizontal-style li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
-
 
 /*Rating*/
 .checked {
     color: orange;
 }
+
+
+	.panel-info, .panel-rating, .panel-more1 {
+		float: left;
+		margin: 3px 3px 3px 3px;
+	}
+
+	.business-item{
+		margin-top: 3px;
+		margin-left: 1px;
+		padding: 4px;
+		border-radius: 2px;
+		/*cursor: pointer;*/
+	}
+
+	.business-item:hover{
+		box-shadow: 1px;
+		background-color: #eee;
+		box-shadow: 2px 2px 1px #dedede;
+	}
