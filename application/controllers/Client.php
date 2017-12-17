@@ -31,7 +31,7 @@ class Client extends CI_Controller {
     }
 
     public function sendEmail(){
-       
+
 
 
             $admin_email = "chashikajw007@gmail.com";
@@ -46,7 +46,7 @@ class Client extends CI_Controller {
             'X-Mailer: PHP/' . phpversion();
 
             $status = mail($admin_email , $subject, $message, $headers);
-            
+
 
             if ($status) {
                 $this->session->set_flashdata('success', 'Message sent successfully');
@@ -57,7 +57,7 @@ class Client extends CI_Controller {
             }
 
 
-       
+
     }
 
 
@@ -160,6 +160,7 @@ class Client extends CI_Controller {
                 $userData = array(
                     'user_id'     => $userInfo->id,
                     'username'    => $userInfo->username,
+                    'name'        => $userInfo->name,
                     'email'       => $userInfo->email,
                     'loggedin'    => TRUE,
                     'business_id' => $userInfo->business_id,

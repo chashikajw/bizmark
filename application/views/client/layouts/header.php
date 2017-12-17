@@ -141,10 +141,10 @@
           </li>
             <?php } else { ?>
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo "<b>" . $this->session->userdata('user_data')['username'] . "</b>";  ?><b class="caret"></b></a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo "<b>" . $this->session->userdata('user_data')['name'] . "</b>";  ?><b class="caret"></b></a>
                     <div class="dropdown-menu" style="padding: 10px; text-align:right;">
                         <?php $user = $this->session->userdata('user_data');
-                        echo $user['username'] . '<br>' . $user['email'] . '<br>'; ?>
+                        echo '<b>' . $user['name'] . '</b><br>' . $user['email'] . '<br>'; ?>
                         <a class="btn btn-warning pull-right" href="<?php echo base_url('Client/logoutUser'); ?>">Log out</a>
                     </div>
                 </li>
