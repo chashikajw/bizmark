@@ -95,7 +95,7 @@ class BusinessModel extends CI_Model {
 	//delete post
 	public function deletepost($addId){
 		 $this->db->where('id', $addId);
-   		$this->db->delete('advertisement'); 
+   		$this->db->delete('advertisement');
 
 	}
 

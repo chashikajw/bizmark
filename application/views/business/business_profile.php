@@ -44,6 +44,12 @@
                                         <?= $business_data->handler; ?>
                                     </a>
                                 </li>
+
+                                <?php
+                                    for ($i=0; $i<5; $i++){
+                                        echo "<span class='fa " . ($business_data->rating > $i ? 'fa-star' : 'fa-star-o') . "'></span>";
+                                    }
+                                 ?>
                             </ul>
                         </center>
 

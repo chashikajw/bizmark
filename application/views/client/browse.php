@@ -17,11 +17,11 @@
 							<p><?= $item->description; ?></p>
 						</div>
 						<div class="span2">
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star checked"></span>
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
+							<?php
+								for ($i=0; $i<5; $i++){
+									echo "<span class='fa fa-star" . ($item->rating > $i ? ' checked' : '') . "'></span>";
+								}
+							 ?>
 						</div>
 						<div class="panel-more1 span1">
 							<p><?= $item->address; ?></p>
