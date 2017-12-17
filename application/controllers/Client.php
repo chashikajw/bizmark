@@ -23,7 +23,18 @@ class Client extends CI_Controller {
 
     // Show signup page
     public function signup(){
-       $this->showPage('profileView');
+       $this->showPage('signup');
+    }
+
+    //show profile of business
+    public function profile_view($busnessId){
+        $this->load->model('BusinessModel');
+        $this->data['show_bussness'] = $this->BusinessModel->getprofilebusiness($busnessId);
+
+        $this->load->view('client/layouts/header',  $this->data);
+        $this->load->view('client/layouts/sidebar',  $this->data);
+        $this->load->view('client/profileView',  $this->data);
+        $this->load->view('client/layouts/footer',  $this->data);
     }
 
      public function contact(){

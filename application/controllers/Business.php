@@ -16,6 +16,7 @@ class Business extends CI_Controller {
 			if ($user['business_id']){
 				$this->load->model('BusinessModel');
 				$this->data['business_data'] = $this->BusinessModel->getBusiness($user['business_id']);
+				$this->businessId = $user['business_id'];
 			} else {
 				echo 'No business created!';
 				exit();
@@ -45,7 +46,7 @@ class Business extends CI_Controller {
 	// Show news feed page
 	public function news_feed() {
 		$this->load->model('BusinessModel');
-		$this->data['posts_data'] = $this->BusinessModel->getmypost(3);
+		$this->data['posts_data'] = $this->BusinessModel->getmypost($this->businessId);
 		$this->showPage('news_feed', $this->data);
 		
 	}

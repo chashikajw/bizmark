@@ -80,6 +80,19 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
+
+	public function getprofilebusiness($bussnesId){
+		try {
+			$result = $this->db->get_where('business', array('id' => $bussnesId));
+			return $result->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+
+	}
+
+
+	//delete post
 	public function deletepost($addId){
 		 $this->db->where('id', $addId);
    		$this->db->delete('advertisement'); 
