@@ -23,7 +23,7 @@ class Client extends CI_Controller {
 
     // Show signup page
     public function signup(){
-        $this->showPage('signup');
+       $this->showPage('profileView');
     }
 
      public function contact(){
