@@ -6,7 +6,7 @@
   <div class="row">
 
       <div class="span3">
-      <img class="media-object" src="<?php echo base_url(); ?>assets/images/macdonald.png" style="margin-left:0px;margin-bottom:10px;margin-top:0px;width:100px ;height:100px; position: relative;left: 32px">
+      <img class="media-object" src="<?php echo base_url(); ?>assets/business/<?= $business_data->logo_path; ?>" style="margin-left:0px;margin-bottom:10px;margin-top:0px;width:100px ;height:100px; position: relative;left: 32px">
       </div>
       <div class="span9 ">
       <div class="page-header text-center">

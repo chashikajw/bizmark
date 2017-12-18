@@ -46,8 +46,9 @@
                 <div class="control-group">
                     <label class="control-label" for="inputFname">Message<sup>*</sup></label>
                     <div class="controls">
-                        <input type="text" id="inputMessage" placeholder="message" name="UMessage" required>
+                        <textarea class="" rows="5" id="inputMessage" placeholder="message" name="UMessage"  required></textarea>
                     </div>
+                     
                 </div>
                 
               
