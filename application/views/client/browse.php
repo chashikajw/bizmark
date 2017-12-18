@@ -8,7 +8,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="panel-more1 span2">
-							<a href="<?php echo base_url(); ?>Client/profile_view/<?= $item->id; ?>" class="thumbnail panel-more1" style="width: 120px">
+							<a href="<?php echo base_url(); ?>bz/<?= $item->handler; ?>" class="thumbnail panel-more1" style="width: 120px">
 								<?php echo "<img src='" . base_url() . "assets/business/" . $item->logo_path . "' alt=''/>" ?>
 							</a>
 						</div>

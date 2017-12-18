@@ -54,5 +54,6 @@ $route['signup'] = 'client/signup';
 $route['browse'] = 'client/browse';
 $route['upload'] = 'Upload';
 $route['business'] = 'Business';
+$route['bz/(:any)'] = 'Client/showBusinessPage/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

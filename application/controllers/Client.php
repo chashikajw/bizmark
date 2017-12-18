@@ -26,10 +26,11 @@ class Client extends CI_Controller {
        $this->showPage('signup');
     }
 
-    //show profile of business
-    public function profile_view($busnessId){
+
+    // Show business profile by handler
+    public function showBusinessPage($handler){
         $this->load->model('BusinessModel');
-        $this->data['show_bussness'] = $this->BusinessModel->getprofilebusiness($busnessId);
+        $this->data['business_data'] = $this->BusinessModel->getBusinessByHandler($handler);
 
         $this->load->view('client/layouts/header',  $this->data);
         $this->load->view('client/layouts/sidebar',  $this->data);
