@@ -49,6 +49,12 @@ class Client extends CI_Controller {
         $this->load->view('client/reviewForm',  $this->data);
     }
 
+    // Show complain form
+    public function showComplainForm($businessId){
+        $this->data['business_id'] = $businessId;
+        $this->load->view('client/complainForm',  $this->data);
+    }
+
     public function sendEmail(){
 
 

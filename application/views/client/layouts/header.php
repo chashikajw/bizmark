@@ -40,6 +40,10 @@
         height: 100px;
         width: 100px;
        }
+
+
+/* The Modal (background) */
+
     </style>
 
     <!-- Load bootstrap -->
