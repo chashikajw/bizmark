@@ -25,6 +25,64 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                       <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-success">Post New Add</button>
+                                    </div>
+                                </div>
+
+                                <div class="span1" style="height: 100px">
+
+</div>
+
+
+    <div class="span6" style="">
+
+        </ul>
+        <h3> Contact Form</h3>
+        <hr class="soft" />
+        <div class="well">
+
+              
+            <form class="modal-content animate" style="" action="<?php echo base_url(); ?>Client/sendEmail" method="POST"  >
+                <h3>Message box</h3>
+                <div class="control-group">
+
+                    <div class="controls">
+
+                    </div>
+
+                </div>
+                 <div class="control-group">
+                    <label class="control-label" for="inputLname">Your email <sup>*</sup></label>
+                    <div class="controls">
+                        <input type="text" id="inputEmail" placeholder="email" name="UEmail" required>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputFname">Message<sup>*</sup></label>
+                    <div class="controls">
+                        <textarea class="" rows="5" id="inputMessage" placeholder="message" name="UMessage"  required></textarea>
+                    </div>
+                     
+                </div>
+                
+              
+
+                <div class="control-group">
+                    <div class="controls">
+                       
+                        <input class="btn btn-large" type="submit" value="Send" />
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+                    
                          
                         <div class="span3">
                             <div class="profile_img">
@@ -138,7 +196,11 @@
 
                                
                                
-
+                                    <div class="col-md-4">
+            <input name="review_id" id="review_id" type="text" value="0">
+            <button class="submitButton btn btn-primary btn-lg pull-right" type="submit" style="margin-top:5px;"><i class="fa fa-pencil"></i> Post Review </button>
+          </div>
+          </div>
                          
 
                         </div>
