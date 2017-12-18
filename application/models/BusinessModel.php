@@ -154,6 +154,19 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
+	// Increase Page views
+	public function increasePageVisit($userId, $businessId){
+		try{
+			$query = $this->db->query('CALL increasePageVisit(?, ?)', array($userId, $businessId));
+
+			// free result
+			// mysqli_next_result( $this->db->conn_id );
+			$query->free_result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
 	// Get Top Users (Most reviewd)
 	public function getTopUsers($id){
 		try{
