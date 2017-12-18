@@ -81,7 +81,12 @@ class Business extends CI_Controller {
 
 	// Show review page
 	public function review() {
+		$this->load->model('BusinessModel');
+		$this->data['business_report'] = $this->BusinessModel->getBusinessReportAll($this->businessId);
+		$this->data['review'] = $this->BusinessModel->getReviews($this->businessId);
+		
 		$this->showPage('reviews', $this->data);
+		
 	}
 
 	// Add review
