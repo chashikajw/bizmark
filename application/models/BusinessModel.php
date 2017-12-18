@@ -102,7 +102,7 @@ class BusinessModel extends CI_Model {
 	// Get business by category id
 	public function selectcategory($categoryId) {
 		try {
-			$result = $this->db->get_where('business', array('category_id' => $categoryId));
+			$result = $this->db->get_where('business_view', array('category_id' => $categoryId));
 			return $result->result();
 		} catch (Exception $err) {
 			return $err->getMessage();
@@ -113,7 +113,7 @@ class BusinessModel extends CI_Model {
 	public function search($keyword) {
 		$this->db->like('name', $keyword);
 		$this->db->or_like('description', $keyword);
-		$query = $this->db->get('business');
+		$query = $this->db->get('business_view');
 		return $query->result();
 	}
 

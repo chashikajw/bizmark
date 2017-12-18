@@ -168,7 +168,7 @@ class Client extends CI_Controller {
 
             if ($result != false) {
                 $userInfo = $this->ClientModel->getUserInfo($result->id);
-                var_dump($userInfo);
+                // var_dump($userInfo);
                 $userData = array(
                     'user_id'     => $userInfo->id,
                     'username'    => $userInfo->username,
