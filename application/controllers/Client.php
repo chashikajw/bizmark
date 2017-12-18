@@ -56,9 +56,6 @@ class Client extends CI_Controller {
     }
 
     public function sendEmail(){
-
-
-
             $admin_email = "chashikajw007@gmail.com";
             $fromEmail = $this->input->post('UEmail');
             $message = $this->input->post('UMessage');
@@ -80,9 +77,6 @@ class Client extends CI_Controller {
                 $this->session->set_flashdata('error', 'Try again');
                 redirect('Client/contact');
             }
-
-
-
     }
 
 

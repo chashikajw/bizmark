@@ -57,14 +57,17 @@ class Business extends CI_Controller {
 		$this->data['subscribers'] = $this->BusinessModel->getSubscribers($this->businessId);
 		$this->showPage('dashboard', $this->data);
 	}
+
 	// Show configuration page
 	public function configuration() {
 		$this->showPage('configuration', $this->data);
 	}
+
 	// Show inbox page
 	public function inbox() {
 		$this->showPage('inbox', $this->data);
 	}
+
 	// Show review page
 	public function review() {
 		$this->load->model('BusinessModel');
@@ -74,6 +77,7 @@ class Business extends CI_Controller {
 		$this->showPage('reviews', $this->data);
 
 	}
+
 	// Add review
 	public function addReview() {
 		$this->load->model('BusinessModel');
@@ -94,7 +98,7 @@ class Business extends CI_Controller {
 		$message = $_POST['message'];
 		$this->BusinessModel->addComplain($this->userId, $businessId, $message);
 		// Go back to page
-		echo "<script>history.go(-1);</script>";
+		echo "<script>history.go(-2);</script>";
 	}
 
 
