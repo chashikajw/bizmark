@@ -114,7 +114,6 @@
                     </div>
                     <div class="x_content">
 
-
                         <!-- Add items -->
                         <?php foreach (array_slice($subscribers, 0, 5, true) as $item): ?>
                             <article class="media event">

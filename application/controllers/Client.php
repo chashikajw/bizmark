@@ -31,6 +31,7 @@ class Client extends CI_Controller {
     public function showBusinessPage($handler){
         $this->load->model('BusinessModel');
         $this->data['business_data'] = $this->BusinessModel->getBusinessByHandler($handler);
+        $this->BusinessModel->increasePageVisit($this->session->userdata('user_data')['user_id'], $this->data['business_data']->id);
 
         $this->load->view('client/layouts/header',  $this->data);
         $this->load->view('client/layouts/sidebar',  $this->data);
@@ -168,7 +169,7 @@ class Client extends CI_Controller {
 
             if ($result != false) {
                 $userInfo = $this->ClientModel->getUserInfo($result->id);
-                var_dump($userInfo);
+                // var_dump($userInfo);
                 $userData = array(
                     'user_id'     => $userInfo->id,
                     'username'    => $userInfo->username,
