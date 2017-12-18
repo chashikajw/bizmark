@@ -12,11 +12,11 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <?= "<img class='img-circle profile_img' src='" . base_url() . "assets/business/" . $business_data->logo_path . "' alt=''/>" ?>
+                            <?="<img class='img-circle profile_img' src='" . base_url() . "assets/business/" . $business_data->logo_path . "' alt=''/>"?>
                         </div>
                         <div class="profile_info">
                             <!-- <span>Welcome,</span> -->
-                            <h2> <?= $business_data->name; ?></h2>
+                            <h2> <?=$business_data->name;?></h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -32,7 +32,10 @@
                                 <li><a href="<?php echo base_url('business/profile'); ?>"><i class="fa fa-home"></i> Profile </a></li>
                                 <li><a href="<?php echo base_url('business/review'); ?>"><i class="fa fa-edit"></i> Ratings </a></li>
                                 <li><a href="<?php echo base_url('business/news_feed'); ?>"><i class="fa fa-table"></i> Posts </a></li>
-                                <li><a href="<?php echo base_url('business/inbox'); ?>"><i class="fa fa-clone"></i> Inbox </a></li>
+                                <li><a href="<?php echo base_url("business/get_inquiry_list/"); ?><?=$business_data->id;?>"><i class="fa fa-clone"></i> Complaints </a></li>
+
+
+
                             </ul>
                         </div>
 
@@ -50,7 +53,7 @@
                         <a data-toggle="tooltip" data-placement="top" title="Remove account">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </a>
-                        <a href="<?= base_url(''); ?>" data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <a href="<?=base_url('');?>" data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -69,7 +72,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <?= $business_data->owner_name; ?>
+                                    <?=$business_data->owner_name;?>
                                         <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">

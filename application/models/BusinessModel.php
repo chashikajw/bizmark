@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class BusinessModel extends CI_Model {
-
 	// Add new business
 	public function insert($businessInfo) {
 		try {
@@ -13,7 +11,6 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	// update business
 	public function update($id, $businessInfo) {
 		try {
@@ -24,19 +21,16 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	// Add new post
 	public function insertPost($postInfo) {
 		try {
 			$this->db->insert('advertisement', $postInfo);
-
 			$ret = $this->db->insert_id() + 0;
 			return $ret;
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
-
 	// Get business
 	public function select() {
 		try {
@@ -46,7 +40,6 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	// Get business info
 	public function getBusiness($id) {
 		try {
@@ -57,7 +50,6 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	// Get business by handler
 	public function getBusinessByHandler($handler) {
 		try {
@@ -68,11 +60,10 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	// ==== Review ==== //
 	// Get reviews
-	public function getReviews($businessId){
-		try{
+	public function getReviews($businessId) {
+		try {
 			$this->db->where('business_id', $businessId);
 			$query = $this->db->get('review_view');
 			return $query->result();
@@ -80,23 +71,19 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
-
 	// Add review
-	public function addReview($userId, $businessId, $value, $comment){
-		try{
+	public function addReview($userId, $businessId, $value, $comment) {
+		try {
 			$query = $this->db->query('CALL addReview(?, ?, ?, ?)', array($userId, $businessId, $value, $comment));
-
 			$query->free_result();
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
-
 	// ==== Complain ==== //
 	// Get complain
-	public function getComplain($businessId){
-		try{
+	public function getComplain($businessId) {
+		try {
 			$this->db->where('business_id', $businessId);
 			$query = $this->db->get('complain_view');
 			return $query->result();
@@ -104,19 +91,15 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	// Add complain
-	public function addComplain($userId, $businessId, $message){
-		try{
+	public function addComplain($userId, $businessId, $message) {
+		try {
 			$query = $this->db->query('CALL addComplain(?, ?, ?)', array($userId, $businessId, $message));
-
 			$query->free_result();
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
-
-
 	// Get posts
 	public function selectpost() {
 		try {
@@ -127,7 +110,6 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	//get my posts
 	public function getmypost($bussnesId) {
 		try {
@@ -138,15 +120,11 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
-
 	//delete post
-	public function deletepost($addId){
-		 $this->db->where('id', $addId);
-   		$this->db->delete('advertisement');
-
+	public function deletepost($addId) {
+		$this->db->where('id', $addId);
+		$this->db->delete('advertisement');
 	}
-
 	// Get business by category id
 	public function selectcategory($categoryId) {
 		try {
@@ -156,7 +134,6 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	// Search business
 	public function search($keyword) {
 		$this->db->like('name', $keyword);
@@ -164,7 +141,6 @@ class BusinessModel extends CI_Model {
 		$query = $this->db->get('business_view');
 		return $query->result();
 	}
-
 	// Get category list
 	public function getCategoryList() {
 		try {
@@ -174,77 +150,77 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
-
 	// Get Business Report All months
-	public function getBusinessReportAll($id){
-		try{
+	public function getBusinessReportAll($id) {
+		try {
 			$query = $this->db->query('CALL getBusinessReportAll(?)', array($id));
 			$result = $query->result();
-
 			// free result
-			mysqli_next_result( $this->db->conn_id );
+			mysqli_next_result($this->db->conn_id);
 			$query->free_result();
-
 			return $result;
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
-
-
-
 	// Increase Page views
-	public function increasePageVisit($userId, $businessId){
-		try{
+	public function increasePageVisit($userId, $businessId) {
+		try {
 			$query = $this->db->query('CALL increasePageVisit(?, ?)', array($userId, $businessId));
-
 			$query->free_result();
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
-
-
 	// Get Top Users (Most reviewd)
-	public function getTopUsers($id){
-		try{
+	public function getTopUsers($id) {
+		try {
 			$query = $this->db->query('CALL getTopUsers(?)', array($id));
 			$result = $query->result();
-
 			// free result
-			mysqli_next_result( $this->db->conn_id );
+			mysqli_next_result($this->db->conn_id);
 			$query->free_result();
-
 			return $result;
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
-
 	// Get Subscribers
-	public function getSubscribers($id){
-		try{
+	public function getSubscribers($id) {
+		try {
 			$query = $this->db->query('CALL getSubscribers(?)', array($id));
 			$result = $query->result();
-
 			// free result
-			mysqli_next_result( $this->db->conn_id );
+			mysqli_next_result($this->db->conn_id);
 			$query->free_result();
-
 			return $result;
 		} catch (Exception $err) {
 			return $err->getMessage();
 		}
 	}
-
-
-
-
 	// next result
-	function next_result(){
-		if (is_object($this->conn_id)){
+	function next_result() {
+		if (is_object($this->conn_id)) {
 			return mysqli_next_result($this->conn_id);
 		}
 	}
 
+	public function get_inquiryList($business_id) {
+		try {
+			$this->db->select('*');
+			$this->db->from('complain');
+			$this->db->where('complain.business_id ', $business_id);
+			$query = $this->db->get();
+
+			if ($query->num_rows() > 0) {
+				return $query;
+			} else {
+				return false;
+			}
+
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+
+	}
 }
