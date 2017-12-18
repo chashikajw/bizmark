@@ -15,9 +15,6 @@ class Business extends CI_Controller {
 				$this->load->model('BusinessModel');
 				$this->data['business_data'] = $this->BusinessModel->getBusiness($user['business_id']);
 				$this->businessId = $user['business_id'];
-			} else {
-				echo 'No business created!';
-				exit();
 			}
 		} else {
 			// Show home page (not logged in)
@@ -128,6 +125,7 @@ class Business extends CI_Controller {
 			redirect('business/news_feed');
 		}
 	}
+
 	// Update business info
 	public function update($id) {
 		$businessInfo = $this->_getUserInput();
@@ -144,6 +142,7 @@ class Business extends CI_Controller {
 		}
 		redirect('business');
 	}
+
 	// Register business
 	public function register() {
 		$businessInfo = $this->_getUserInput();
@@ -163,40 +162,42 @@ class Business extends CI_Controller {
 			redirect('business/registration');
 		}
 	}
+
 	// Get form data
-	public function _getUserInput() {
-		$this->load->library('form_validation');
-		// $this->form_validation->set_rules('name', 'Name', 'required');
-		// $this->form_validation->set_rules('handler', 'Name', 'required');
-		// $this->form_validation->set_rules('address', 'Address', 'required');
-		// $this->form_validation->set_rules('city', 'City', 'required');
-		// $this->form_validation->set_rules('cId', 'Category ID', 'required');
-		// $this->form_validation->set_rules('openingTime', 'Ope', 'required');
-		// $this->form_validation->set_rules('closingTime', 'City', 'required');
-		// $this->form_validation->set_rules('ltd', 'City', 'required');
-		// $this->form_validation->set_rules('lotd', 'City', 'required');
-		// if ($this->form_validation->run() == TRUE) {
-		$businessName = $this->input->post('businessName');
-		$handler = strtolower($this->input->post('handler'));
-		$description = $this->input->post('description');
-		$address = $this->input->post('address');
-		$city = $this->input->post('city');
-		$categoryId = $this->input->post('categoryId');
-		$openningTime = date("Y-m-d h:i:s", $this->input->post('opening_time'));
-		$closingTime = date("Y-m-d h:i:s", $this->input->post('closing_time'));
-		$lat = $this->input->post('lat');
-		$lng = $this->input->post('lng');
-		$info = $this->do_upload();
-		$filename = $info['upload_data']['file_name'];
-		$businessInfo = array('name' => $businessName, 'handler' => $handler, 'description' => $description, 'address' => $address, '	city' => $city, 'category_id' => $categoryId, 'logo_path' => $filename, 'opening_time' => $openningTime, 'closing_time' => $closingTime, 'lat' => $lat, 'lng' => $lng);
-		return $businessInfo;
-		// } else {
-		// 	$this->session->set_flashdata('error', 'Error in Registration');
-		// 	echo 'zzz';
-		// 	// redirect('business/registration');
-		//
-		// }
-	}
+		public function _getUserInput() {
+			$this->load->library('form_validation');
+			// $this->form_validation->set_rules('name', 'Name', 'required');
+			// $this->form_validation->set_rules('handler', 'Name', 'required');
+			// $this->form_validation->set_rules('address', 'Address', 'required');
+			// $this->form_validation->set_rules('city', 'City', 'required');
+			// $this->form_validation->set_rules('cId', 'Category ID', 'required');
+			// $this->form_validation->set_rules('openingTime', 'Ope', 'required');
+			// $this->form_validation->set_rules('closingTime', 'City', 'required');
+			// $this->form_validation->set_rules('ltd', 'City', 'required');
+			// $this->form_validation->set_rules('lotd', 'City', 'required');
+			// if ($this->form_validation->run() == TRUE) {
+			$businessName = $this->input->post('businessName');
+			$handler = strtolower($this->input->post('handler'));
+			$description = $this->input->post('description');
+			$address = $this->input->post('address');
+			$city = $this->input->post('city');
+			$categoryId = $this->input->post('categoryId');
+			$openningTime = date("Y-m-d h:i:s", $this->input->post('opening_time'));
+			$closingTime = date("Y-m-d h:i:s", $this->input->post('closing_time'));
+			$lat = $this->input->post('lat');
+			$lng = $this->input->post('lng');
+			$info = $this->do_upload();
+			$filename = $info['upload_data']['file_name'];
+			$businessInfo = array('name' => $businessName, 'handler' => $handler, 'description' => $description, 'address' => $address, '	city' => $city, 'category_id' => $categoryId, 'logo_path' => $filename, 'opening_time' => $openningTime, 'closing_time' => $closingTime, 'lat' => $lat, 'lng' => $lng);
+			return $businessInfo;
+			// } else {
+			// 	$this->session->set_flashdata('error', 'Error in Registration');
+			// 	echo 'zzz';
+			// 	// redirect('business/registration');
+			//
+			// }
+		}
+
 	public function do_upload() {
 		$config['upload_path'] = './assets/business/';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -226,7 +227,7 @@ class Business extends CI_Controller {
 
 		} else {
 			$this->session->set_flashdata('no_inq', 'No inquiries');
-			redirect('/index');
+			redirect('bussines/index');
 		}
 
 	}

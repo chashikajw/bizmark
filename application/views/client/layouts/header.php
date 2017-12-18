@@ -97,7 +97,7 @@
                     <ul class="nav pull-right">
                     <li class=""><a href="<?php echo base_url('Client/mapView'); ?>">Track Location</a></li>
                     <?php if ($logged_in) {
-                        if ($user_data['business_id']){
+                        if ($user_data['business_id'] > 0){
                             echo "<li class=''><a href='" . base_url('business') . "'><b>My Businesses</b></a></li>";
                         } else {
                             echo "<li class=''><a href='" . base_url('Business/registration') . "'>New Business</a></li>";

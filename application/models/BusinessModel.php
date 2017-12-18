@@ -12,15 +12,15 @@ class BusinessModel extends CI_Model {
 		}
 	}
 	// update business
-	public function update($id, $businessInfo) {
-		try {
-			$this->db->where('id', $id);
-			$ret = $this->db->update('business', $businessInfo);
-			return $ret;
-		} catch (Exception $err) {
-			return $err->getMessage();
+		public function update($id, $businessInfo) {
+			try {
+				$this->db->where('id', $id);
+				$ret = $this->db->update('business', $businessInfo);
+				return $ret;
+			} catch (Exception $err) {
+				return $err->getMessage();
+			}
 		}
-	}
 	// Add new post
 	public function insertPost($postInfo) {
 		try {
