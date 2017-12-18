@@ -208,8 +208,8 @@ class BusinessModel extends CI_Model {
 	public function get_inquiryList($business_id) {
 		try {
 			$this->db->select('*');
-			$this->db->from('complain');
-			$this->db->where('complain.business_id ', $business_id);
+			$this->db->from('complain_view');
+			$this->db->where('complain_view.business_id ', $business_id);
 			$query = $this->db->get();
 
 			if ($query->num_rows() > 0) {

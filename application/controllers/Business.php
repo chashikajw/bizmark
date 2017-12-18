@@ -57,18 +57,27 @@ class Business extends CI_Controller {
 		$this->data['subscribers'] = $this->BusinessModel->getSubscribers($this->businessId);
 		$this->showPage('dashboard', $this->data);
 	}
+
 	// Show configuration page
 	public function configuration() {
 		$this->showPage('configuration', $this->data);
 	}
+
 	// Show inbox page
 	public function inbox() {
 		$this->showPage('inbox', $this->data);
 	}
+
 	// Show review page
 	public function review() {
+		$this->load->model('BusinessModel');
+		$this->data['business_report'] = $this->BusinessModel->getBusinessReportAll($this->businessId);
+		$this->data['review'] = $this->BusinessModel->getReviews($this->businessId);
+
 		$this->showPage('reviews', $this->data);
+
 	}
+
 	// Add review
 	public function addReview() {
 		$this->load->model('BusinessModel');
@@ -78,7 +87,8 @@ class Business extends CI_Controller {
 		$comment = $_POST['comment'];
 		$this->BusinessModel->addReview($this->userId, $businessId, $value, $comment);
 		// Go back to page
-		echo "<script>history.go(-1);</script>";
+		echo "<script>history.go(-2);</script>";
+
 	}
 	// Add complain
 	public function addComplain() {
@@ -88,12 +98,10 @@ class Business extends CI_Controller {
 		$message = $_POST['message'];
 		$this->BusinessModel->addComplain($this->userId, $businessId, $message);
 		// Go back to page
-		echo "<script>history.go(-1);</script>";
+		echo "<script>history.go(-2);</script>";
 	}
-	public function test() {
-		$this->load->model('BusinessModel');
-		var_dump($this->BusinessModel->getComplain(1));
-	}
+
+
 	public function registration() {
 		// $this->showPage('business_registration');
 		$this->data = array();

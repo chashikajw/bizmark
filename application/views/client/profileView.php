@@ -25,7 +25,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                         
+
                         <div class="span3">
                             <div class="profile_img">
                                 <div id="crop-avatar">
@@ -59,9 +59,20 @@
                                     }
                                  ?>
                             </ul>
+
+                            <a href="<?= base_url('client/showReviewForm/') . $business_data->id; ?>"> <button type="button" class="btn btn-primary">Review</button></a>
+                            <a href="<?= base_url('client/showComplainForm/') . $business_data->id; ?>"> <button type="button" class="btn btn-danger">Complain</button></a>
+
+
                         </center>
 
-                            <!-- <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a> -->
+
+
+
+
+
+                        <!-- Middle section -->
+
 
                         </div>
                       </li>
@@ -77,7 +88,7 @@
                             </div>
                             <br>
 
-                           
+
 
                                 <!-- Business name -->
                                 <div class="form-group">
@@ -85,61 +96,63 @@
                                     </label>
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> <h4><?= $business_data->name ?></h4>
                                     </label>
-                                   
+
                                 </div>
 
-                              
+
                                 <!-- Description -->
                                 <div class="form-group">
                                     <label for="description" class="control-label col-md-3 col-sm-3 col-xs-12">About Us</label>
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> <h4><?= $business_data->description ?></h4>
-                                   
+
                                 </div>
 
                                 <!-- Address -->
                                 <div class="form-group">
                                     <label for="address" class="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> <h4><?= $business_data->address ?></h4>
-                                    
+
                                 </div>
 
                                 <!-- City -->
                                 <div class="form-group">
                                     <label for="city" class="control-label col-md-3 col-sm-3 col-xs-12">City</label>
                                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> <h4><?= $business_data->city ?></h4>
-                                   
+
                                 </div>
 
                                 <!-- Category -->
                                 <div class="form-group">
-                                    <label for="categoryId" class="control-label col-md-3 col-sm-3 col-xs-12">Category 
+                                    <label for="categoryId" class="control-label col-md-3 col-sm-3 col-xs-12">Category
                                     </label>
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> <h4><?= $business_data->category_name; ?></h4>
-                                  
+
                                 </div>
 
                                 <!-- Openning Time -->
                                 <div class="form-group">
                                     <label for="openingTime" class="control-label col-md-3 col-sm-3 col-xs-12">Opening Time</label>
                                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> <h4><?= date("H:i", strtotime($business_data->opening_time)); ?></h4>
-                                    
+
                                 </div>
 
                                 <!-- Closing time -->
                                 <div class="form-group">
                                     <label for="closingTime" class="control-label col-md-3 col-sm-3 col-xs-12">Closing Time</label>
                                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="businessName"> <h4><?= date("H:i", strtotime($business_data->closing_time)); ?></h4>
-                                    
+
                                 </div>
 
-                             
 
-                              
 
-                               
-                               
 
-                         
+
+
+
+
+
+
+
 
                         </div>
                       </li>
@@ -148,7 +161,7 @@
 
                          <!-- Set location -->
                                 <div class="form-group">
-                                   
+
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="span9">
                                             <div id="map"></div>

@@ -9,30 +9,24 @@
         <table class="table table-striped">
             <thead>
             <tr>
-
-                <th>User Id</th>
-                <th>message</th>
-                <th>date & time </th>
-
-
+                <th>Name</th>
+                <th>Message</th>
+                <th>Date & Time </th>
             </tr>
             </thead>
             <tbody>
 
-
-
             <?php
-
-foreach ($inq_info->result_array() as $row) {
-	?>
-                <tr>
-                    <div class="form-group">
-                        <td><?php echo $row['user_id']; ?></td>
-                        <td><?php echo $row['message']; ?></td>
-                        <td><?php echo $row['datetime']; ?></td>
-                    </div>
-                </tr>
-                </tbody>
+                foreach ($inq_info->result_array() as $row) {
+        	?>
+            <tr>
+                <div class="form-group">
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['message']; ?></td>
+                    <td><?php echo $row['datetime']; ?></td>
+                </div>
+            </tr>
+            </tbody>
 
             <?php }?>
         </table>
@@ -44,6 +38,3 @@ foreach ($inq_info->result_array() as $row) {
 
 </div>
 </div>
-
-
-
