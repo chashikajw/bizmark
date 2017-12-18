@@ -85,11 +85,37 @@ class Business extends CI_Controller {
 	}
 
 	// Add review
-	public function addReview($businessId, $value, $comment){
+	public function addReview(){
         $this->load->model('BusinessModel');
-		// $businessId = $_POST['']
+		// Get data from post
+		$businessId = $_POST['business_id'];
+		$value      = $_POST['value'];
+		$comment    = $_POST['comment'];
+
 		$this->BusinessModel->addReview($this->userId, $businessId, $value, $comment);
-		echo $businessId, $value, $comment;
+
+		// Go back to page
+		echo "<script>history.go(-1);</script>";
+
+	}
+
+	// Add complain
+	public function addComplain(){
+        $this->load->model('BusinessModel');
+		// Get data from post
+		$businessId = $_POST['business_id'];
+		$message    = $_POST['message'];
+
+		$this->BusinessModel->addComplain($this->userId, $businessId, $message);
+
+		// Go back to page
+		echo "<script>history.go(-1);</script>";
+
+	}
+
+	public function test(){
+		$this->load->model('BusinessModel');
+		var_dump($this->BusinessModel->getComplain(1));
 	}
 
 	public function registration() {

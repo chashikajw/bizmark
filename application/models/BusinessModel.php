@@ -69,6 +69,54 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
+	// ==== Review ==== //
+	// Get reviews
+	public function getReviews($businessId){
+		try{
+			$this->db->where('business_id', $businessId);
+			$query = $this->db->get('review_view');
+			return $query->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+
+	// Add review
+	public function addReview($userId, $businessId, $value, $comment){
+		try{
+			$query = $this->db->query('CALL addReview(?, ?, ?, ?)', array($userId, $businessId, $value, $comment));
+
+			$query->free_result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	// ==== Complain ==== //
+	// Get complain
+	public function getComplain($businessId){
+		try{
+			$this->db->where('business_id', $businessId);
+			$query = $this->db->get('complain_view');
+			return $query->result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	// Add complain
+	public function addComplain($userId, $businessId, $message){
+		try{
+			$query = $this->db->query('CALL addComplain(?, ?, ?)', array($userId, $businessId, $message));
+
+			$query->free_result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+
 	// Get posts
 	public function selectpost() {
 		try {
@@ -143,16 +191,7 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
-	// Get reviews
-	public function getReviews($businessId){
-		try{
-			$this->db->where('business_id', $businessId);
-			$query = $this->db->get('review_view');
-			return $query->result();
-		} catch (Exception $err) {
-			return $err->getMessage();
-		}
-	}
+
 
 	// Increase Page views
 	public function increasePageVisit($userId, $businessId){
@@ -165,16 +204,6 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
-	// Add review
-	public function addReview($userId, $businessId, $value, $comment){
-		try{
-			$query = $this->db->query('CALL addReview(?, ?, ?, ?)', array($userId, $businessId, $value, $comment));
-
-			$query->free_result();
-		} catch (Exception $err) {
-			return $err->getMessage();
-		}
-	}
 
 	// Get Top Users (Most reviewd)
 	public function getTopUsers($id){
