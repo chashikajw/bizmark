@@ -91,11 +91,10 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
-
 	//delete post
-	public function deletepost($addId){
-		 $this->db->where('id', $addId);
-   		$this->db->delete('advertisement');
+	public function deletepost($addId) {
+		$this->db->where('id', $addId);
+		$this->db->delete('advertisement');
 
 	}
 
@@ -128,13 +127,13 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Get Business Report All months
-	public function getBusinessReportAll($id){
-		try{
+	public function getBusinessReportAll($id) {
+		try {
 			$query = $this->db->query('CALL getBusinessReportAll(?)', array($id));
 			$result = $query->result();
 
 			// free result
-			mysqli_next_result( $this->db->conn_id );
+			mysqli_next_result($this->db->conn_id);
 			$query->free_result();
 
 			return $result;
@@ -144,8 +143,8 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Get reviews
-	public function getReviews($businessId){
-		try{
+	public function getReviews($businessId) {
+		try {
 			$this->db->where('business_id', $businessId);
 			$query = $this->db->get('review_view');
 			return $query->result();
@@ -155,13 +154,13 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Get Top Users (Most reviewd)
-	public function getTopUsers($id){
-		try{
+	public function getTopUsers($id) {
+		try {
 			$query = $this->db->query('CALL getTopUsers(?)', array($id));
 			$result = $query->result();
 
 			// free result
-			mysqli_next_result( $this->db->conn_id );
+			mysqli_next_result($this->db->conn_id);
 			$query->free_result();
 
 			return $result;
@@ -171,13 +170,13 @@ class BusinessModel extends CI_Model {
 	}
 
 	// Get Subscribers
-	public function getSubscribers($id){
-		try{
+	public function getSubscribers($id) {
+		try {
 			$query = $this->db->query('CALL getSubscribers(?)', array($id));
 			$result = $query->result();
 
 			// free result
-			mysqli_next_result( $this->db->conn_id );
+			mysqli_next_result($this->db->conn_id);
 			$query->free_result();
 
 			return $result;
@@ -186,12 +185,29 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
+	// get complaints
+	public function get_inquiryList($business_id) {
+		try {
+			$this->db->select('*');
+			$this->db->from('complain');
+			$this->db->where('complain.business_id ', $business_id);
+			$query = $this->db->get();
 
+			if ($query->num_rows() > 0) {
+				return $query;
+			} else {
+				return false;
+			}
 
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+
+	}
 
 	// next result
-	function next_result(){
-		if (is_object($this->conn_id)){
+	function next_result() {
+		if (is_object($this->conn_id)) {
 			return mysqli_next_result($this->conn_id);
 		}
 	}

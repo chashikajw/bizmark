@@ -11,9 +11,9 @@ class Business extends CI_Controller {
 
 		// Init session
 		$user = $this->session->userdata('user_data');
-		if ($user != null){
+		if ($user != null) {
 			// If business exists
-			if ($user['business_id']){
+			if ($user['business_id']) {
 				$this->load->model('BusinessModel');
 				$this->data['business_data'] = $this->BusinessModel->getBusiness($user['business_id']);
 				$this->businessId = $user['business_id'];
@@ -51,7 +51,7 @@ class Business extends CI_Controller {
 
 	}
 
-	public function deletePost($id){
+	public function deletePost($id) {
 		$this->load->model('BusinessModel');
 		$this->BusinessModel->deletepost($id);
 		redirect('business/news_feed');
@@ -85,15 +85,13 @@ class Business extends CI_Controller {
 	public function registration() {
 		// $this->showPage('business_registration');
 		$this->data = array();
-        $this->load->model('BusinessModel');
-        $this->data['categorylist'] = $this->BusinessModel->getCategoryList();
+		$this->load->model('BusinessModel');
+		$this->data['categorylist'] = $this->BusinessModel->getCategoryList();
 
 		$this->load->view('business/layouts/header');
 		$this->load->view('business/business_registration', $this->data);
 		// $this->load->view('business/layouts/footer');
 	}
-
-
 
 	public function postadd() {
 		$title = $this->input->post('title');
@@ -101,25 +99,25 @@ class Business extends CI_Controller {
 		$description = $this->input->post('description');
 		$info = $this->do_upload();
 		$filename = $info['upload_data']['file_name'];
-		$postInfo = array('title' => $title, 'content' => $description, 'image_path' => $filename,'business_id' => $bussness_id );
+		$postInfo = array('title' => $title, 'content' => $description, 'image_path' => $filename, 'business_id' => $bussness_id);
 
 		$this->load->model('BusinessModel');
 		$result = $this->BusinessModel->insertPost($postInfo);
 
 		if ($result > 0) {
-				$this->session->set_flashdata('success', 'Your add  has been  successfully shared');
-				redirect('client/newsfeed');
-			} else {
-				$this->session->set_flashdata('errordb', 'Error in database insertion');
-				redirect('business/news_feed');
-			}
+			$this->session->set_flashdata('success', 'Your add  has been  successfully shared');
+			redirect('client/newsfeed');
+		} else {
+			$this->session->set_flashdata('errordb', 'Error in database insertion');
+			redirect('business/news_feed');
+		}
 	}
 
 	// Update business info
-	public function update($id){
+	public function update($id) {
 		$businessInfo = $this->_getUserInput();
 		// Ignore logo if not given
-		if ($businessInfo['logo_path'] == ''){
+		if ($businessInfo['logo_path'] == '') {
 			unset($businessInfo['logo_path']);
 		}
 
@@ -138,7 +136,7 @@ class Business extends CI_Controller {
 	public function register() {
 		$businessInfo = $this->_getUserInput();
 		// Set default logo if not given
-		if ($businessInfo['logo_path'] == '' || $businessInfo['logo_path'] == null){
+		if ($businessInfo['logo_path'] == '' || $businessInfo['logo_path'] == null) {
 			$businessInfo['logo_path'] = 'default.png';
 		}
 		// Set owner id
@@ -157,7 +155,7 @@ class Business extends CI_Controller {
 	}
 
 	// Get form data
-	public function _getUserInput(){
+	public function _getUserInput() {
 		$this->load->library('form_validation');
 
 		// $this->form_validation->set_rules('name', 'Name', 'required');
@@ -172,23 +170,23 @@ class Business extends CI_Controller {
 
 		// if ($this->form_validation->run() == TRUE) {
 
-			$businessName = $this->input->post('businessName');
-			$handler = strtolower($this->input->post('handler'));
-			$description = $this->input->post('description');
-			$address = $this->input->post('address');
-			$city = $this->input->post('city');
-			$categoryId = $this->input->post('categoryId');
-			$openningTime = date("Y-m-d h:i:s", $this->input->post('opening_time'));
-			$closingTime = date("Y-m-d h:i:s", $this->input->post('closing_time'));
-			$lat = $this->input->post('lat');
-			$lng = $this->input->post('lng');
+		$businessName = $this->input->post('businessName');
+		$handler = strtolower($this->input->post('handler'));
+		$description = $this->input->post('description');
+		$address = $this->input->post('address');
+		$city = $this->input->post('city');
+		$categoryId = $this->input->post('categoryId');
+		$openningTime = date("Y-m-d h:i:s", $this->input->post('opening_time'));
+		$closingTime = date("Y-m-d h:i:s", $this->input->post('closing_time'));
+		$lat = $this->input->post('lat');
+		$lng = $this->input->post('lng');
 
-			$info = $this->do_upload();
-			$filename = $info['upload_data']['file_name'];
+		$info = $this->do_upload();
+		$filename = $info['upload_data']['file_name'];
 
-			$businessInfo = array('name' => $businessName, 'handler' => $handler, 'description' => $description, 'address' => $address, '	city' => $city, 'category_id' => $categoryId, 'logo_path' => $filename, 'opening_time' => $openningTime, 'closing_time' => $closingTime, 'lat' => $lat, 'lng' => $lng);
+		$businessInfo = array('name' => $businessName, 'handler' => $handler, 'description' => $description, 'address' => $address, '	city' => $city, 'category_id' => $categoryId, 'logo_path' => $filename, 'opening_time' => $openningTime, 'closing_time' => $closingTime, 'lat' => $lat, 'lng' => $lng);
 
-			return $businessInfo;
+		return $businessInfo;
 
 		// } else {
 		// 	$this->session->set_flashdata('error', 'Error in Registration');
@@ -199,24 +197,38 @@ class Business extends CI_Controller {
 	}
 
 	public function do_upload() {
-	   $config['upload_path']   = './assets/business/';
-	   $config['allowed_types'] = 'gif|jpg|png';
-	   $config['max_size']      = 2000;
-	   $config['max_width']     = 10240;
-	   $config['max_height']    = 7680;
-	   $this->load->library('upload', $config);
+		$config['upload_path'] = './assets/business/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size'] = 2000;
+		$config['max_width'] = 10240;
+		$config['max_height'] = 7680;
+		$this->load->library('upload', $config);
 
-	   if ( ! $this->upload->do_upload('logo')) {
-		  $error = array('error' => $this->upload->display_errors());
-		//   var_dump($error);
-		//   $this->load->view('test/upload_form', $error);
-	   }
+		if (!$this->upload->do_upload('logo')) {
+			$error = array('error' => $this->upload->display_errors());
+			//   var_dump($error);
+			//   $this->load->view('test/upload_form', $error);
+		} else {
+			$this->data = array('upload_data' => $this->upload->data());
+			//   $this->load->view('test/upload_success', $this->data);
+			return $this->data;
+		}
+	}
 
-	   else {
-		  $this->data = array('upload_data' => $this->upload->data());
-		//   $this->load->view('test/upload_success', $this->data);
-		  return $this->data;
-	   }
+	public function get_inquiry_list($business_id) {
+
+		$this->load->model('BusinessModel');
+
+		$result = $this->BusinessModel->get_inquiryList($business_id);
+		if ($result != false) {
+			$this->data['inq_info'] = $this->BusinessModel->get_inquiryList($business_id);
+			$this->showPage('inquiry_list', $this->data);
+
+		} else {
+			$this->session->set_flashdata('no_inq', 'No inquiries');
+			redirect('/index');
+		}
+
 	}
 
 	public function showPage($page, $data = null) {
