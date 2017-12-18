@@ -1,37 +1,38 @@
 
 
-  <div class="span12">
-    <img src="<?php echo base_url(); ?>assets/images/food.png" style="margin-right:130px;margin-bottom:20px;margin-top:0px;width:1110px ;height:450px"/>
-  </div>
+  <li class="span5" style="margin-left: 30px; margin-bottom: 30px ; box-shadow: 5px 5px 5px 5px rgba(20, 2, 4, 0.2);width: 100%;height:50%">
+
   <div class="row">
 
       <div class="span3">
-      <img class="media-object" src="<?php echo base_url(); ?>assets/business/<?= $business_data->logo_path; ?>" style="margin-left:0px;margin-bottom:10px;margin-top:0px;width:100px ;height:100px; position: relative;left: 32px">
+      <img class="media-object" src="<?php echo base_url(); ?>assets/business/<?= $business_data->logo_path; ?>" style="margin-left:0px;margin-bottom:10px;margin-top:0px;width:300px ;height:300px; position: relative;left: 32px">
       </div>
       <div class="span9 ">
       <div class="page-header text-center">
-        <h1><?= $business_data->name; ?></h1>
+        <center><h1><?= $business_data->name; ?></h1></center>
       </div>
+
       
       </div>
 
   </div>
+</li>
 
   <div class="container">
   <div class="row">
+
     <div class="span5" style="position: relative;left: 32px">
       <div class="panel panel-default">
-        <div class="panel-heading text-middle">
-          <h3 class="panel-title">Followers</h3>
-        </div>
+      
         <div class="panel-body">
-          Followers:<input type="text" name="Followers" value=" ">
-          <button type="button" class="btn btn-default" style="position: relative;bottom: 5px">+Follows</button>
+         
+          <button class="submitButton btn btn-primary btn-lg" type="submit" style="margin-top:5px;"><i class="fa fa-pencil"></i> Make complain</button>
         </div>
 
       </div>
 
       </div>
+
       <div class="span7">
         <div class="panel panel-default">
         <div class="panel-heading text-middle">
@@ -45,27 +46,32 @@
       </div>
       </div>
 
+
     <div class="row">
     <div class="span5" style="position: relative;left: 32px">
+       <li class="span5" style="margin-left: 30px; margin-bottom: 30px ; box-shadow: 5px 5px 5px 5px rgba(20, 2, 4, 0.2);width: 75%;height:50%">
+
       <div class="panel panel-default">
         <div class="panel-heading text-middle">
           <h3 class="panel-title">Contact Details</h3>
         </div>
         <div class="panel-body">
 
-          <p><?= $business_data->handler; ?></p>
-          <p><?= $business_data->city; ?></p>
-          <p><?= $business_data->opening_time; ?></p>
-          <p><?= $business_data->closing_time; ?></p>
+          <p><h4><?= $business_data->handler; ?></h4></p>
+          <p><b>City : <?= $business_data->city; ?></p>
+          <p>Opening time : <?= $business_data->opening_time; ?></p>
+          <p>Closing time : <?= $business_data->closing_time; ?></p>
           <p><img class="media-object" src="<?php echo base_url(); ?>assets/images/Macmap.png" style="width:340px ;height:200px"></p>
 
         </div>
 
       </div>
+    </li>
 
       </div>
 
       <div class="span7">
+        <li class="span5" style="margin-left: 30px; margin-bottom: 30px ; box-shadow: 5px 5px 5px 5px rgba(20, 2, 4, 0.2);width: 105%;height:90%">
         <div class="panel panel-default">
         <div class="panel-heading text-middle">
           <h3 class="panel-title">Review</h3>
@@ -84,6 +90,7 @@
         </div>
 
       </div>
+    </li>
       </div>
       </div>
   </div>

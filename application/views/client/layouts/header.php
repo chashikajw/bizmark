@@ -37,8 +37,8 @@
        }
 
        #mapProfile{
-        height: 200px;
-        width: 340px;
+        height: 100px;
+        width: 100px;
        }
     </style>
 
