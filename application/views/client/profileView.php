@@ -4,17 +4,17 @@
     <img src="<?php echo base_url(); ?>assets/images/food.png" style="margin-right:130px;margin-bottom:20px;margin-top:0px;width:1110px ;height:450px"/>
   </div>
   <div class="row">
-    
+
       <div class="span3">
       <img class="media-object" src="<?php echo base_url(); ?>assets/images/macdonald.png" style="margin-left:0px;margin-bottom:10px;margin-top:0px;width:100px ;height:100px; position: relative;left: 32px">
       </div>
       <div class="span9 ">
       <div class="page-header text-center">
-        <h1><?= $show_bussness[0]->name; ?></h1>
+        <h1><?= $business_data->name; ?></h1>
       </div>
       
       </div>
-    
+
   </div>
 
   <div class="container">
@@ -30,7 +30,7 @@
         </div>
 
       </div>
-      
+
       </div>
       <div class="span7">
         <div class="panel panel-default">
@@ -38,7 +38,7 @@
           <h3 class="panel-title">About Us</h3>
         </div>
         <div class="panel-body">
-          <p style="font-size:90%;"><?= $show_bussness[0]->description; ?></p>
+          <p style="font-size:90%;"><?= $business_data->description; ?></p>
         </div>
 
       </div>
@@ -52,29 +52,17 @@
           <h3 class="panel-title">Contact Details</h3>
         </div>
         <div class="panel-body">
-          <p><?= $show_bussness[0]->handler; ?></p>
-          <p><?= $show_bussness[0]->city; ?></p>
-          <p><?= $show_bussness[0]->opening_time; ?></p>
-          <p><?= $show_bussness[0]->closing_time; ?></p>
-          <div id="mapProfile"></div>
-                                                <script>
-                                                    var map;
 
-                                                    function initMap() {
-                                                        map = new google.maps.Map(document.getElementById('map'), {
-                                                            zoom: 8,
-                                                            center: new google.maps.LatLng(7.2906, 80.6337),
-                                                            mapTypeId: 'roadmap'
-                                                        });
+          <p><?= $business_data->handler; ?></p>
+          <p><?= $business_data->city; ?></p>
+          <p><?= $business_data->opening_time; ?></p>
+          <p><?= $business_data->closing_time; ?></p>
+          <p><img class="media-object" src="<?php echo base_url(); ?>assets/images/Macmap.png" style="width:340px ;height:200px"></p>
 
-
-                                                    }
-                                                </script>
-                                                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASed7m-nA1qJmxaRdN6f-eUFb6p0bhT_M&callback=initMap"></script>
         </div>
 
       </div>
-      
+
       </div>
 
       <div class="span7">
@@ -99,10 +87,10 @@
       </div>
       </div>
   </div>
-  
 
-    
-    
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>

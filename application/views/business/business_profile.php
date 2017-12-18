@@ -40,10 +40,16 @@
 
                                 <li class="m-top-xs">
                                     <i class="fa fa-external-link user-profile-icon"></i>
-                                    <a href="<?= base_url() . '/' . $business_data->handler; ?>" target="_blank">
+                                    <a href="<?= base_url('bz/') . $business_data->handler; ?>" target="_blank">
                                         <?= $business_data->handler; ?>
                                     </a>
                                 </li>
+
+                                <?php
+                                    for ($i=0; $i<5; $i++){
+                                        echo "<span class='fa " . ($business_data->rating > $i ? 'fa-star' : 'fa-star-o') . "'></span>";
+                                    }
+                                 ?>
                             </ul>
                         </center>
 

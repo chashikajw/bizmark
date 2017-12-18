@@ -58,6 +58,17 @@ class BusinessModel extends CI_Model {
 		}
 	}
 
+	// Get business by handler
+	public function getBusinessByHandler($handler) {
+		try {
+			$this->db->where('handler', $handler);
+			$result = $this->db->get('business_view');
+			return $result->result()[0];
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
 	// Get posts
 	public function selectpost() {
 		try {
@@ -81,21 +92,10 @@ class BusinessModel extends CI_Model {
 	}
 
 
-	public function getprofilebusiness($bussnesId){
-		try {
-			$result = $this->db->get_where('business', array('id' => $bussnesId));
-			return $result->result();
-		} catch (Exception $err) {
-			return $err->getMessage();
-		}
-
-	}
-
-
 	//delete post
 	public function deletepost($addId){
 		 $this->db->where('id', $addId);
-   		$this->db->delete('advertisement'); 
+   		$this->db->delete('advertisement');
 
 	}
 
@@ -185,6 +185,7 @@ class BusinessModel extends CI_Model {
 			return $err->getMessage();
 		}
 	}
+
 
 
 

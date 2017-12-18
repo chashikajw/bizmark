@@ -28,10 +28,10 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a href="<?php echo base_url('business/dashboard'); ?>"><i class="fa fa-desktop"></i> Dashboard </a>
-                                <li><a href="<?php echo base_url('business/profile'); ?>"><i class="fa fa-home"></i> Profile </a>
-                                <li><a href="<?php echo base_url('business/review'); ?>"><i class="fa fa-edit"></i> Ratings </a>
-                                <li><a href="<?php echo base_url('business/news_feed'); ?>"><i class="fa fa-table"></i> Posts </a>
+                                <li><a href="<?php echo base_url('business/dashboard'); ?>"><i class="fa fa-desktop"></i> Dashboard </a></li>
+                                <li><a href="<?php echo base_url('business/profile'); ?>"><i class="fa fa-home"></i> Profile </a></li>
+                                <li><a href="<?php echo base_url('business/review'); ?>"><i class="fa fa-edit"></i> Ratings </a></li>
+                                <li><a href="<?php echo base_url('business/news_feed'); ?>"><i class="fa fa-table"></i> Posts </a></li>
                                 <li><a href="<?php echo base_url('business/inbox'); ?>"><i class="fa fa-clone"></i> Inbox </a></li>
                             </ul>
                         </div>
@@ -69,19 +69,16 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?php echo base_url(); ?>assets/images/sume.jpg" alt="">Sumedhe
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
+                                    <?= $business_data->owner_name; ?>
+                                        <span class=" fa fa-angle-down"></span>
+                                </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <!-- <li><a href="javascript:;"> Profile</a></li> -->
                                     <li>
-                                        <a href="javascript:;">
-                                            <span class="badge bg-red pull-right">50%</span>
-                                            <span>Settings</span>
-                                        </a>
+                                        <a href="<?php echo base_url(''); ?>">Back to client</a>
                                     </li>
-                                    <li><a href="javascript:;">Help</a></li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    <!-- <li><a href="javascript:;">Help</a></li> -->
+                                    <li><a href="<?php echo base_url('Client/logoutUser'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                                 </ul>
                             </li>
 
