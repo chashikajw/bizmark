@@ -95,7 +95,7 @@ class Business extends CI_Controller {
 		$this->BusinessModel->addReview($this->userId, $businessId, $value, $comment);
 
 		// Go back to page
-		echo "<script>history.go(-1);</script>";
+		echo "<script>history.go(-2);</script>";
 
 	}
 
@@ -113,11 +113,7 @@ class Business extends CI_Controller {
 
 	}
 
-	public function test(){
-		$this->load->model('BusinessModel');
-		var_dump($this->BusinessModel->getComplain(1));
-	}
-
+	// Registration
 	public function registration() {
 		// $this->showPage('business_registration');
 		$this->data = array();

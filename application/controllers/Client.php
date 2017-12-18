@@ -39,8 +39,14 @@ class Client extends CI_Controller {
         $this->load->view('client/layouts/footer',  $this->data);
     }
 
-     public function contact(){
+    public function contact(){
         $this->showPage('contact');
+    }
+
+    // Show review form
+    public function showReviewForm($businessId){
+        $this->data['business_id'] = $businessId;
+        $this->load->view('client/reviewForm',  $this->data);
     }
 
     public function sendEmail(){
