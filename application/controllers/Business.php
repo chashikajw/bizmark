@@ -11,6 +11,8 @@ class Business extends CI_Controller {
 
 		// Init session
 		$user = $this->session->userdata('user_data');
+		$this->userId = $user['user_id'];
+
 		if ($user != null){
 			// If business exists
 			if ($user['business_id']){
@@ -80,6 +82,14 @@ class Business extends CI_Controller {
 	// Show review page
 	public function review() {
 		$this->showPage('reviews', $this->data);
+	}
+
+	// Add review
+	public function addReview($businessId, $value, $comment){
+        $this->load->model('BusinessModel');
+		// $businessId = $_POST['']
+		$this->BusinessModel->addReview($this->userId, $businessId, $value, $comment);
+		echo $businessId, $value, $comment;
 	}
 
 	public function registration() {

@@ -159,8 +159,17 @@ class BusinessModel extends CI_Model {
 		try{
 			$query = $this->db->query('CALL increasePageVisit(?, ?)', array($userId, $businessId));
 
-			// free result
-			// mysqli_next_result( $this->db->conn_id );
+			$query->free_result();
+		} catch (Exception $err) {
+			return $err->getMessage();
+		}
+	}
+
+	// Add review
+	public function addReview($userId, $businessId, $value, $comment){
+		try{
+			$query = $this->db->query('CALL addReview(?, ?, ?, ?)', array($userId, $businessId, $value, $comment));
+
 			$query->free_result();
 		} catch (Exception $err) {
 			return $err->getMessage();

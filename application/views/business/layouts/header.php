@@ -18,7 +18,7 @@
     <link href="<?php echo base_url(); ?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
     <link href="<?php echo base_url(); ?>assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    
+
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>assets/build/css/custom.min.css" rel="stylesheet">
      <style>
@@ -28,13 +28,11 @@
        }
 
        .form-group {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    
-    
-}
+            width: 100%;
+            /*padding: 12px 20px;*/
+            margin: 8px 0;
+            display: inline-block;
+        }
 
 
        /* The Modal (background) */
@@ -84,12 +82,12 @@
 }
 
 @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
+    from {-webkit-transform: scale(0)}
     to {-webkit-transform: scale(1)}
 }
-    
+
 @keyframes animatezoom {
-    from {transform: scale(0)} 
+    from {transform: scale(0)}
     to {transform: scale(1)}
 }
 
@@ -105,7 +103,7 @@
 }
 
 div.scroll {
-    
+
     width: 100%;
     height: 400px;
     overflow: scroll;
@@ -113,5 +111,5 @@ div.scroll {
 
     </style>
 
-    
+
   </head>
